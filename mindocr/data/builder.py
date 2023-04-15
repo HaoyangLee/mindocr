@@ -7,10 +7,11 @@ import multiprocessing
 from .det_dataset import DetDataset
 from .rec_dataset import RecDataset
 from .rec_lmdb_dataset import LMDBDataset
+from .infer_dataset import InferDataset
 
 __all__ = ['build_dataset']
 
-supported_dataset_types = ['BaseDataset', 'DetDataset', 'RecDataset', 'LMDBDataset']
+supported_dataset_types = ['BaseDataset', 'DetDataset', 'RecDataset', 'LMDBDataset', 'InferDataset']
 
 def build_dataset(
         dataset_config: dict,
@@ -160,7 +161,7 @@ def build_dataset(
                     #per_batch_map=per_batch_map, # uncommet to use inner-batch transformation
                     )
 
-    return dataloader
+    return dataloader, dataset_column_names
 
 def _check_dataset_paths(dataset_config):
     if 'dataset_root' in dataset_config:

@@ -71,6 +71,8 @@ class LMDBDataset(BaseDataset):
         file_idx = int(file_idx)
         sample_info = self.get_lmdb_sample_info(self.lmdb_sets[lmdb_idx]['txn'], file_idx)
         _data = {
+            "lmdb_idx": lmdb_idx,
+            "file_idx": file_idx,
             "img_lmdb": sample_info[0],
             "label": sample_info[1]
         }
@@ -161,6 +163,8 @@ class LMDBDataset(BaseDataset):
             return self.__getitem__(random_idx)
         
         data = {
+            "lmdb_idx": lmdb_idx,
+            "file_idx": file_idx,
             "img_lmdb": sample_info[0],
             "label": sample_info[1]
         }

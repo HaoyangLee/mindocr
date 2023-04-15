@@ -114,20 +114,20 @@ train:
     num_workers: 8
 
 eval:
-  ckpt_load_path: 'tmp_det/best.ckpt'
+  ckpt_load_path: /home/group1/lhy/ckpt/dbnet_resnet50-db1df47a.ckpt
   dataset_sink_mode: False
   dataset:
-    type: DetDataset
-    dataset_root: /data/ocr_datasets
-    data_dir: ic15/det/test/ch4_test_images
-    label_file: ic15/det/test/det_gt.txt
+    type: InferDataset
+    dataset_root: /home/group1/lhy/dataset/dbnet/
+    data_dir: test_images
+#    label_file: ic15/det/test/det_gt.txt
     sample_ratio: 1.0
     shuffle: False
     transform_pipeline:
       - DecodeImage:
           img_mode: RGB
           to_float32: False
-      - DetLabelEncode:
+#      - DetLabelEncode:
       - GridResize:
           factor: 32
       # GridResize already sets the evaluation size to [ 736, 1280 ].
@@ -141,7 +141,7 @@ eval:
           std: imagenet
       - ToCHWImage:
     #  the order of the dataloader list, matching the network input and the labels for evaluation
-    output_columns: [ 'image', 'polys', 'ignore_tags' ]
+#    output_columns: [ 'image', 'polys', 'ignore_tags' ]
     num_columns_to_net: 1 # num inputs for network forward func
 #    num_keys_of_labels: 2 # num labels
 

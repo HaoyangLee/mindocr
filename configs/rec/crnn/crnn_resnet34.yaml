@@ -110,12 +110,12 @@ train:
       num_workers: 8
 
 eval:
-  ckpt_load_path: './tmp_rec/best.ckpt'
+  ckpt_load_path: /home/group1/lhy/ckpt/crnn_resnet34-83f37f07.ckpt
   dataset_sink_mode: False
   dataset:
-    type: LMDBDataset
-    dataset_root: path/to/data_lmdb_release/
-    data_dir: validation/
+    type: InferDataset
+    dataset_root: /home/group1/lhy/dataset
+    data_dir: crnn_jpg
     # label_files: # not required when using LMDBDataset
     sample_ratio: 1.0
     shuffle: False 

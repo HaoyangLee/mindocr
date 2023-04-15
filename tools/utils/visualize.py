@@ -44,7 +44,7 @@ class Visualization(object):
 
         image_text = Image.fromarray(image_text)
         draw_text = ImageDraw.Draw(image_text)
-        font = ImageFont.truetype(font_path, 20, encoding='utf-8')
+        font = ImageFont.truetype(font_path, 30, encoding='utf-8')
         for i, text in enumerate(text_list):
             draw_text.text(box_list[i][0], text, color, font)
         image_concat = np.concatenate([np.array(image_bbox), np.array(image_text)], axis=1)

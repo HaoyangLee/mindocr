@@ -31,7 +31,7 @@ class BaseDataset(object):
             data_dir = [data_dir]
         for f in data_dir:
             if not os.path.exists(f):
-                raise ValueError(f"{f} not existed. Please check the yaml file for both train and eval")
+                raise ValueError(f"Invalid 'data_dir'. Please check the yaml file for both train and eval")
         self.data_dir = data_dir
 
         if label_file is not None:
@@ -39,7 +39,7 @@ class BaseDataset(object):
                 label_file = [label_file]
             for f in label_file:
                 if not os.path.exists(f):
-                    raise ValueError(f"{f} not existed. Please check the yaml file for both train and eval")
+                    raise ValueError(f"Invalid 'label_file'. Please check the yaml file for both train and eval")
         self.label_file = label_file
 
         # must specify output column names

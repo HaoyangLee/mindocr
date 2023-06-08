@@ -8,7 +8,6 @@ from concurrent.futures import ProcessPoolExecutor
 
 import cv2
 import numpy as np
-from PIL import Image
 from scipy.io import loadmat
 
 __dir__ = os.path.dirname(os.path.abspath(__file__))

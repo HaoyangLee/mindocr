@@ -1,8 +1,8 @@
-English | [中文](../../cn/datasets/synthtext_CN.md)
+English | [中文](../../cn/datasets/synthtext_rec_CN.md)
 
 # Data Downloading
 
-SynthText is a synthetically generated dataset, in which word instances are placed in natural scene images, while taking into account the scene layout. This tutorial shows you how to convert the SynthText dataset from images (.jpg) + labels (.mat) to images cropped by bounding box (.jpg) + labels (.txt).
+SynthText is a synthetically generated dataset, in which word instances are placed in natural scene images, while taking into account the scene layout. This tutorial shows you how to convert the SynthText dataset format from images (.jpg) + labels (.mat) to images cropped by bounding box (.jpg) + labels (.txt).
 
 [Paper](https://www.robots.ox.ac.uk/~vgg/publications/2016/Gupta16/) | [Download SynthText](https://academictorrents.com/details/2dba9518166cbd141534cbf381aa3e99a087e83c)
 
@@ -23,18 +23,18 @@ path-to-data-dir/
 
 # Data Conversion
 
-Run the following command, convert the SynthText dataset from images (.jpg) + labels (.mat) to images cropped by bounding box (.jpg) + labels (.txt).
+Run the following command to convert the SynthText dataset from images (.jpg) + labels (.mat) to images cropped by bounding box (.jpg) + labels (.txt).
 
-> ```shell
-> python tools/dataset_converters/convert.py 
->         --dataset_name=synthtext_rec \
->         --task=rec \
->         --image_dir=/path-to-data-dir/SynthText \
->         --label_path=/path-to-data-dir/SynthText/gt.mat \
->         --output_path=/path-to-data-dir/SynthText_crop
-> ```
+```shell
+python tools/dataset_converters/convert.py 
+        --dataset_name=synthtext_rec \
+        --task=rec \
+        --image_dir=/path-to-data-dir/SynthText \
+        --label_dir=/path-to-data-dir/SynthText/gt.mat \
+        --output_path=/path-to-data-dir/SynthText_crop
+```
 
-After the data conversion, you will get the output data organized in the following file structure. Furthermore, you can refer to [deep-text-recognition-benchmark](https://github.com/clovaai/deep-text-recognition-benchmark#when-you-need-to-train-on-your-own-dataset-or-non-latin-language-datasets) to convert images cropped by bounding box (.jpg) + labels (.txt) to LMDB format, which can be used for training text recognition models more efficiently.
+After the data conversion above, you will get the output data organized in the following file structure. Furthermore, you can refer to [deep-text-recognition-benchmark](https://github.com/clovaai/deep-text-recognition-benchmark#when-you-need-to-train-on-your-own-dataset-or-non-latin-language-datasets) to convert images cropped by bounding box (.jpg) + labels (.txt) to LMDB format, which can be used for training text recognition models more efficiently.
 
 ```
 output-path-to-data-dir/

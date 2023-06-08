@@ -23,14 +23,14 @@ path-to-data-dir/
 
 执行以下命令，把SynthText数据集的图片(.jpg)+标注文件(.mat)转换为根据标注bounding box裁剪后的图片(.jpg)+标注文件(.txt)。
 
-> ```shell
-> python tools/dataset_converters/convert.py 
->         --dataset_name=synthtext_rec \
->         --task=rec \
->         --image_dir=/path-to-data-dir/SynthText \
->         --label_path=/path-to-data-dir/SynthText/gt.mat \
->         --output_path=/path-to-data-dir/SynthText_crop
-> ```
+```shell
+python tools/dataset_converters/convert.py 
+        --dataset_name=synthtext_rec \
+        --task=rec \
+        --image_dir=/path-to-data-dir/SynthText \
+        --label_dir=/path-to-data-dir/SynthText/gt.mat \
+        --output_path=/path-to-data-dir/SynthText_crop
+```
 
 完成上述数据格式转换后，输出数据的文件夹结构如下。你可以参考[deep-text-recognition-benchmark](https://github.com/clovaai/deep-text-recognition-benchmark#when-you-need-to-train-on-your-own-dataset-or-non-latin-language-datasets)进一步将图片(.jpg)和标注(.txt)数据转换为LMDB格式，用于更高效的文本识别模型训练。
 

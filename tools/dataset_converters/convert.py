@@ -44,6 +44,7 @@ from synthtext import SYNTHTEXT_Converter
 from td500 import TD500_Converter
 from textocr import TEXTOCR_Converter
 from totaltext import TOTALTEXT_Converter
+from synthtext_rec import SYNTHTEXT_REC_Converter
 
 supported_datasets = [
     "casia10k",
@@ -69,6 +70,7 @@ supported_datasets = [
     "ic19_art",
     "cocotext",
     "pubtabnet",
+    "synthtext_rec",
 ]
 
 

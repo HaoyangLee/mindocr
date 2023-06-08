@@ -19,6 +19,9 @@ path-to-data-dir/
  │   ├── ...
  │   └── gt.mat
 ```
+# 数据转换
+
+执行以下命令，把SynthText数据集的图片(.jpg)+标注文件(.mat)转换为根据标注bounding box裁剪后的图片(.jpg)+标注文件(.txt)。
 
 > ```shell
 > python tools/dataset_converters/convert.py 

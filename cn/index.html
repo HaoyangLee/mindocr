@@ -834,6 +834,7 @@
 
   <h1>主页</h1>
 
+<!-- BEGIN INCLUDE ../../README_CN.md -->
 <div align="center">
 
 # MindOCR
@@ -845,13 +846,13 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 
-[English](README.md) | 中文
+[English](../../README.md) | 中文
 
-[概述](#概述) |
-[安装](#安装) |
-[快速上手](#快速上手) |
-[模型列表](#模型列表) |
-[重要信息](#重要信息)
+[概述](../..#概述) |
+[安装](../..#安装) |
+[快速上手](../..#快速上手) |
+[模型列表](../..#模型列表) |
+[重要信息](../..#重要信息)
 
 </div>
 
@@ -891,7 +892,7 @@
 </table>
 <blockquote>
 <p>注意：
-- 如果<a href="#21-使用mindspore-lite和acl推理">使用ACL推理</a>，Python版本需为3.9。
+- 如果<a href="../..#21-使用mindspore-lite和acl推理">使用ACL推理</a>，Python版本需为3.9。
 - 如果遇到scikit_image导入错误，参考<a href="https://github.com/opencv/opencv/issues/14884">此处</a>，你需要设置环境变量<code>$LD_PRELOAD</code>，命令如下。替换<code>path/to</code>为你的目录。
   <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">LD_PRELOAD</span><span class="o">=</span>path/to/scikit_image.libs/libgomp-d22c30c5.so.1.0.0:<span class="nv">$LD_PRELOAD</span>
 </code></pre></div></p>
@@ -908,25 +909,25 @@
 <h2 id="_5">快速上手<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <h3 id="1">1. 模型训练评估<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <h4 id="11">1.1 文本检测<a class="headerlink" href="#11" title="Permanent link">&para;</a></h4>
-<p>MindOCR支持多种文本检测模型及数据集，在此我们使用**DBNet**模型和**ICDAR2015**数据集进行演示。请参考<a href="configs/det/dbnet/README_CN.md">DBNet模型文档</a>。</p>
+<p>MindOCR支持多种文本检测模型及数据集，在此我们使用**DBNet**模型和**ICDAR2015**数据集进行演示。请参考<a href="../../configs/det/dbnet/README_CN.md">DBNet模型文档</a>。</p>
 <h3 id="12">1.2 文本识别<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
-<p>MindOCR支持多种文本识别模型及数据集，在此我们使用**CRNN**模型和**LMDB**数据集进行演示。请参考<a href="configs/rec/crnn/README_CN.md">CRNN模型文档</a>。</p>
+<p>MindOCR支持多种文本识别模型及数据集，在此我们使用**CRNN**模型和**LMDB**数据集进行演示。请参考<a href="../../configs/rec/crnn/README_CN.md">CRNN模型文档</a>。</p>
 <h3 id="2">2. 推理与部署<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <h4 id="21-mindspore-liteaclascend-310">2.1 使用MindSpore Lite和ACL推理(Ascend 310)<a class="headerlink" href="#21-mindspore-liteaclascend-310" title="Permanent link">&para;</a></h4>
 <p>MindOCR集成了<a href="https://www.mindspore.cn/lite">MindSpore Lite</a>和<a href="https://www.hiascend.com/document/detail/zh/canncommercial/63RC1/inferapplicationdev/aclcppdevg/aclcppdevg_000004.html">ACL</a>推理后端，
 集成了文本检测、分类和识别串联推理。</p>
-<p>具体说明请参考<a href="docs/cn/inference/inference_tutorial_cn.md">MindOCR 310推理</a>。</p>
+<p>具体说明请参考<a href="inference/inference_tutorial_cn/">MindOCR 310推理</a>。</p>
 <h4 id="22-mindsporecpugpuascend-910">2.2 使用原生MindSpore在线推理(CPU/GPU/Ascend 910)<a class="headerlink" href="#22-mindsporecpugpuascend-910" title="Permanent link">&para;</a></h4>
 <p>MindOCR提供易用的文本检测识别推理工具，支持CPU/GPU/Ascend 910硬件平台。在线推理基于使用MindOCR训练完成的模型进行推理。</p>
-<p>具体用法和效果请参考 <a href="tools/infer/text/README.md">MindOCR在线推理</a>。</p>
+<p>具体用法和效果请参考 <a href="../../tools/infer/text/README.md">MindOCR在线推理</a>。</p>
 <h2 id="_6">模型列表<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <details open>
 <summary>文本检测</summary>
 
-- [x] [DBNet](configs/det/dbnet/README.md) (AAAI'2020)
-- [x] [DBNet++](configs/det/dbnet/README.md) (TPAMI'2022)
-- [x] [PSENet](configs/det/psenet/README.md) (CVPR'2019)
-- [x] [EAST](configs/det/east/README.md)(CVPR'2017)
+- [x] [DBNet](../../configs/det/dbnet/README.md) (AAAI'2020)
+- [x] [DBNet++](../../configs/det/dbnet/README.md) (TPAMI'2022)
+- [x] [PSENet](../../configs/det/psenet/README.md) (CVPR'2019)
+- [x] [EAST](../../configs/det/east/README.md)(CVPR'2017)
 - [ ] [FCENet](https://arxiv.org/abs/2104.10442) (CVPR'2021) [coming soon]
 
 </details>
@@ -935,15 +936,15 @@
 <summary>文本识别</summary>
 
 
-- [x] [CRNN](configs/rec/crnn/README.md) (TPAMI'2016)
-- [x] [CRNN-Seq2Seq/RARE](configs/rec/rare/README.md) (CVPR'2016)
-- [x] [SVTR](configs/rec/svtr/README.md) (IJCAI'2022)
+- [x] [CRNN](../../configs/rec/crnn/README.md) (TPAMI'2016)
+- [x] [CRNN-Seq2Seq/RARE](../../configs/rec/rare/README.md) (CVPR'2016)
+- [x] [SVTR](../../configs/rec/svtr/README.md) (IJCAI'2022)
 - [ ] [ABINet](https://arxiv.org/abs/2103.06495) (CVPR'2021) [coming soon]
 
 
-模型训练的配置及性能结果请见[configs](./configs).
+模型训练的配置及性能结果请见[configs](../../configs).
 
-MindSpore Lite和ACL模型推理的支持列表，请见[MindOCR模型推理支持列表](docs/cn/inference/models_list_cn.md)和[第三方模型推理支持列表](docs/cn/inference/models_list_thirdparty_cn.md).
+MindSpore Lite和ACL模型推理的支持列表，请见[MindOCR模型推理支持列表](inference/models_list_cn.md)和[第三方模型推理支持列表](inference/models_list_thirdparty_cn.md).
 
 ## 数据集
 ### 下载
@@ -953,23 +954,23 @@ MindSpore Lite和ACL模型推理的支持列表，请见[MindOCR模型推理支�
 <details open>
 <summary>文本检测</summary>
 
-- [x] ICDAR2015 [论文]((https://rrc.cvc.uab.es/files/short_rrc_2015.pdf)) [主页]((https://rrc.cvc.uab.es/?ch=4)) [下载说明](docs/cn/datasets/icdar2015_CN.md)
+- [x] ICDAR2015 [论文](../../(https:/rrc.cvc.uab.es/files/short_rrc_2015.pdf)) [主页](../../(https:/rrc.cvc.uab.es/?ch=4)) [下载说明](datasets/icdar2015_CN.md)
 
-- [x] Total-Text [论文](https://arxiv.org/abs/1710.10400) [主页](https://github.com/cs-chan/Total-Text-Dataset/tree/master/Dataset) [下载说明](docs/cn/datasets/totaltext_CN.md)
+- [x] Total-Text [论文](https://arxiv.org/abs/1710.10400) [主页](https://github.com/cs-chan/Total-Text-Dataset/tree/master/Dataset) [下载说明](datasets/totaltext_CN.md)
 
-- [x] Syntext150k [论文](https://arxiv.org/abs/2002.10200) [主页](https://github.com/aim-uofa/AdelaiDet) [下载说明](docs/cn/datasets/syntext150k_CN.md)
+- [x] Syntext150k [论文](https://arxiv.org/abs/2002.10200) [主页](https://github.com/aim-uofa/AdelaiDet) [下载说明](datasets/syntext150k_CN.md)
 
-- [x] MLT2017 [论文](https://ieeexplore.ieee.org/abstract/document/8270168) [主页](https://rrc.cvc.uab.es/?ch=8&com=introduction) [下载说明](docs/cn/datasets/mlt2017_CN.md)
+- [x] MLT2017 [论文](https://ieeexplore.ieee.org/abstract/document/8270168) [主页](https://rrc.cvc.uab.es/?ch=8&com=introduction) [下载说明](datasets/mlt2017_CN.md)
 
-- [x] MSRA-TD500 [论文](https://ieeexplore.ieee.org/abstract/document/6247787) [主页](http://www.iapr-tc11.org/mediawiki/index.php/MSRA_Text_Detection_500_Database_(MSRA-TD500)) [下载说明](docs/cn/datasets/td500_CN.md)
+- [x] MSRA-TD500 [论文](https://ieeexplore.ieee.org/abstract/document/6247787) [主页](http://www.iapr-tc11.org/mediawiki/index.php/MSRA_Text_Detection_500_Database_(MSRA-TD500)) [下载说明](datasets/td500_CN.md)
 
-- [x] SCUT-CTW1500 [论文](https://www.sciencedirect.com/science/article/pii/S0031320319300664) [主页](https://github.com/Yuliang-Liu/Curve-Text-Detector) [下载说明](docs/cn/datasets/ctw1500_CN.md)
+- [x] SCUT-CTW1500 [论文](https://www.sciencedirect.com/science/article/pii/S0031320319300664) [主页](https://github.com/Yuliang-Liu/Curve-Text-Detector) [下载说明](datasets/ctw1500_CN.md)
 
 </details>
 
 ### 转换
 
-在 `DATASETS_DIR` 文件夹中下载这些数据集后，您可以运行 `bash tools/convert_datasets.sh` 将所有下载的数据集转换为目标格式。[这里](tools/dataset_converters/README_CN.md)有一个 icdar2015 数据集转换的例子。
+在 `DATASETS_DIR` 文件夹中下载这些数据集后，您可以运行 `bash tools/convert_datasets.sh` 将所有下载的数据集转换为目标格式。[这里](../../tools/dataset_converters/README_CN.md)有一个 icdar2015 数据集转换的例子。
 
 
 ## 重要信息
@@ -978,24 +979,24 @@ MindSpore Lite和ACL模型推理的支持列表，请见[MindOCR模型推理支�
 
 - 2023/06/07
 1. 增加新模型
-    - 文本检测[PSENet](configs/det/psenet)
-    - 文本检测[EAST](configs/det/east)
-    - 文本识别[SVTR](configs/rec/svtr)
+    - 文本检测[PSENet](../../configs/det/psenet)
+    - 文本检测[EAST](../../configs/det/east)
+    - 文本识别[SVTR](../../configs/rec/svtr)
 2. 添加更多基准数据集及其结果
-    - [totaltext](docs/cn/datasets/totaltext_CN.md)
-    - [mlt2017](docs/cn/datasets/mlt2017_CN.md)
-    - [chinese_text_recognition](docs/cn/datasets/chinese_text_recognition_CN.md)
+    - [totaltext](datasets/totaltext_CN.md)
+    - [mlt2017](datasets/mlt2017_CN.md)
+    - [chinese_text_recognition](datasets/chinese_text_recognition_CN.md)
 3. 增加断点重训(resume training)功能，可在训练意外中断时使用。如需使用，请在配置文件中`model`字段下增加`resume`参数，允许传入具体路径`resume: /path/to/train_resume.ckpt`或者通过设置`resume: True`来加载在ckpt_save_dir下保存的trian_resume.ckpt
 
 
 - 2023/05/15
 1. 增加新模型
-    - 文本检测[DBNet++](configs/det/dbnet)
-    - 文本识别[CRNN-Seq2Seq](configs/rec/rare)
+    - 文本检测[DBNet++](../../configs/det/dbnet)
+    - 文本识别[CRNN-Seq2Seq](../../configs/rec/rare)
     - 在SynthText数据集上预训练的[DBNet](https://download.mindspore.cn/toolkits/mindocr/dbnet/dbnet_resnet50_synthtext-40655acb.ckpt)
 2. 添加更多基准数据集及其结果
-    - [SynthText](https://academictorrents.com/details/2dba9518166cbd141534cbf381aa3e99a087e83c), [MSRA-TD500](docs/cn/datasets/td500_CN.md), [CTW1500](docs/cn/datasets/ctw1500_CN.md)
-    - DBNet的更多基准结果可以[在此找到](configs/det/dbnet/README_CN.md).
+    - [SynthText](https://academictorrents.com/details/2dba9518166cbd141534cbf381aa3e99a087e83c), [MSRA-TD500](datasets/td500_CN.md), [CTW1500](datasets/ctw1500_CN.md)
+    - DBNet的更多基准结果可以[在此找到](../../configs/det/dbnet/README_CN.md).
 3. 添加用于保存前k个checkpoint的checkpoint manager并改进日志。
 4. Python推理代码重构。
 5. Bug修复：对大型数据集使用平均损失meter，在AMP训练中对ctcloss禁用`pred_cast_fp32`，修复存在无效多边形的错误。
@@ -1038,11 +1039,11 @@ MindSpore Lite和ACL模型推理的支持列表，请见[MindOCR模型推理支�
 
 我们欢迎包括问题单和PR在内的所有贡献，来让MindOCR变得更好。
 
-请参考[CONTRIBUTING.md](CONTRIBUTING.md)作为贡献指南，请按照[Model Template and Guideline](mindocr/models/README.md)的指引贡献一个适配所有接口的模型，多谢合作。
+请参考[CONTRIBUTING.md](../../CONTRIBUTING.md)作为贡献指南，请按照[Model Template and Guideline](../../mindocr/models/README.md)的指引贡献一个适配所有接口的模型，多谢合作。
 
 ### 许可
 
-本项目遵从[Apache License 2.0](LICENSE)开源许可。
+本项目遵从[Apache License 2.0](../../LICENSE)开源许可。
 
 ### 引用
 
@@ -1055,6 +1056,8 @@ MindSpore Lite和ACL模型推理的支持列表，请见[MindOCR模型推理支�
     year=<span class="nb">{</span>2023<span class="nb">}</span>
 <span class="nb">}</span>
 </code></pre></div>
+
+<!-- END INCLUDE -->
 
 
 

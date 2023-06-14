@@ -834,6 +834,8 @@
 
   <h1>Home</h1>
 
+<!-- BEGIN INCLUDE ../../README.md -->
+
 <div align="center">
 
 # MindOCR
@@ -845,13 +847,13 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 
-English | [中文](README_CN.md)
+English | [中文](../../README_CN.md)
 
-[Introduction](#introduction) |
-[Installation](#installation) |
-[Quick Start](#quick-start) |
-[Model List](#model-list) |
-[Notes](#notes)
+[Introduction](../..#introduction) |
+[Installation](../..#installation) |
+[Quick Start](../..#quick-start) |
+[Model List](../..#model-list) |
+[Notes](../..#notes)
 
 </div>
 
@@ -892,7 +894,7 @@ English | [中文](README_CN.md)
 </table>
 <blockquote>
 <p>Notes:
-- If you <a href="#21-inference-with-mindspore-lite-and-acl">use ACL for Inference</a>, the version of Python should be 3.9.
+- If you <a href="../..#21-inference-with-mindspore-lite-and-acl">use ACL for Inference</a>, the version of Python should be 3.9.
 - If scikit_image cannot be imported, you can use the following command line to set environment variable <code>$LD_PRELOAD</code> referring to <a href="https://github.com/opencv/opencv/issues/14884">here</a>. Change <code>path/to</code> to your directory.
   <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">LD_PRELOAD</span><span class="o">=</span>path/to/scikit_image.libs/libgomp-d22c30c5.so.1.0.0:<span class="nv">$LD_PRELOAD</span>
 </code></pre></div></p>
@@ -910,27 +912,27 @@ English | [中文](README_CN.md)
 <h3 id="1-model-training-and-evaluation">1. Model Training and Evaluation<a class="headerlink" href="#1-model-training-and-evaluation" title="Permanent link">&para;</a></h3>
 <h4 id="11-text-detection">1.1 Text Detection<a class="headerlink" href="#11-text-detection" title="Permanent link">&para;</a></h4>
 <p>We will take <strong>DBNet</strong> model and <strong>ICDAR2015</strong> dataset as an example to illustrate how to configure the training process with a few lines of modification on the yaml file.</p>
-<p>Please refer to <a href="configs/det/dbnet/README.md#3-quick-start">DBNet Readme</a> for detailed instructions.</p>
+<p>Please refer to <a href="../../configs/det/dbnet/README.md#3-quick-start">DBNet Readme</a> for detailed instructions.</p>
 <h4 id="12-text-recognition">1.2 Text Recognition<a class="headerlink" href="#12-text-recognition" title="Permanent link">&para;</a></h4>
 <p>We will take <strong>CRNN</strong> model and <strong>LMDB</strong> dataset as an illustration on how to configure and launch the training process easily.</p>
-<p>Detailed instructions can be viewed in <a href="configs/rec/crnn/README.md#3-quick-start">CRNN Readme</a>.</p>
+<p>Detailed instructions can be viewed in <a href="../../configs/rec/crnn/README.md#3-quick-start">CRNN Readme</a>.</p>
 <p><strong>Note:</strong>
 The training pipeline is fully extendable. To train other text detection/recognition models on a new dataset, please configure the model architecture (backbone, neck, head) and data pipeline in the yaml file and launch the training script with <code>python tools/train.py -c /path/to/yaml_config</code>.</p>
 <h3 id="2-inference-and-deployment">2. Inference and Deployment<a class="headerlink" href="#2-inference-and-deployment" title="Permanent link">&para;</a></h3>
 <h4 id="21-inference-with-mindspore-lite-and-acl-on-ascend-310">2.1 Inference with MindSpore Lite and ACL on Ascend 310<a class="headerlink" href="#21-inference-with-mindspore-lite-and-acl-on-ascend-310" title="Permanent link">&para;</a></h4>
 <p>MindOCR supports OCR model inference with <a href="https://www.mindspore.cn/lite/en">MindSpore Lite</a> and <a href="https://www.hiascend.com/document/detail/zh/canncommercial/63RC1/inferapplicationdev/aclcppdevg/aclcppdevg_000004.html">ACL</a> (Ascend Computation Language)  backends. It integrates efficient text detection, classification and recognition inference pipeline for deployment.</p>
-<p>Please refer to <a href="docs/en/inference/inference_tutorial_en.md">MindOCR Inference on Ascend 310</a> for detailed illustrations.</p>
+<p>Please refer to <a href="inference/inference_tutorial_en/">MindOCR Inference on Ascend 310</a> for detailed illustrations.</p>
 <h4 id="22-inference-with-native-mindspore-on-ascend910gpucpu">2.2 Inference with native MindSpore on Ascend910/GPU/CPU<a class="headerlink" href="#22-inference-with-native-mindspore-on-ascend910gpucpu" title="Permanent link">&para;</a></h4>
 <p>MindOCR provides easy-to-use text detection and recognition inference tools supporting CPU/GPU/Ascend910 devices, based on the MindOCR-trained models.</p>
-<p>Please refer to <a href="tools/infer/text/README.md">MindOCR Online Inference</a> for details.</p>
+<p>Please refer to <a href="../../tools/infer/text/README.md">MindOCR Online Inference</a> for details.</p>
 <h2 id="model-list">Model List<a class="headerlink" href="#model-list" title="Permanent link">&para;</a></h2>
 <details open>
 <summary>Text Detection</summary>
 
-- [x] [DBNet](configs/det/dbnet/README.md) (AAAI'2020)
-- [x] [DBNet++](configs/det/dbnet/README.md) (TPAMI'2022)
-- [x] [PSENet](configs/det/psenet/README.md) (CVPR'2019)
-- [x] [EAST](configs/det/east/README.md)(CVPR'2017)
+- [x] [DBNet](../../configs/det/dbnet/README.md) (AAAI'2020)
+- [x] [DBNet++](../../configs/det/dbnet/README.md) (TPAMI'2022)
+- [x] [PSENet](../../configs/det/psenet/README.md) (CVPR'2019)
+- [x] [EAST](../../configs/det/east/README.md)(CVPR'2017)
 - [ ] [FCENet](https://arxiv.org/abs/2104.10442) (CVPR'2021) [coming soon]
 
 </details>
@@ -938,15 +940,15 @@ The training pipeline is fully extendable. To train other text detection/recogni
 <details open>
 <summary>Text Recognition</summary>
 
-- [x] [CRNN](configs/rec/crnn/README.md) (TPAMI'2016)
-- [x] [CRNN-Seq2Seq/RARE](configs/rec/rare/README.md) (CVPR'2016)
-- [x] [SVTR](configs/rec/svtr/README.md) (IJCAI'2022)
+- [x] [CRNN](../../configs/rec/crnn/README.md) (TPAMI'2016)
+- [x] [CRNN-Seq2Seq/RARE](../../configs/rec/rare/README.md) (CVPR'2016)
+- [x] [SVTR](../../configs/rec/svtr/README.md) (IJCAI'2022)
 - [ ] [ABINet](https://arxiv.org/abs/2103.06495) (CVPR'2021) [coming soon]
 
 
-For the detailed performance of the trained models, please refer to [configs](./configs).
+For the detailed performance of the trained models, please refer to [configs](../../configs).
 
-For detailed support for MindSpore Lite and ACL inference models, please refer to [MindOCR Models Support List](docs/en/inference/models_list_en.md) and [Third-Party Models Support List](docs/en/inference/models_list_thirdparty_en.md).
+For detailed support for MindSpore Lite and ACL inference models, please refer to [MindOCR Models Support List](inference/models_list_en.md) and [Third-Party Models Support List](inference/models_list_thirdparty_en.md).
 
 ## Datasets
 
@@ -957,23 +959,23 @@ We give instructions on how to download the following datasets.
 <details open>
 <summary>Text Detection</summary>
 
-- [x] ICDAR2015 [paper](https://rrc.cvc.uab.es/files/short_rrc_2015.pdf) [homepage](https://rrc.cvc.uab.es/?ch=4) [download instruction](docs/en/datasets/icdar2015.md)
+- [x] ICDAR2015 [paper](https://rrc.cvc.uab.es/files/short_rrc_2015.pdf) [homepage](https://rrc.cvc.uab.es/?ch=4) [download instruction](datasets/icdar2015.md)
 
-- [x] Total-Text [paper](https://arxiv.org/abs/1710.10400) [homepage](https://github.com/cs-chan/Total-Text-Dataset/tree/master/Dataset) [download instruction](docs/en/datasets/totaltext.md)
+- [x] Total-Text [paper](https://arxiv.org/abs/1710.10400) [homepage](https://github.com/cs-chan/Total-Text-Dataset/tree/master/Dataset) [download instruction](datasets/totaltext.md)
 
-- [x] Syntext150k [paper](https://arxiv.org/abs/2002.10200) [homepage](https://github.com/aim-uofa/AdelaiDet) [download instruction](docs/en/datasets/syntext150k.md)
+- [x] Syntext150k [paper](https://arxiv.org/abs/2002.10200) [homepage](https://github.com/aim-uofa/AdelaiDet) [download instruction](datasets/syntext150k.md)
 
-- [x] MLT2017 [paper](https://ieeexplore.ieee.org/abstract/document/8270168) [homepage](https://rrc.cvc.uab.es/?ch=8&com=introduction) [download instruction](docs/en/datasets/mlt2017.md)
+- [x] MLT2017 [paper](https://ieeexplore.ieee.org/abstract/document/8270168) [homepage](https://rrc.cvc.uab.es/?ch=8&com=introduction) [download instruction](datasets/mlt2017.md)
 
-- [x] MSRA-TD500 [paper](https://ieeexplore.ieee.org/abstract/document/6247787) [homepage](http://www.iapr-tc11.org/mediawiki/index.php/MSRA_Text_Detection_500_Database_(MSRA-TD500)) [download instruction](docs/en/datasets/td500.md)
+- [x] MSRA-TD500 [paper](https://ieeexplore.ieee.org/abstract/document/6247787) [homepage](http://www.iapr-tc11.org/mediawiki/index.php/MSRA_Text_Detection_500_Database_(MSRA-TD500)) [download instruction](datasets/td500.md)
 
-- [x] SCUT-CTW1500 [paper](https://www.sciencedirect.com/science/article/pii/S0031320319300664) [homepage](https://github.com/Yuliang-Liu/Curve-Text-Detector) [download instruction](docs/en/datasets/ctw1500.md)
+- [x] SCUT-CTW1500 [paper](https://www.sciencedirect.com/science/article/pii/S0031320319300664) [homepage](https://github.com/Yuliang-Liu/Curve-Text-Detector) [download instruction](datasets/ctw1500.md)
 
 </details>
 
 ### Conversion
 
-After downloading these datasets in the `DATASETS_DIR` folder, you can run `bash tools/convert_datasets.sh` to convert all downloaded datasets into the target format. [Here](tools/dataset_converters/README.md) is an example of icdar2015 dataset converting.
+After downloading these datasets in the `DATASETS_DIR` folder, you can run `bash tools/convert_datasets.sh` to convert all downloaded datasets into the target format. [Here](../../tools/dataset_converters/README.md) is an example of icdar2015 dataset converting.
 
 ## Notes
 
@@ -981,23 +983,23 @@ After downloading these datasets in the `DATASETS_DIR` folder, you can run `bash
 
 - 2023/06/07
 1. Add new trained models
-    - [PSENet](configs/det/psenet) for text detection
-    - [EAST](configs/det/east) for text detection
-    - [SVTR](configs/rec/svtr) for text recognition
+    - [PSENet](../../configs/det/psenet) for text detection
+    - [EAST](../../configs/det/east) for text detection
+    - [SVTR](../../configs/rec/svtr) for text recognition
 2. Add more benchmark datasets and their results
-    - [totaltext](docs/en/datasets/totaltext.md)
-    - [mlt2017](docs/en/datasets/mlt2017.md)
-    - [chinese_text_recognition](docs/en/datasets/chinese_text_recognition.md)
+    - [totaltext](datasets/totaltext.md)
+    - [mlt2017](datasets/mlt2017.md)
+    - [chinese_text_recognition](datasets/chinese_text_recognition.md)
 3. Add resume training function, which can be used in case of unexpected interruption in training. Usage: add the `resume` parameter under the `model` field in the yaml config, e.g.,`resume: True`, load and resume training from {ckpt_save_dir}/train_resume.ckpt or `resume: /path/to/train_resume.ckpt`, load and resume training from the given path.
 
 - 2023/05/15
 1. Add new trained models
-    - [DBNet++](configs/det/dbnet) for text detection
-    - [CRNN-Seq2Seq](configs/rec/rare) for text recognition
+    - [DBNet++](../../configs/det/dbnet) for text detection
+    - [CRNN-Seq2Seq](../../configs/rec/rare) for text recognition
     - DBNet pretrained on SynthText is now available: [checkpoint url](https://download.mindspore.cn/toolkits/mindocr/dbnet/dbnet_resnet50_synthtext-40655acb.ckpt)
 2. Add more benchmark datasets and their results
-    - [SynthText](https://academictorrents.com/details/2dba9518166cbd141534cbf381aa3e99a087e83c), [MSRA-TD500](docs/en/datasets/td500.md), [CTW1500](docs/en/datasets/ctw1500.md)
-    - More benchmark results for DBNet are reported [here](configs/det/dbnet/README.md).
+    - [SynthText](https://academictorrents.com/details/2dba9518166cbd141534cbf381aa3e99a087e83c), [MSRA-TD500](datasets/td500.md), [CTW1500](datasets/ctw1500.md)
+    - More benchmark results for DBNet are reported [here](../../configs/det/dbnet/README.md).
 3. Add checkpoint manager for saving top-k checkpoints and improve log.
 4. Python inference code refractored.
 5. Bug fix: use meter to average loss for large datasets, disable `pred_cast_fp32` for ctcloss in AMP training, fix error when invalid polygons exist.
@@ -1040,11 +1042,11 @@ After downloading these datasets in the `DATASETS_DIR` folder, you can run `bash
 
 We appreciate all kinds of contributions including issues and PRs to make MindOCR better.
 
-Please refer to [CONTRIBUTING.md](CONTRIBUTING.md) for the contributing guideline. Please follow the [Model Template and Guideline](mindocr/models/README.md) for contributing a model that fits the overall interface :)
+Please refer to [CONTRIBUTING.md](../../CONTRIBUTING.md) for the contributing guideline. Please follow the [Model Template and Guideline](../../mindocr/models/README.md) for contributing a model that fits the overall interface :)
 
 ### License
 
-This project follows the [Apache License 2.0](LICENSE) open-source license.
+This project follows the [Apache License 2.0](../../LICENSE) open-source license.
 
 ### Citation
 
@@ -1057,6 +1059,8 @@ If you find this project useful in your research, please consider citing:
     year=<span class="nb">{</span>2023<span class="nb">}</span>
 <span class="nb">}</span>
 </code></pre></div>
+
+<!-- END INCLUDE -->
 
 
 

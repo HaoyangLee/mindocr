@@ -248,11 +248,23 @@
   
 
 
+  <li class="md-tabs__item">
+    <a href="../../mkdocs/modelzoo/" class="md-tabs__link">
+      Model Zoo
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
   
   
   
     <li class="md-tabs__item">
-      <a href="../inference_tutorial_en/" class="md-tabs__link">
+      <a href="../../mkdocs/inference_tutorial/" class="md-tabs__link">
         Tutorials
       </a>
     </li>
@@ -341,27 +353,44 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../mkdocs/modelzoo/" class="md-nav__link">
+        Model Zoo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
       
       
         
           
         
+          
+        
       
       
-        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
           Tutorials
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Tutorials
         </label>
@@ -373,8 +402,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../inference_tutorial_en/" class="md-nav__link">
+      <a href="../../mkdocs/inference_tutorial/" class="md-nav__link">
         inference
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mkdocs/convert_tutorial/" class="md-nav__link">
+        model conversion
       </a>
     </li>
   
@@ -400,7 +443,7 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
       
       
         
@@ -408,13 +451,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
           Reference
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_3">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Reference
         </label>
@@ -481,16 +524,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-model-conversion" class="md-nav__link">
-    1.1 Model Conversion
+  <a href="#11-model-export" class="md-nav__link">
+    1.1 Model Export
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#12-model-shape-scaling" class="md-nav__link">
-    1.2 Model Shape Scaling
+  <a href="#12-model-conversion" class="md-nav__link">
+    1.2 Model Conversion
   </a>
+  
+    <nav class="md-nav" aria-label="1.2 Model Conversion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-model-shape-setting" class="md-nav__link">
+    1.2.1 Model Shape Setting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-model-precision-mode-setting" class="md-nav__link">
+    1.2.2 Model Precision Mode Setting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -526,11 +589,31 @@
     2.3 ONNX -&gt; OM
   </a>
   
+    <nav class="md-nav" aria-label="2.3 ONNX -> OM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-model-shape-setting" class="md-nav__link">
+    2.3.1 Model Shape Setting
+  </a>
+  
 </li>
         
           <li class="md-nav__item">
-  <a href="#23-onnx-mindir" class="md-nav__link">
-    2.3 ONNX -&gt; MindIR
+  <a href="#232-model-precision-mode-setting" class="md-nav__link">
+    2.3.2 Model Precision Mode Setting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-onnx-mindir" class="md-nav__link">
+    2.4 ONNX -&gt; MindIR
   </a>
   
 </li>
@@ -619,11 +702,12 @@
 <div class="highlight"><pre><span></span><code>graph LR;
     ckpt --&gt; |export| MindIR --&gt; |&quot;converter_lite(offline conversion)&quot;| o[MindIR];
 </code></pre></div>
-<p>Please prepare the model file first. You can <a href="../../../configs/README.md">export</a> MindIR from the trained ckpt file, or directly download the pre-exported MindIR from the <a href="../models_list_en/">model list</a>.
-And then run the <code>converter_lite</code> command to convert the ckpt trained model to a MindIR offline model.</p>
-<p>The tutorial for the <code>converter_lite</code> command can refer to <a href="https://www.mindspore.cn/lite/docs/en/r2.0/use/cloud_infer/converter_tool.html">Offline Conversion of Inference Models</a>.
-The corresponding conversion parameters in the model list can be found in <a href="../convert_parameter_list_en/">Model Conversion Parameters</a>.</p>
-<h4 id="11-model-conversion">1.1 Model Conversion<a class="headerlink" href="#11-model-conversion" title="Permanent link">&para;</a></h4>
+<h4 id="11-model-export">1.1 Model Export<a class="headerlink" href="#11-model-export" title="Permanent link">&para;</a></h4>
+<p>Before inference, it is necessary to <a href="../../../configs/README.md">export</a> the trained ckpt to a MindIR file, which stores the model structure and weight parameters.</p>
+<p>Some models provide download links for MIndIR export files, as shown in <a href="../models_list_en/">Model List</a>. You can jump to the corresponding model introduction page for download.</p>
+<h4 id="12-model-conversion">1.2 Model Conversion<a class="headerlink" href="#12-model-conversion" title="Permanent link">&para;</a></h4>
+<p>You need to use the <code>converter_lite</code> tool to convert the above exported MindIR file offline so that it can be used for MindSpore Lite inference.</p>
+<p>The tutorial for the <code>converter_lite</code> command can be referred to <a href="https://www.mindspore.cn/lite/docs/en/r2.0/use/cloud_infer/converter_tool.html">Offline Conversion of Inference Models</a>.</p>
 <p>Assuming the input model is input.mindir and the output model after <code>converter_lite</code> conversion is output.mindir, the conversion command is as follows:</p>
 <div class="highlight"><pre><span></span><code>converter_lite<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--saveType<span class="o">=</span>MINDIR<span class="w"> </span><span class="se">\</span>
@@ -634,34 +718,33 @@ The corresponding conversion parameters in the model list can be found in <a hre
 <span class="w">    </span>--outputFile<span class="o">=</span>output<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--configFile<span class="o">=</span>config.txt
 </code></pre></div>
-<p>The content of config.txt is as follows:</p>
-<div class="highlight"><pre><span></span><code> [ascend_context]
- input_format=NCHW
- input_shape=x:[1,3,736,1280]
+<p>Among them, <code>config.txt</code> can be used to set the shape and inference precision of the conversion model.</p>
+<h5 id="121-model-shape-setting">1.2.1 Model Shape Setting<a class="headerlink" href="#121-model-shape-setting" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Static Shape</strong></li>
+</ul>
+<p>If the input name of the exported model is <code>x</code>, and the input shape is <code>(1,3,736,1280)</code>, then the <code>config.txt</code> is as follows:</p>
+<div class="highlight"><pre><span></span><code>[ascend_context]
+input_format=NCHW
+input_shape=x:[1,3,736,1280]
 </code></pre></div>
-<p>The <code>input_shape</code> in config.txt needs to be replaced with the corresponding values during model export. During inference, the input image will be resized to <code>input_shape</code> to meet input requirements.</p>
-<h4 id="12-model-shape-scaling">1.2 Model Shape Scaling<a class="headerlink" href="#12-model-shape-scaling" title="Permanent link">&para;</a></h4>
-<p>In some inference scenarios, such as detecting a target and then executing the target recognition network, the number and size of targets is not fixed resulting.
-If each inference is computed at the maximum Batch Size or maximum Image Size, it will result in wasted computational resources.</p>
-<p>Therefore, it needs to support dynamic batch size and dynamic image size scenarios during inference. Lite is implemented by configuring the <code>dynamic_dims</code> parameters in <code>[ascend_context]</code> through <code>--configFile</code>.</p>
-<p>Please refer to the <a href="https://www.mindspore.cn/lite/docs/en/master/use/cloud_infer/converter_tool_ascend.html#dynamic-shape-configuration">Dynamic Shape Configuration</a> for details.
-Hereafter we will refer to it as Model Shape Scaling for short.</p>
+<p>The generated output.mindir is a static shape version, and the input image during inference needs to be resized to this input_shape to meet the input requirements.</p>
+<p>In some inference scenarios, such as detecting a target and then executing the target recognition network, the number and size of targets is not fixed resulting. If each inference is computed at the maximum Batch Size or maximum Image Size, it will result in wasted computational resources.</p>
 <p>Assuming the exported model input shape is (-1, 3, -1, -1), and the NHW axes are dynamic. Therefore, some optional values can be set during model conversion to adapt to input images of various size during inference.</p>
-<p>So, there are three options for conversion, by setting different config.txt:</p>
-<p>(1) Static Shape</p>
-<p>NHW uses fixed values, the config.txt is as follows:</p>
-<div class="highlight"><pre><span></span><code> [ascend_context]
- input_format=NCHW
- input_shape=x:[1,3,736,1280]
-</code></pre></div>
-<p>(2) Dynamic Image Size</p>
+<p><code>converter_lite</code> achieves this by setting the <code>dynamic_dims</code> parameter in <code>[ascend_context]</code> through <code>--configFile</code>. Please refer to the <a href="https://www.mindspore.cn/lite/docs/en/master/use/cloud_infer/converter_tool_ascend.html#dynamic-shape-configuration">Dynamic Shape Configuration</a> for details. We will refer to it as <strong>Model Shape Scaling</strong> for short.</p>
+<p>So, there are two options for conversion, by setting different config.txt:</p>
+<ul>
+<li><strong>Dynamic Image Size</strong></li>
+</ul>
 <p>N uses fixed values, HW uses multiple optional values, the config.txt is as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="w"> </span><span class="o">[</span>ascend_context<span class="o">]</span>
 <span class="w"> </span><span class="nv">input_format</span><span class="o">=</span>NCHW
 <span class="w"> </span><span class="nv">input_shape</span><span class="o">=</span>x:<span class="o">[</span><span class="m">1</span>,3,-1,-1<span class="o">]</span>
 <span class="w"> </span><span class="nv">dynamic_dims</span><span class="o">=[</span><span class="m">736</span>,1280<span class="o">]</span>,<span class="o">[</span><span class="m">768</span>,1280<span class="o">]</span>,<span class="o">[</span><span class="m">896</span>,1280<span class="o">]</span>,<span class="o">[</span><span class="m">1024</span>,1280<span class="o">]</span>
 </code></pre></div>
-<p>(3) Dynamic Batch Size</p>
+<ul>
+<li><strong>Dynamic Batch Size</strong></li>
+</ul>
 <p>N uses multiple optional values, HW uses fixed values, the config.txt is as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="w"> </span><span class="o">[</span>ascend_context<span class="o">]</span>
 <span class="w"> </span><span class="nv">input_format</span><span class="o">=</span>NCHW
@@ -670,8 +753,19 @@ Hereafter we will refer to it as Model Shape Scaling for short.</p>
 </code></pre></div>
 <p>When converting the dynamic batch size/image size model, the option of NHW values can be set by the user based on empirical values or calculated from the dataset.</p>
 <p>If your model needs to support both dynamic batch size and dynamic image size togather, you can combine multiple models with different batch size, each using the same dynamic image size.</p>
-<p>In order to simplify the model conversion process, we have developed an automatic tool that can complete the dynamic value selection and model conversion.
-For detailed tutorials, please refer to <a href="../convert_dynamic_en/">Model Shape Scaling</a>.</p>
+<p>In order to simplify the model conversion process, we have developed an automatic tool that can complete the dynamic value selection and model conversion. For detailed tutorials, please refer to <a href="../convert_dynamic_en/">Model Shape Scaling</a>.</p>
+<p><strong>Notes:</strong></p>
+<p>If the exported model is a static shape version, it cannot support dynamic image size and batch size conversion. It is necessary to ensure that the exported model is a dynamic shape version.</p>
+<h5 id="122-model-precision-mode-setting">1.2.2 Model Precision Mode Setting<a class="headerlink" href="#122-model-precision-mode-setting" title="Permanent link">&para;</a></h5>
+<p>For the precision of model inference, it is necessary to set it in <code>converter_lite</code> when converting the model.
+Please refer to the <a href="https://www.mindspore.cn/lite/docs/en/master/use/cloud_infer/converter_tool_ascend.html#configuration-file">Ascend Conversion Tool Description</a>, the usage of <code>precision_mode</code> parameter is described in the table of the configuration file, you can choose <code>enforce_fp16</code>, <code>enforce_fp32</code>, <code>preferred_fp32</code> and <code>enforce_origin</code> etc.
+So, you can add the <code>precision_mode</code> parameter in the <code>[Ascend_context]</code> of the above config.txt file to set the precision mode:</p>
+<div class="highlight"><pre><span></span><code>[ascend_context]
+input_format=NCHW
+input_shape=x:[1,3,736,1280]
+precision_mode=enforce_fp32
+</code></pre></div>
+<p>If not set, defaults to <code>enforce_fp16</code>.</p>
 <h3 id="2-paddleocr-models">2. PaddleOCR models<a class="headerlink" href="#2-paddleocr-models" title="Permanent link">&para;</a></h3>
 <p>The PaddleOCR models support two inference backends: <a href="https://www.hiascend.com/document/detail/zh/canncommercial/63RC1/inferapplicationdev/aclcppdevg/aclcppdevg_000004.html">ACL</a> and <a href="https://www.mindspore.cn/lite">MindSpore Lite</a>,
 corresponding to the OM model and MindIR model, respectively.</p>
@@ -680,7 +774,6 @@ corresponding to the OM model and MindIR model, respectively.</p>
     ONNX -- atc --&gt; o1(OM);
     ONNX -- converter_lite --&gt; o2(MindIR);
 </code></pre></div>
-<p>The corresponding conversion parameters in the model list can be found in <a href="../convert_parameter_list_en/">Model Conversion Parameters</a>.</p>
 <h4 id="21-trained-inference-model">2.1 Trained -&gt; Inference model<a class="headerlink" href="#21-trained-inference-model" title="Permanent link">&para;</a></h4>
 <p>In the download link of PaddleOCR model, there are two formats: trained model and inference model. If a training model is provided, it needs to be converted to the format of inference model.</p>
 <p>On the original PaddleOCR introduction page of each trained model, there are usually conversion script samples that only need to input the config file, model file, and save path of the trained model.
@@ -709,14 +802,13 @@ python<span class="w"> </span>tools/export_model.py<span class="w"> </span><span
 or found in the code in <a href="https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.6/tools/export_model.py">tools/export_model. py</a> above.</p>
 <h4 id="23-onnx-om">2.3 ONNX -&gt; OM<a class="headerlink" href="#23-onnx-om" title="Permanent link">&para;</a></h4>
 <p>The ONNX model can be converted into an OM model by ATC tools.</p>
-<p>Ascend Tensor Compiler (ATC) is a model conversion tool built upon the heterogeneous computing architecture CANN.
-It is designed to convert models of open-source frameworks into .om offline models supported by Ascend AI Processor.
-A detailed tutorial on the tool can be found in <a href="https://www.hiascend.com/document/detail/en/CANNCommunityEdition/600alphaX/infacldevg/atctool/atctool_0001.html">ATC Instructions</a>.</p>
-<p>The exported ONNX in the example has an input Shape of (-1, 3, -1, -1), and the NHW axes are dynamic.
-Therefore, some optional values can be set during model conversion to adapt to input images of various size during inference.</p>
-<p>So, there are three options for conversion:</p>
-<p>(1) Static Shape</p>
-<p>NHW uses fixed values, the command is as follows:</p>
+<p>Ascend Tensor Compiler (ATC) is a model conversion tool built upon the heterogeneous computing architecture CANN. It is designed to convert models of open-source frameworks into .om offline models supported by Ascend AI Processor. A detailed tutorial on the tool can be found in <a href="https://www.hiascend.com/document/detail/en/CANNCommunityEdition/600alphaX/infacldevg/atctool/atctool_0001.html">ATC Instructions</a>.</p>
+<h5 id="231-model-shape-setting">2.3.1 Model Shape Setting<a class="headerlink" href="#231-model-shape-setting" title="Permanent link">&para;</a></h5>
+<p>The exported ONNX in the example has an input shape of (-1, 3, -1, -1).</p>
+<ul>
+<li><strong>Static Shape</strong></li>
+</ul>
+<p>It can be converted to a static shape version by fixed values for NHW, the command is as follows:</p>
 <div class="highlight"><pre><span></span><code>atc<span class="w"> </span>--model<span class="o">=</span>det_db.onnx<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--framework<span class="o">=</span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--input_shape<span class="o">=</span><span class="s2">&quot;x:1,3,736,1280&quot;</span><span class="w"> </span><span class="se">\</span>
@@ -725,7 +817,12 @@ Therefore, some optional values can be set during model conversion to adapt to i
 <span class="w">    </span>--output<span class="o">=</span>det_db_static<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--log<span class="o">=</span>error
 </code></pre></div>
-<p>(2) Dynamic Image Size</p>
+<p>The generated file is a static shape version, and the input image during inference needs to be resized to this input_shape to meet the input requirements.</p>
+<p>The ATC tool also supports <strong>Model Shape Scaling</strong> by parameter <a href="https://www.hiascend.com/document/detail/en/CANNCommunityEdition/600alphaX/infacldevg/atctool/atctool_0056.html">dynamic_dims</a>, and some optional values can be set during model conversion to adapt to input images of various shape during inference.</p>
+<p>So, there are two options for conversion, by setting different command line parameters:</p>
+<ul>
+<li><strong>Dynamic Image Size</strong></li>
+</ul>
 <p>N uses fixed values, HW uses multiple optional values, the command is as follows:</p>
 <div class="highlight"><pre><span></span><code>atc<span class="w"> </span>--model<span class="o">=</span>det_db.onnx<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--framework<span class="o">=</span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
@@ -736,7 +833,9 @@ Therefore, some optional values can be set during model conversion to adapt to i
 <span class="w">    </span>--output<span class="o">=</span>det_db_dynamic_bs<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--log<span class="o">=</span>error
 </code></pre></div>
-<p>(3) Dynamic Batch Size</p>
+<ul>
+<li><strong>Dynamic Batch Size</strong></li>
+</ul>
 <p>N uses multiple optional values, HW uses fixed values, the command is as follows:</p>
 <div class="highlight"><pre><span></span><code>atc<span class="w"> </span>--model<span class="o">=</span>det_db.onnx<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--framework<span class="o">=</span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
@@ -749,9 +848,24 @@ Therefore, some optional values can be set during model conversion to adapt to i
 </code></pre></div>
 <p>When converting the dynamic batch size/image size model, the option of NHW values can be set by the user based on empirical values or calculated from the dataset.</p>
 <p>If your model needs to support both dynamic batch size and dynamic image size togather, you can combine multiple models with different batch size, each using the same dynamic image size.</p>
-<p>In order to simplify the model conversion process, we have developed an automatic tool that can complete the dynamic value selection and model conversion.
-For detailed tutorials, please refer to <a href="../convert_dynamic_en/">Model Shape Scaling</a>.</p>
-<h4 id="23-onnx-mindir">2.3 ONNX -&gt; MindIR<a class="headerlink" href="#23-onnx-mindir" title="Permanent link">&para;</a></h4>
+<p>In order to simplify the model conversion process, we have developed an automatic tool that can complete the dynamic value selection and model conversion. For detailed tutorials, please refer to <a href="../convert_dynamic_en/">Model Shape Scaling</a>.</p>
+<p><strong>Notes:</strong></p>
+<p>If the exported model is a static shape version, it cannot support dynamic image size and batch size conversion. It is necessary to ensure that the exported model is a dynamic shape version.</p>
+<h5 id="232-model-precision-mode-setting">2.3.2 Model Precision Mode Setting<a class="headerlink" href="#232-model-precision-mode-setting" title="Permanent link">&para;</a></h5>
+<p>For the precision of model inference, it is necessary to set it in <code>atc</code> when converting the model.
+Please refer to the <a href="https://www.hiascend.com/document/detail/en/CANNCommunityEdition/600alphaX/infacldevg/atctool/atctool_0041.html">Command-Line Options</a>. Optional values include <code>force_fp16</code>, <code>force_fp32</code>, <code>allow_fp32_to_fp16</code>, <code>must_keep_origin_dtype</code>, <code>allow_mix_precision</code>, etc.
+So, you can add the <code>precision_mode</code> parameter in the <code>atc</code> command line to set the precision:</p>
+<div class="highlight"><pre><span></span><code>atc --model=det_db.onnx \
+    --framework=5 \
+    --input_shape=&quot;x:1,3,736,1280&quot; \
+    --input_format=ND \
+    --precision_mode=force_fp32 \
+    --soc_version=Ascend310P3 \
+    --output=det_db_static \
+    --log=error
+</code></pre></div>
+<p>If not set, defaults to <code>force_fp16</code>.</p>
+<h4 id="24-onnx-mindir">2.4 ONNX -&gt; MindIR<a class="headerlink" href="#24-onnx-mindir" title="Permanent link">&para;</a></h4>
 <p>The <code>converter_lite</code> can be used to convert the ONNX into a MindIR. For detailed usage tutorials,
 please refer to <a href="https://www.mindspore.cn/lite/docs/en/r2.0/use/cloud_infer/converter_tool.html">Offline Conversion of Inference Models</a>。</p>
 <p>The conversion command is as follows:</p>
@@ -784,7 +898,7 @@ ONNX model.</p>
 <h4 id="32-onnx-om">3.2 ONNX -&gt; OM<a class="headerlink" href="#32-onnx-om" title="Permanent link">&para;</a></h4>
 <p>Please refer to <a href="#23-onnx---om">ONNX -&gt; OM</a> in the PaddleOCR section above.</p>
 <h4 id="33-onnx-mindir">3.3 ONNX -&gt; MindIR<a class="headerlink" href="#33-onnx-mindir" title="Permanent link">&para;</a></h4>
-<p>Please refer to <a href="#23-onnx---mindir">ONNX -&gt; MIndIR</a> in the PaddleOCR section above.</p>
+<p>Please refer to <a href="#24-onnx---mindir">ONNX -&gt; MIndIR</a> in the PaddleOCR section above.</p>
 
 
 

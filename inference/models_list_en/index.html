@@ -248,11 +248,23 @@
   
 
 
+  <li class="md-tabs__item">
+    <a href="../../mkdocs/modelzoo/" class="md-tabs__link">
+      Model Zoo
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
   
   
   
     <li class="md-tabs__item">
-      <a href="../inference_tutorial_en/" class="md-tabs__link">
+      <a href="../../mkdocs/inference_tutorial/" class="md-tabs__link">
         Tutorials
       </a>
     </li>
@@ -341,27 +353,44 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../mkdocs/modelzoo/" class="md-nav__link">
+        Model Zoo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
       
       
         
           
         
+          
+        
       
       
-        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
           Tutorials
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Tutorials
         </label>
@@ -373,8 +402,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../inference_tutorial_en/" class="md-nav__link">
+      <a href="../../mkdocs/inference_tutorial/" class="md-nav__link">
         inference
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mkdocs/convert_tutorial/" class="md-nav__link">
+        model conversion
       </a>
     </li>
   
@@ -400,7 +443,7 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
       
       
         
@@ -408,13 +451,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
           Reference
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_3">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Reference
         </label>
@@ -527,32 +570,60 @@
 <p>English | <a href="../../cn/inference/models_list_cn.md">中文</a></p>
 <h2 id="inference-mindocr-models-support-list">Inference - MindOCR Models Support List<a class="headerlink" href="#inference-mindocr-models-support-list" title="Permanent link">&para;</a></h2>
 <p>MindOCR inference supports exported models from trained ckpt file, and this document displays a list of adapted models.</p>
-<p>Please download the pre-exported MindIR file, and refer to the <a href="../convert_tutorial_en/">model conversion tutorial</a></p>
+<p>Please <a href="../../../tools/export.py">export</a> or download the pre-exported MindIR file, and refer to the
+<a href="../convert_tutorial_en/">model conversion tutorial</a> before inference.</p>
 <h3 id="1-text-detection">1. Text detection<a class="headerlink" href="#1-text-detection" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th align="left">name</th>
 <th align="left">model</th>
 <th align="left">backbone</th>
+<th align="left">language</th>
 <th align="left">config</th>
-<th align="left">reference &amp; downlaod</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">en_ms_det_dbnet_resnet50</td>
 <td align="left">DBNet</td>
-<td align="left">ResNet-50</td>
-<td align="left"><a href="../../../configs/det/dbnet/db_r50_icdar15.yaml">yaml</a></td>
-<td align="left"><a href="../../../configs/det/dbnet/README.md">dbnet</a></td>
+<td align="left">MobileNetV3</td>
+<td align="left">en</td>
+<td align="left"><a href="../../../configs/det/dbnet/db_mobilenetv3_icdar15.yaml">db_mobilenetv3_icdar15.yaml</a></td>
 </tr>
 <tr>
-<td align="left">en_ms_det_dbnetpp_resnet50</td>
+<td align="left"></td>
+<td align="left">ResNet-18</td>
+<td align="left">en</td>
+<td align="left"><a href="../../../configs/det/dbnet/db_r18_icdar15.yaml">db_r18_icdar15.yaml</a></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">ResNet-50</td>
+<td align="left">en</td>
+<td align="left"><a href="../../../configs/det/dbnet/db_r50_icdar15.yaml">db_r50_icdar15.yaml</a></td>
+</tr>
+<tr>
 <td align="left">DBNet++</td>
 <td align="left">ResNet-50</td>
-<td align="left"><a href="../../../configs/det/dbnet/db++_r50_icdar15.yaml">yaml</a></td>
-<td align="left"><a href="../../../configs/det/dbnet/README.md">dbnet++</a></td>
+<td align="left">en</td>
+<td align="left"><a href="../../../configs/det/dbnet/db++_r50_icdar15.yaml">db++_r50_icdar15.yaml</a></td>
+</tr>
+<tr>
+<td align="left">EAST</td>
+<td align="left">ResNet-50</td>
+<td align="left">en</td>
+<td align="left"><a href="../../../configs/det/east/east_r50_icdar15.yaml">east_r50_icdar15.yaml</a></td>
+</tr>
+<tr>
+<td align="left">PSENet</td>
+<td align="left">ResNet-152</td>
+<td align="left">en</td>
+<td align="left"><a href="../../../configs/det/psenet/pse_r152_icdar15.yaml">pse_r152_icdar15.yaml</a></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">ResNet-152</td>
+<td align="left">ch</td>
+<td align="left"><a href="../../../configs/det/psenet/pse_r152_ctw1500.yaml">pse_r152_ctw1500.yaml</a></td>
 </tr>
 </tbody>
 </table>
@@ -560,22 +631,34 @@
 <table>
 <thead>
 <tr>
-<th align="left">name</th>
 <th align="left">model</th>
 <th align="left">backbone</th>
 <th align="left">dict file</th>
+<th align="left">language</th>
 <th align="left">config</th>
-<th align="left">reference &amp; downlaod</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">en_ms_rec_crnn_resnet34</td>
 <td align="left">CRNN</td>
+<td align="left">VGG7</td>
+<td align="left">Default</td>
+<td align="left">en</td>
+<td align="left"><a href="../../../configs/rec/crnn/crnn_vgg7.yaml">crnn_vgg7.yaml</a></td>
+</tr>
+<tr>
+<td align="left"></td>
 <td align="left">ResNet34_vd</td>
 <td align="left">Default</td>
-<td align="left"><a href="../../../configs/rec/crnn/crnn_resnet34.yaml">yaml</a></td>
-<td align="left"><a href="../../../configs/rec/crnn/README.md">crnn</a></td>
+<td align="left">en</td>
+<td align="left"><a href="../../../configs/rec/crnn/crnn_resnet34.yaml">crnn_resnet34.yaml</a></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">ResNet34_vd</td>
+<td align="left"><a href="../../../mindocr/utils/dict/ch_dict.txt">ch_dict.txt</a></td>
+<td align="left">ch</td>
+<td align="left"><a href="../../../configs/rec/crnn/crnn_resnet34_ch.yaml">crnn_resnet34_ch.yaml</a></td>
 </tr>
 </tbody>
 </table>

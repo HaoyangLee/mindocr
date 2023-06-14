@@ -293,8 +293,8 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../reference/api_doc/" class="md-tabs__link">
-        Reference
+      <a href="../contributing/" class="md-tabs__link">
+        Notes
       </a>
     </li>
   
@@ -765,14 +765,14 @@
       
       
         <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-          Reference
+          Notes
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
-          Reference
+          Notes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -782,8 +782,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/api_doc/" class="md-nav__link">
-        api
+      <a href="../contributing/" class="md-nav__link">
+        Contributing
       </a>
     </li>
   
@@ -848,7 +848,108 @@
 
 
 <h1 id="model-zoo">Model Zoo<a class="headerlink" href="#model-zoo" title="Permanent link">&para;</a></h1>
-<p>Coming soon...</p>
+<table>
+<thead>
+<tr>
+<th align="center">model</th>
+<th align="center">type</th>
+<th align="center">dataset</th>
+<th align="center">fscore(detection)/accuracy(recognition)</th>
+<th align="center">mindocr recipe</th>
+<th align="center">vanilla mindspore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">dbnet_mobilenetv3</td>
+<td align="center">detection</td>
+<td align="center">icdar2015</td>
+<td align="center">77.28</td>
+<td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/det/dbnet">config</a></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">dbnet_resnet18</td>
+<td align="center">detection</td>
+<td align="center">icdar2015</td>
+<td align="center">83.71</td>
+<td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/det/dbnet">config</a></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">dbnet_resnet50</td>
+<td align="center">detection</td>
+<td align="center">icdar2015</td>
+<td align="center">84.99</td>
+<td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/det/dbnet">config</a></td>
+<td align="center"><a href="https://gitee.com/mindspore/models/tree/r2.0/official/cv/DBNet/">link</a></td>
+</tr>
+<tr>
+<td align="center">dbnet_resnet50</td>
+<td align="center">detection</td>
+<td align="center">msra-td500</td>
+<td align="center">85.03</td>
+<td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/det/dbnet">config</a></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">dbnet++_resnet50</td>
+<td align="center">detection</td>
+<td align="center">icdar2015</td>
+<td align="center">86.60</td>
+<td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/det/dbnet">config</a></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">psenet_resnet152</td>
+<td align="center">detection</td>
+<td align="center">icdar2015</td>
+<td align="center">82.06</td>
+<td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/det/psenet">config</a></td>
+<td align="center"><a href="https://gitee.com/mindspore/models/tree/r2.0/research/cv/psenet">link</a></td>
+</tr>
+<tr>
+<td align="center">east_resnet50</td>
+<td align="center">detection</td>
+<td align="center">icdar2015</td>
+<td align="center">84.87</td>
+<td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/det/east">config</a></td>
+<td align="center"><a href="https://gitee.com/mindspore/models/tree/r2.0/research/cv/east">link</a></td>
+</tr>
+<tr>
+<td align="center">svtr_tiny</td>
+<td align="center">recognition</td>
+<td align="center">IC03,13,15,IIIT,etc</td>
+<td align="center">89.02</td>
+<td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/rec/svtr">config</a></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">crnn_vgg7</td>
+<td align="center">recognition</td>
+<td align="center">IC03,13,15,IIIT,etc</td>
+<td align="center">82.03</td>
+<td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/rec/crnn">config</a></td>
+<td align="center"><a href="https://gitee.com/mindspore/models/tree/r2.0/official/cv/CRNN">link</a></td>
+</tr>
+<tr>
+<td align="center">crnn_resnet34_vd</td>
+<td align="center">recognition</td>
+<td align="center">IC03,13,15,IIIT,etc</td>
+<td align="center">84.45</td>
+<td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/rec/crnn">config</a></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">rare_resnet34_vd</td>
+<td align="center">recognition</td>
+<td align="center">IC03,13,15,IIIT,etc</td>
+<td align="center">85.19</td>
+<td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/rec/rare">config</a></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
 
 
 

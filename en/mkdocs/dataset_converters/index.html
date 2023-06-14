@@ -8,16 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://mindspore-lab.github.io/mindocr/cn/datasets/totaltext_CN/">
+        <link rel="canonical" href="https://mindspore-lab.github.io/mindocr/en/mkdocs/dataset_converters/">
       
       
+        <link rel="prev" href="../modelzoo/">
+      
+      
+        <link rel="next" href="../../tutorials/transform_tutorial/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>totaltext CN.md - MindOCR Docs</title>
+        <title>Dataset Preparation - MindOCR Docs</title>
       
     
     
@@ -71,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#text-detectionspotting-annotation" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              totaltext CN.md
+              Dataset Preparation
             
           </span>
         </div>
@@ -148,13 +152,13 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="../../../datasets/totaltext_CN/" hreflang="en" class="md-select__link">
+                  <a href="../../../mkdocs/dataset_converters/" hreflang="en" class="md-select__link">
                     English
                   </a>
                 </li>
               
                 <li class="md-select__item">
-                  <a href="./" hreflang="cn" class="md-select__link">
+                  <a href="../../../cn/mkdocs/dataset_converters/" hreflang="cn" class="md-select__link">
                     中文
                   </a>
                 </li>
@@ -238,7 +242,7 @@
 
   <li class="md-tabs__item">
     <a href="../../" class="md-tabs__link">
-      主页
+      Home
     </a>
   </li>
 
@@ -249,14 +253,16 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../mkdocs/modelzoo/" class="md-tabs__link">
-      模型仓库
+    <a href="../modelzoo/" class="md-tabs__link">
+      Model Zoo
     </a>
   </li>
 
       
         
   
+  
+    
   
 
 
@@ -269,8 +275,8 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../mkdocs/dataset_converters/" class="md-tabs__link">
-        教程
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        Tutorials
       </a>
     </li>
   
@@ -347,7 +353,7 @@
   
     <li class="md-nav__item">
       <a href="../../" class="md-nav__link">
-        主页
+        Home
       </a>
     </li>
   
@@ -361,8 +367,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mkdocs/modelzoo/" class="md-nav__link">
-        模型仓库
+      <a href="../modelzoo/" class="md-nav__link">
+        Model Zoo
       </a>
     </li>
   
@@ -374,14 +380,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
       
       
         
@@ -396,14 +404,14 @@
       
       
         <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-          教程
+          Tutorials
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          教程
+          Tutorials
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -411,16 +419,18 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
       
       
         
@@ -435,7 +445,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_1">
           <span class="md-nav__icon md-icon"></span>
           Datasets
@@ -446,11 +456,55 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../mkdocs/dataset_converters/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Dataset Preparation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Dataset Preparation
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#text-detectionspotting-annotation" class="md-nav__link">
+    Text Detection/Spotting Annotation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#text-recognition-annotation" class="md-nav__link">
+    Text Recognition Annotation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -588,7 +642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mkdocs/inference_tutorial/" class="md-nav__link">
+      <a href="../inference_tutorial/" class="md-nav__link">
         Python/C++ Inference on Ascend 310
       </a>
     </li>
@@ -602,7 +656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mkdocs/online_inference/" class="md-nav__link">
+      <a href="../online_inference/" class="md-nav__link">
         Python Online Inference
       </a>
     </li>
@@ -747,8 +801,28 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#text-detectionspotting-annotation" class="md-nav__link">
+    Text Detection/Spotting Annotation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#text-recognition-annotation" class="md-nav__link">
+    Text Recognition Annotation
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -763,7 +837,7 @@
                   
 
   
-    <a href="https://github.com/mindspore-lab/mindocr/edit/master/docs/cn/datasets/totaltext_CN.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/mindspore-lab/mindocr/edit/master/docs/en/mkdocs/dataset_converters.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -772,39 +846,66 @@
     
       
     
-    <a href="https://github.com/mindspore-lab/mindocr/raw/master/docs/cn/datasets/totaltext_CN.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/mindspore-lab/mindocr/raw/master/docs/en/mkdocs/dataset_converters.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-<p><a href="../totaltext/">English</a> | 中文</p>
-<h1 id="_1">数据集下载<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>Total-Text <a href="https://arxiv.org/abs/1710.10400">文章</a></p>
-<p>下载数据集图像 <a href="https://github.com/cs-chan/Total-Text-Dataset/tree/master/Dataset">地址</a>  (size = 441Mb).</p>
-<details>
-  <summary>图像下载链接</summary>
+  <h1>Dataset Preparation</h1>
 
-   [图像下载链接](https://drive.google.com/file/d/1bC68CzsSVTusZVvOkk7imSZSbgD1MqK2/view?usp=sharing) (size = 441Mb).
-
-</details>
-
-<p>下载数据集标注 <a href="https://github.com/cs-chan/Total-Text-Dataset/tree/master/Groundtruth/Text">地址</a>.</p>
-<details>
-  <summary>标注下载链接</summary>
-
-   [标注下载链接](https://drive.google.com/file/d/1v-pd-74EkZ3dWe6k0qppRtetjdPQ3ms1/view?usp=sharing) for text file format('.txt').
-
-</details>
-
-<p>在下载完成后，把这两个文件放在 <code>[path-to-data-dir]</code> 文件夹内，如下所示:
-<div class="highlight"><pre><span></span><code>path-to-data-dir/
-  totaltext/
-    totaltext.zip
-    txt_format.zip
+<!-- BEGIN INCLUDE ../../../tools/dataset_converters/README.md -->
+<p>English | <a href="../../../tools/dataset_converters/README_CN.md">中文</a></p>
+<p>This document shows how to convert ocr annotation to the general format (not including LMDB) for model training.</p>
+<p>You may also refer to <a href="../../../tools/convert_datasets.sh"><code>convert_datasets.sh</code></a> which is a quick solution for converting annotation files of all datasets under a given directory.</p>
+<p>To download and convert OCR datasets to the required data format, please refer to the following instructions: <a href="../../datasets/chinese_text_recognition/">Chinese text recognition</a>, <a href="../../datasets/ctw1500/">CTW1500</a>, <a href="../../datasets/icdar2015/">ICDAR2015</a>, <a href="../../datasets/mlt2017/">MLT2017</a>, <a href="../../datasets/svt/">SVT</a>, <a href="../../datasets/syntext150k/">Syntext 150k</a>, <a href="../../datasets/td500/">TD500</a>, <a href="../../datasets/totaltext/">Total Text</a>, <a href="../../datasets/synthtext/">SynthText</a>.</p>
+<h2 id="text-detectionspotting-annotation">Text Detection/Spotting Annotation<a class="headerlink" href="#text-detectionspotting-annotation" title="Permanent link">&para;</a></h2>
+<p>The format of the converted annotation file should follow:
+<div class="highlight"><pre><span></span><code>img_61.jpg\t[{&quot;transcription&quot;: &quot;MASA&quot;, &quot;points&quot;: [[310, 104], [416, 141], [418, 216], [312, 179]]}, {...}]
 </code></pre></div></p>
-<p><a href="../../../tools/dataset_converters/README_CN.md">返回</a></p>
+<p>Taking ICDAR2015 (ic15) dataset as an example, to convert the ic15 dataset to the required format, please run</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># convert training anotation</span>
+python<span class="w"> </span>tools/dataset_converters/convert.py<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--dataset_name<span class="w">  </span>ic15<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--task<span class="w"> </span>det<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--image_dir<span class="w"> </span>/path/to/ic15/det/train/ch4_training_images<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--label_dir<span class="w"> </span>/path/to/ic15/det/train/ch4_training_localization_transcription_gt<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--output_path<span class="w"> </span>/path/to/ic15/det/train/det_gt.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># convert testing anotation</span>
+python<span class="w"> </span>tools/dataset_converters/convert.py<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--dataset_name<span class="w">  </span>ic15<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--task<span class="w"> </span>det<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--image_dir<span class="w"> </span>/path/to/ic15/det/test/ch4_test_images<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--label_dir<span class="w"> </span>/path/to/ic15/det/test/ch4_test_localization_transcription_gt<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--output_path<span class="w"> </span>/path/to/ic15/det/test/det_gt.txt
+</code></pre></div>
+<h2 id="text-recognition-annotation">Text Recognition Annotation<a class="headerlink" href="#text-recognition-annotation" title="Permanent link">&para;</a></h2>
+<p>The annotation format for text recognition dataset follows
+<div class="highlight"><pre><span></span><code>word_7.png  fusionopolis
+word_8.png  fusionopolis
+word_9.png  Reserve
+word_10.png CAUTION
+word_11.png citi
+</code></pre></div>
+Note that image name and text label are seperated by \t.</p>
+<p>To convert, please run:
+<div class="highlight"><pre><span></span><code><span class="c1"># convert training anotation</span>
+python<span class="w"> </span>tools/dataset_converters/convert.py<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--dataset_name<span class="w">  </span>ic15<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--task<span class="w"> </span>rec<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--label_dir<span class="w"> </span>/path/to/ic15/rec/ch4_training_word_images_gt/gt.txt
+<span class="w">        </span>--output_path<span class="w"> </span>/path/to/ic15/rec/train/ch4_training_word_images_gt/rec_gt.txt
+</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># convert testing anotation</span>
+python<span class="w"> </span>tools/dataset_converters/convert.py<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--dataset_name<span class="w">  </span>ic15<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--task<span class="w"> </span>rec<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--label_dir<span class="w"> </span>/path/to/ic15/rec/ch4_test_word_images_gt/gt.txt
+<span class="w">        </span>--output_path<span class="w"> </span>/path/to/ic15/rec/ch4_test_word_images_gt/rec_gt.txt
+</code></pre></div>
+<!-- END INCLUDE -->
 
 
 
@@ -828,6 +929,42 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../modelzoo/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Model Zoo" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Model Zoo
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../tutorials/transform_tutorial/" class="md-footer__link md-footer__link--next" aria-label="Next: Data Transformation Mechanism" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Data Transformation Mechanism
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">

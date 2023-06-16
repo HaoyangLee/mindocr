@@ -161,14 +161,6 @@
          
     </url>
     <url>
-         <loc>https://mindspore-lab.github.io/mindocr/mkdocs/convert_tutorial/</loc>
-         <lastmod>2023-06-16</lastmod>
-         <changefreq>daily</changefreq>
-         <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/mkdocs/convert_tutorial/"/>
-         <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/mkdocs/convert_tutorial/"/>
-         
-    </url>
-    <url>
          <loc>https://mindspore-lab.github.io/mindocr/mkdocs/customize_data_transform/</loc>
          <lastmod>2023-06-16</lastmod>
          <changefreq>daily</changefreq>
@@ -206,22 +198,6 @@
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/mkdocs/dataset_converters/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/mkdocs/dataset_converters/"/>
-         
-    </url>
-    <url>
-         <loc>https://mindspore-lab.github.io/mindocr/mkdocs/inference_models_list/</loc>
-         <lastmod>2023-06-16</lastmod>
-         <changefreq>daily</changefreq>
-         <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/mkdocs/inference_models_list/"/>
-         <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/mkdocs/inference_models_list/"/>
-         
-    </url>
-    <url>
-         <loc>https://mindspore-lab.github.io/mindocr/mkdocs/inference_models_list_thirdparty/</loc>
-         <lastmod>2023-06-16</lastmod>
-         <changefreq>daily</changefreq>
-         <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/mkdocs/inference_models_list_thirdparty/"/>
-         <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/mkdocs/inference_models_list_thirdparty/"/>
          
     </url>
     <url>

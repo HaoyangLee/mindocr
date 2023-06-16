@@ -70,11 +70,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#inference-mindocr-models-support-list" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -548,7 +543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/advanced_train.md" class="md-nav__link">
+      <a href="../../tutorials/advanced_train/" class="md-nav__link">
         Advance Training
       </a>
     </li>
@@ -604,7 +599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../inference_tutorial/" class="md-nav__link">
+      <a href="../../inference/inference_tutorial/" class="md-nav__link">
         Python/C++ Inference on Ascend 310
       </a>
     </li>
@@ -865,41 +860,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#inference-mindocr-models-support-list" class="md-nav__link">
-    Inference - MindOCR Models Support List
-  </a>
-  
-    <nav class="md-nav" aria-label="Inference - MindOCR Models Support List">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-text-detection" class="md-nav__link">
-    1. Text detection
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-text-recognition" class="md-nav__link">
-    2. Text recognition
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -931,103 +891,7 @@
 
   <h1>Inference models list.md</h1>
 
-<!-- BEGIN INCLUDE ../inference/models_list_en.md -->
-<p>English | <a href="../../cn/inference/models_list_cn.md">中文</a></p>
-<h2 id="inference-mindocr-models-support-list">Inference - MindOCR Models Support List<a class="headerlink" href="#inference-mindocr-models-support-list" title="Permanent link">&para;</a></h2>
-<p>MindOCR inference supports exported models from trained ckpt file, and this document displays a list of adapted models.</p>
-<p>Please <a href="../../../tools/export.py">export</a> or download the pre-exported MindIR file, and refer to the
-<a href="../../inference/convert_tutorial_en/">model conversion tutorial</a> before inference.</p>
-<h3 id="1-text-detection">1. Text detection<a class="headerlink" href="#1-text-detection" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th align="left">model</th>
-<th align="left">backbone</th>
-<th align="left">language</th>
-<th align="left">config</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">DBNet</td>
-<td align="left">MobileNetV3</td>
-<td align="left">en</td>
-<td align="left"><a href="../../../configs/det/dbnet/db_mobilenetv3_icdar15.yaml">db_mobilenetv3_icdar15.yaml</a></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">ResNet-18</td>
-<td align="left">en</td>
-<td align="left"><a href="../../../configs/det/dbnet/db_r18_icdar15.yaml">db_r18_icdar15.yaml</a></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">ResNet-50</td>
-<td align="left">en</td>
-<td align="left"><a href="../../../configs/det/dbnet/db_r50_icdar15.yaml">db_r50_icdar15.yaml</a></td>
-</tr>
-<tr>
-<td align="left">DBNet++</td>
-<td align="left">ResNet-50</td>
-<td align="left">en</td>
-<td align="left"><a href="../../../configs/det/dbnet/db++_r50_icdar15.yaml">db++_r50_icdar15.yaml</a></td>
-</tr>
-<tr>
-<td align="left">EAST</td>
-<td align="left">ResNet-50</td>
-<td align="left">en</td>
-<td align="left"><a href="../../../configs/det/east/east_r50_icdar15.yaml">east_r50_icdar15.yaml</a></td>
-</tr>
-<tr>
-<td align="left">PSENet</td>
-<td align="left">ResNet-152</td>
-<td align="left">en</td>
-<td align="left"><a href="../../../configs/det/psenet/pse_r152_icdar15.yaml">pse_r152_icdar15.yaml</a></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">ResNet-152</td>
-<td align="left">ch</td>
-<td align="left"><a href="../../../configs/det/psenet/pse_r152_ctw1500.yaml">pse_r152_ctw1500.yaml</a></td>
-</tr>
-</tbody>
-</table>
-<h3 id="2-text-recognition">2. Text recognition<a class="headerlink" href="#2-text-recognition" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th align="left">model</th>
-<th align="left">backbone</th>
-<th align="left">dict file</th>
-<th align="left">language</th>
-<th align="left">config</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">CRNN</td>
-<td align="left">VGG7</td>
-<td align="left">Default</td>
-<td align="left">en</td>
-<td align="left"><a href="../../../configs/rec/crnn/crnn_vgg7.yaml">crnn_vgg7.yaml</a></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">ResNet34_vd</td>
-<td align="left">Default</td>
-<td align="left">en</td>
-<td align="left"><a href="../../../configs/rec/crnn/crnn_resnet34.yaml">crnn_resnet34.yaml</a></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">ResNet34_vd</td>
-<td align="left"><a href="../../../mindocr/utils/dict/ch_dict.txt">ch_dict.txt</a></td>
-<td align="left">ch</td>
-<td align="left"><a href="../../../configs/rec/crnn/crnn_resnet34_ch.yaml">crnn_resnet34_ch.yaml</a></td>
-</tr>
-</tbody>
-</table>
-<!-- END INCLUDE -->
+
 
 
 

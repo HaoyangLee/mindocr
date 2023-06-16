@@ -14,7 +14,7 @@
         <link rel="prev" href="../transform_tutorial/">
       
       
-        <link rel="next" href="../../mkdocs/inference_tutorial/">
+        <link rel="next" href="../advanced_train/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
@@ -665,8 +665,82 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#model-training-and-evaluation" class="md-nav__link">
-    Model Training And Evaluation
+  <a href="#model-training" class="md-nav__link">
+    Model Training
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Training">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preparing-pre-trained-model" class="md-nav__link">
+    Preparing Pre-trained Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-training" class="md-nav__link">
+    Start Training
+  </a>
+  
+    <nav class="md-nav" aria-label="Start Training">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#distributed-training" class="md-nav__link">
+    Distributed Training
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-device-training" class="md-nav__link">
+    Single Device Training
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resuming-training-from-checkpoint" class="md-nav__link">
+    Resuming Training From Checkpoint
+  </a>
+  
+    <nav class="md-nav" aria-label="Resuming Training From Checkpoint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mixed-precision-training" class="md-nav__link">
+    Mixed Precision Training
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-evaluation" class="md-nav__link">
+    Model Evaluation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-inference" class="md-nav__link">
+    Model Inference
   </a>
   
 </li>
@@ -686,7 +760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced_train.md" class="md-nav__link">
+      <a href="../advanced_train/" class="md-nav__link">
         Advance Training
       </a>
     </li>
@@ -742,7 +816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mkdocs/inference_tutorial/" class="md-nav__link">
+      <a href="../../inference/inference_tutorial/" class="md-nav__link">
         Python/C++ Inference on Ascend 310
       </a>
     </li>
@@ -1099,8 +1173,82 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#model-training-and-evaluation" class="md-nav__link">
-    Model Training And Evaluation
+  <a href="#model-training" class="md-nav__link">
+    Model Training
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Training">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preparing-pre-trained-model" class="md-nav__link">
+    Preparing Pre-trained Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-training" class="md-nav__link">
+    Start Training
+  </a>
+  
+    <nav class="md-nav" aria-label="Start Training">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#distributed-training" class="md-nav__link">
+    Distributed Training
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-device-training" class="md-nav__link">
+    Single Device Training
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resuming-training-from-checkpoint" class="md-nav__link">
+    Resuming Training From Checkpoint
+  </a>
+  
+    <nav class="md-nav" aria-label="Resuming Training From Checkpoint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mixed-precision-training" class="md-nav__link">
+    Mixed Precision Training
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-evaluation" class="md-nav__link">
+    Model Evaluation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-inference" class="md-nav__link">
+    Model Inference
   </a>
   
 </li>
@@ -1253,8 +1401,127 @@ common:
 </code></pre></div>
 <h5 id="configuring-a-custom-chinese-dictionary">Configuring a custom Chinese dictionary<a class="headerlink" href="#configuring-a-custom-chinese-dictionary" title="Permanent link">&para;</a></h5>
 <p>The user can add, delete, or modify characters within the dictionary as needed. It is important to note that characters must be separated by newline characters <code>\n</code>, and it is necessary to avoid having duplicate characters in the same dictionary. Additionally, the user must also modify the <code>common: num_classes</code> attribute in the configuration file to ensure that it is equal to the number of characters in the dictionary plus 1 (in the case of a seq2seq model, it is equal to the number of characters in the dictionary plus 2).</p>
-<h2 id="model-training-and-evaluation">Model Training And Evaluation<a class="headerlink" href="#model-training-and-evaluation" title="Permanent link">&para;</a></h2>
-<p>When all datasets and configuration files have been prepared, users can start training their custom models. Since the training methods for different models are different, users can refer to the <code>Model Training</code> and <code>Model Evaluation</code> sections of the documentation for the corresponding model.</p>
+<h2 id="model-training">Model Training<a class="headerlink" href="#model-training" title="Permanent link">&para;</a></h2>
+<p>When all datasets and configuration files are ready, users can start training models with their own data. As each model has different training methods, users can refer to the corresponding model introduction documentation for the <strong>Model Training</strong> and <strong>Model Evaluation</strong> sections. Here, we will only use CRNN as an example.</p>
+<h3 id="preparing-pre-trained-model">Preparing Pre-trained Model<a class="headerlink" href="#preparing-pre-trained-model" title="Permanent link">&para;</a></h3>
+<p>Users can use the pre-trained models that we provide as a starting point for training. Pre-trained models can often improve the convergence speed and even accuracy of the model. Taking the Chinese model as an example, the url for the pre-trained model that we provide is <a href="https://download.mindspore.cn/toolkits/mindocr/crnn/crnn_resnet34_ch-7a342e3c.ckpt">https://download.mindspore.cn/toolkits/mindocr/crnn/crnn_resnet34_ch-7a342e3c.ckpt</a>. Users only need to add <code>model.pretrained</code> with the corresponding url in the configuration file as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="nn">...</span>
+<span class="nt">model</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rec</span>
+<span class="w">  </span><span class="nt">transform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+<span class="w">  </span><span class="nt">backbone</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rec_resnet34</span>
+<span class="w">    </span><span class="nt">pretrained</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">  </span><span class="nt">neck</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RNNEncoder</span>
+<span class="w">    </span><span class="nt">hidden_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">64</span>
+<span class="w">  </span><span class="nt">head</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CTCHead</span>
+<span class="w">    </span><span class="nt">out_channels</span><span class="p">:</span><span class="w"> </span><span class="nv">*num_classes</span>
+<span class="w">  </span><span class="nt">pretrained</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://download.mindspore.cn/toolkits/mindocr/crnn/crnn_resnet34_ch-7a342e3c.ckpt</span>
+<span class="nn">...</span>
+</code></pre></div>
+<p>If users encounter network issues, they can try downloading the pre-trained model to their local machine in advance, and then change <code>model.pretrained</code> to the local path as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="nn">...</span>
+<span class="nt">model</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rec</span>
+<span class="w">  </span><span class="nt">transform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+<span class="w">  </span><span class="nt">backbone</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rec_resnet34</span>
+<span class="w">    </span><span class="nt">pretrained</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">  </span><span class="nt">neck</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RNNEncoder</span>
+<span class="w">    </span><span class="nt">hidden_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">64</span>
+<span class="w">  </span><span class="nt">head</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CTCHead</span>
+<span class="w">    </span><span class="nt">out_channels</span><span class="p">:</span><span class="w"> </span><span class="nv">*num_classes</span>
+<span class="w">  </span><span class="nt">pretrained</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/local_path_to_the_ckpt/crnn_resnet34_ch-7a342e3c.ckpt</span>
+<span class="nn">...</span>
+</code></pre></div>
+<p>If users do not need to use the pre-trained model, they can simply delete <code>model.pretrained</code>.</p>
+<h3 id="start-training">Start Training<a class="headerlink" href="#start-training" title="Permanent link">&para;</a></h3>
+<h4 id="distributed-training">Distributed Training<a class="headerlink" href="#distributed-training" title="Permanent link">&para;</a></h4>
+<p>In the case of a large amount of data, we recommend that users use distributed training. For distributed training across multiple Ascend 910 devices or GPU devices, please modify the configuration parameter <code>system.distribute</code> to True, for example:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># To perform distributed training on 4 GPU/Ascend devices</span>
+mpirun<span class="w"> </span>-n<span class="w"> </span><span class="m">4</span><span class="w"> </span>python<span class="w"> </span>tools/train.py<span class="w"> </span>--config<span class="w"> </span>configs/rec/crnn/crnn_resnet34_ch.yaml
+</code></pre></div>
+<h4 id="single-device-training">Single Device Training<a class="headerlink" href="#single-device-training" title="Permanent link">&para;</a></h4>
+<p>If you want to train or fine-tune the model on a smaller dataset without distributed training, please modify the configuration parameter <code>system.distribute</code> to <code>False</code> and run:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Training on single CPU/GPU/Ascend devices</span>
+python<span class="w"> </span>tools/train.py<span class="w"> </span>--config<span class="w"> </span>configs/rec/crnn/crnn_resnet34_ch.yaml
+</code></pre></div>
+<p>The training results (including checkpoint, performance of each epoch, and curve graph) will be saved in the directory configured by the <code>train.ckpt_save_dir</code> parameter in the YAML configuration file, which is set to <code>./tmp_rec</code> by default.</p>
+<h3 id="resuming-training-from-checkpoint">Resuming Training From Checkpoint<a class="headerlink" href="#resuming-training-from-checkpoint" title="Permanent link">&para;</a></h3>
+<p>If users expect to load the optimizer, learning rate, and other information of the model while starting or continue training, they can add <code>model.resume</code> to the corresponding local model path in the configuration file as follows, and start training:</p>
+<div class="highlight"><pre><span></span><code><span class="nn">...</span>
+<span class="nt">model</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rec</span>
+<span class="w">  </span><span class="nt">transform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+<span class="w">  </span><span class="nt">backbone</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rec_resnet34</span>
+<span class="w">    </span><span class="nt">pretrained</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">  </span><span class="nt">neck</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RNNEncoder</span>
+<span class="w">    </span><span class="nt">hidden_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">64</span>
+<span class="w">  </span><span class="nt">head</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CTCHead</span>
+<span class="w">    </span><span class="nt">out_channels</span><span class="p">:</span><span class="w"> </span><span class="nv">*num_classes</span>
+<span class="w">  </span><span class="nt">resume</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/local_path_to_the_ckpt/model.ckpt</span>
+<span class="nn">...</span>
+</code></pre></div>
+<h4 id="mixed-precision-training">Mixed Precision Training<a class="headerlink" href="#mixed-precision-training" title="Permanent link">&para;</a></h4>
+<p>Some models (including CRNN, RARE, SVTR) support mixed precision training to accelerate training speed. Users can try setting the <code>system.amp_level</code> in the configuration file to <code>O2</code> to start mixed precision training, as shown in the following example:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">system</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">  </span><span class="nt">distribute</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="w">  </span><span class="nt">amp_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">O2</span><span class="w">  </span><span class="c1"># Mixed precision training</span>
+<span class="w">  </span><span class="nt">amp_level_infer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">O2</span>
+<span class="w">  </span><span class="nt">seed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">42</span>
+<span class="w">  </span><span class="nt">log_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="w">  </span><span class="nt">val_while_train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="w">  </span><span class="nt">drop_overflow_update</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">  </span><span class="nt">ckpt_max_keep</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="nn">...</span>
+</code></pre></div>
+<p>To disable mixed precision training, change <code>system.amp_level</code> to <code>O0</code>.</p>
+<h2 id="model-evaluation">Model Evaluation<a class="headerlink" href="#model-evaluation" title="Permanent link">&para;</a></h2>
+<p>To evaluate the accuracy of a trained model, users can use <code>tools/eval.py</code>. Please set the <code>ckpt_load_path</code> parameter in the <code>eval</code> section of the configuration file to the file path of the model checkpoint, and set <code>system.distribute</code> to False, as shown below:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">system</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">distribute</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"> </span><span class="c1"># During evaluation stage, set to False</span>
+<span class="nn">...</span>
+<span class="nt">eval</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ckpt_load_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/local_path_to_the_ckpt/model.ckpt</span>
+</code></pre></div>
+<p>and run</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>tools/eval.py<span class="w"> </span>--config<span class="w"> </span>configs/rec/crnn/crnn_resnet34_ch.yaml
+</code></pre></div>
+<p>You will get a model evaluation result similar to the following:</p>
+<div class="highlight"><pre><span></span><code>2023-06-16 03:41:20,237:INFO:Performance: {&#39;acc&#39;: 0.821939, &#39;norm_edit_distance&#39;: 0.917264}
+</code></pre></div>
+<p>The number corresponding to <code>acc</code> is the accuracy of the model.</p>
+<h2 id="model-inference">Model Inference<a class="headerlink" href="#model-inference" title="Permanent link">&para;</a></h2>
+<p>Users can quickly obtain the inference results of the model by using the inference script. First, place the images in the same folder, and then execute:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>tools/infer/text/predict_rec.py<span class="w"> </span>--image_dir<span class="w"> </span><span class="o">{</span>dir_to_your_image_data<span class="o">}</span><span class="w"> </span>--rec_algorithm<span class="w"> </span>CRNN_CH<span class="w"> </span>--draw_img_save_dir<span class="w"> </span>inference_results
+</code></pre></div>
+<p>The results will be stored in <code>draw_img_save_dir/rec_results.txt</code>. Here are some examples:</p>
+<p align="center">
+  <img src="https://github.com/SamitHuang/mindocr-1/assets/8156835/e220ade5-89ae-47a4-927f-2c28941a5965" width=200 />
+</p>
+<p align="center">
+  <em> cert_id.png </em>
+</p>
+
+<p align="center">
+  <img src="https://github.com/SamitHuang/mindocr-1/assets/8156835/d7cfee90-d586-4796-9ebf-b56872832e71" width=400 />
+</p>
+<p align="center">
+  <em> doc_cn3.png </em>
+</p>
+
+<p>You will get inference results similar to the following:</p>
+<div class="highlight"><pre><span></span><code>cert_id.png 公民身份号码44052419
+doc_cn3.png 马拉松选手不会为短暂的领先感到满意，而是永远在奔跑。
+</code></pre></div>
 
 
 
@@ -1299,13 +1566,13 @@ common:
         
         
           
-          <a href="../../mkdocs/inference_tutorial/" class="md-footer__link md-footer__link--next" aria-label="Next: Python/C++ Inference on Ascend 310" rel="next">
+          <a href="../advanced_train/" class="md-footer__link md-footer__link--next" aria-label="Next: Advance Training" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Python/C++ Inference on Ascend 310
+                Advance Training
               </div>
             </div>
             <div class="md-footer__button md-icon">

@@ -548,7 +548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/advanced_train.md" class="md-nav__link">
+      <a href="../tutorials/advanced_train/" class="md-nav__link">
         Advance Training
       </a>
     </li>
@@ -604,7 +604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mkdocs/inference_tutorial/" class="md-nav__link">
+      <a href="../inference/inference_tutorial/" class="md-nav__link">
         Python/C++ Inference on Ascend 310
       </a>
     </li>
@@ -988,6 +988,74 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#datasets" class="md-nav__link">
+    Datasets
+  </a>
+  
+    <nav class="md-nav" aria-label="Datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download" class="md-nav__link">
+    Download
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversion" class="md-nav__link">
+    Conversion
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
+  </a>
+  
+    <nav class="md-nav" aria-label="Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-log" class="md-nav__link">
+    Change Log
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-contribute" class="md-nav__link">
+    How to Contribute
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    License
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    Citation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1029,14 +1097,14 @@
 </div>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>MindOCR is an open-source toolbox for OCR development and application based on <a href="https://www.mindspore.cn/en">MindSpore</a>. It helps users to train and apply the best text detection and recognition models, such as DBNet/DBNet++ and CRNN/SVTR, to fulfill image-text understanding needs.</p>
-<details open>
+<details open="open">
 <summary> Major Features </summary>
-
-- **Modulation design**: We decouple the OCR task into several configurable modules. Users can set up the training and evaluation pipeline easily for customized data and models with a few lines of modification.
-- **High-performance**: MindOCR provides pretrained weights and the used training recipes that reach competitive performance on OCR tasks.
-- **Low-cost-to-apply**: We provide easy-to-use inference tools to perform text detection and recognition tasks.
+<ul>
+<li><strong>Modulation design</strong>: We decouple the OCR task into several configurable modules. Users can set up the training and evaluation pipeline easily for customized data and models with a few lines of modification.</li>
+<li><strong>High-performance</strong>: MindOCR provides pretrained weights and the used training recipes that reach competitive performance on OCR tasks.</li>
+<li><strong>Low-cost-to-apply</strong>: We provide easy-to-use inference tools to perform text detection and recognition tasks.</li>
+</ul>
 </details>
-
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <h3 id="dependency">Dependency<a class="headerlink" href="#dependency" title="Permanent link">&para;</a></h3>
 <p>To install the dependency, please run
@@ -1091,109 +1159,116 @@ The training pipeline is fully extendable. To train other text detection/recogni
 <h3 id="2-inference-and-deployment">2. Inference and Deployment<a class="headerlink" href="#2-inference-and-deployment" title="Permanent link">&para;</a></h3>
 <h4 id="21-inference-with-mindspore-lite-and-acl-on-ascend-310">2.1 Inference with MindSpore Lite and ACL on Ascend 310<a class="headerlink" href="#21-inference-with-mindspore-lite-and-acl-on-ascend-310" title="Permanent link">&para;</a></h4>
 <p>MindOCR supports OCR model inference with <a href="https://www.mindspore.cn/lite/en">MindSpore Lite</a> and <a href="https://www.hiascend.com/document/detail/zh/canncommercial/63RC1/inferapplicationdev/aclcppdevg/aclcppdevg_000004.html">ACL</a> (Ascend Computation Language)  backends. It integrates efficient text detection, classification and recognition inference pipeline for deployment.</p>
-<p>Please refer to <a href="../mkdocs/inference_tutorial/">MindOCR Inference on Ascend 310</a> for detailed illustrations.</p>
+<p>Please refer to <a href="docs/en/inference/inference_tutorial.md">MindOCR Inference on Ascend 310</a> for detailed illustrations.</p>
 <h4 id="22-inference-with-native-mindspore-on-ascend910gpucpu">2.2 Inference with native MindSpore on Ascend910/GPU/CPU<a class="headerlink" href="#22-inference-with-native-mindspore-on-ascend910gpucpu" title="Permanent link">&para;</a></h4>
 <p>MindOCR provides easy-to-use text detection and recognition inference tools supporting CPU/GPU/Ascend910 devices, based on the MindOCR-trained models.</p>
 <p>Please refer to <a href="../mkdocs/online_inference/">MindOCR Online Inference</a> for details.</p>
 <h2 id="model-list">Model List<a class="headerlink" href="#model-list" title="Permanent link">&para;</a></h2>
-<details open>
+<details open="open">
 <summary>Text Detection</summary>
-
-- [x] DBNet (AAAI'2020)
-- [x] DBNet++ (TPAMI'2022)
-- [x] PSENet (CVPR'2019)
-- [x] EAST (CVPR'2017)
-- [ ] FCENet (CVPR'2021) [coming soon]
-
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> DBNet (AAAI'2020)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> DBNet++ (TPAMI'2022)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> PSENet (CVPR'2019)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> EAST (CVPR'2017)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> FCENet (CVPR'2021) [coming soon]</li>
+</ul>
 </details>
-
-<details open>
+<details open="open">
 <summary>Text Recognition</summary>
-
-- [x] CRNN (TPAMI'2016)
-- [x] CRNN-Seq2Seq/RARE (CVPR'2016)
-- [x] SVTR (IJCAI'2022)
-- [ ] ABINet (CVPR'2021) [coming soon]
-
-
-For the detailed performance of the trained models, please refer to `configs/` directory.
-
-For detailed support for MindSpore Lite and ACL inference models, please refer to [MindOCR Models Support List](mkdocs/inference_models_list.md) and [Third-Party Models Support List](mkdocs/inference_models_list_thirdparty.md).
-
-## Datasets
-
-### Download
-
-We give instructions on how to download the following datasets.
-
-<details open>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> CRNN (TPAMI'2016)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> CRNN-Seq2Seq/RARE (CVPR'2016)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> SVTR (IJCAI'2022)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ABINet (CVPR'2021) [coming soon]</li>
+</ul>
+<p>For the detailed performance of the trained models, please refer to <code>configs/</code> directory.</p>
+<p>For detailed support for MindSpore Lite and ACL inference models, please refer to <a href="inference/inference_models_list.md">MindOCR Models Support List</a> and <a href="inference/inference_models_list_thirdparty.md">Third-Party Models Support List</a>.</p>
+<h2 id="datasets">Datasets<a class="headerlink" href="#datasets" title="Permanent link">&para;</a></h2>
+<h3 id="download">Download<a class="headerlink" href="#download" title="Permanent link">&para;</a></h3>
+<p>We give instructions on how to download the following datasets.</p>
+<details open="open">
 <summary>Text Detection</summary>
-
-- [x] ICDAR2015 [paper](https://rrc.cvc.uab.es/files/short_rrc_2015.pdf) [homepage](https://rrc.cvc.uab.es/?ch=4)
-
-- [x] Total-Text [paper](https://arxiv.org/abs/1710.10400) [homepage](https://github.com/cs-chan/Total-Text-Dataset/tree/master/Dataset)
-
-- [x] Syntext150k [paper](https://arxiv.org/abs/2002.10200) [homepage](https://github.com/aim-uofa/AdelaiDet)
-
-- [x] MLT2017 [paper](https://ieeexplore.ieee.org/abstract/document/8270168) [homepage](https://rrc.cvc.uab.es/?ch=8&com=introduction)
-
-- [x] MSRA-TD500 [paper](https://ieeexplore.ieee.org/abstract/document/6247787) [homepage](http://www.iapr-tc11.org/mediawiki/index.php/MSRA_Text_Detection_500_Database_(MSRA-TD500))
-
-- [x] SCUT-CTW1500 [paper](https://www.sciencedirect.com/science/article/pii/S0031320319300664) [homepage](https://github.com/Yuliang-Liu/Curve-Text-Detector)
-
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> ICDAR2015 <a href="https://rrc.cvc.uab.es/files/short_rrc_2015.pdf">paper</a> <a href="https://rrc.cvc.uab.es/?ch=4">homepage</a></p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Total-Text <a href="https://arxiv.org/abs/1710.10400">paper</a> <a href="https://github.com/cs-chan/Total-Text-Dataset/tree/master/Dataset">homepage</a></p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Syntext150k <a href="https://arxiv.org/abs/2002.10200">paper</a> <a href="https://github.com/aim-uofa/AdelaiDet">homepage</a></p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> MLT2017 <a href="https://ieeexplore.ieee.org/abstract/document/8270168">paper</a> <a href="https://rrc.cvc.uab.es/?ch=8&amp;com=introduction">homepage</a></p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> MSRA-TD500 <a href="https://ieeexplore.ieee.org/abstract/document/6247787">paper</a> <a href="http://www.iapr-tc11.org/mediawiki/index.php/MSRA_Text_Detection_500_Database_(MSRA-TD500)">homepage</a></p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> SCUT-CTW1500 <a href="https://www.sciencedirect.com/science/article/pii/S0031320319300664">paper</a> <a href="https://github.com/Yuliang-Liu/Curve-Text-Detector">homepage</a></p>
+</li>
+</ul>
 </details>
-
-### Conversion
-
-After downloading these datasets in the `DATASETS_DIR` folder, you can run `bash tools/convert_datasets.sh` to convert all downloaded datasets into the target format. [Here](mkdocs/dataset_converters.md) is an example of icdar2015 dataset converting.
-
-## Notes
-
-### Change Log
-
-- 2023/06/07
-1. Add new trained models
-    - PSENet for text detection
-    - EAST for text detection
-    - SVTR for text recognition
-2. Add more benchmark datasets and their results
-    - totaltext
-    - mlt2017
-    - chinese_text_recognition
-3. Add resume training function, which can be used in case of unexpected interruption in training. Usage: add the `resume` parameter under the `model` field in the yaml config, e.g.,`resume: True`, load and resume training from {ckpt_save_dir}/train_resume.ckpt or `resume: /path/to/train_resume.ckpt`, load and resume training from the given path.
-
-- 2023/05/15
-1. Add new trained models
-    - DBNet++ for text detection
-    - CRNN-Seq2Seq for text recognition
-    - DBNet pretrained on SynthText is now available: [checkpoint url](https://download.mindspore.cn/toolkits/mindocr/dbnet/dbnet_resnet50_synthtext-40655acb.ckpt)
-2. Add more benchmark datasets and their results
-    - [SynthText](https://academictorrents.com/details/2dba9518166cbd141534cbf381aa3e99a087e83c), MSRA-TD500, CTW1500
-    - More benchmark results for DBNet are reported in `configs/det/dbnet/README.md`.
+<h3 id="conversion">Conversion<a class="headerlink" href="#conversion" title="Permanent link">&para;</a></h3>
+<p>After downloading these datasets in the <code>DATASETS_DIR</code> folder, you can run <code>bash tools/convert_datasets.sh</code> to convert all downloaded datasets into the target format. <a href="../mkdocs/dataset_converters/">Here</a> is an example of icdar2015 dataset converting.</p>
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
+<h3 id="change-log">Change Log<a class="headerlink" href="#change-log" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>2023/06/07
+1. Add new trained models</p>
+<ul>
+<li>PSENet for text detection</li>
+<li>EAST for text detection</li>
+<li>SVTR for text recognition
+2. Add more benchmark datasets and their results</li>
+<li>totaltext</li>
+<li>mlt2017</li>
+<li>chinese_text_recognition
+3. Add resume training function, which can be used in case of unexpected interruption in training. Usage: add the <code>resume</code> parameter under the <code>model</code> field in the yaml config, e.g.,<code>resume: True</code>, load and resume training from {ckpt_save_dir}/train_resume.ckpt or <code>resume: /path/to/train_resume.ckpt</code>, load and resume training from the given path.</li>
+</ul>
+</li>
+<li>
+<p>2023/05/15
+1. Add new trained models</p>
+<ul>
+<li>DBNet++ for text detection</li>
+<li>CRNN-Seq2Seq for text recognition</li>
+<li>DBNet pretrained on SynthText is now available: <a href="https://download.mindspore.cn/toolkits/mindocr/dbnet/dbnet_resnet50_synthtext-40655acb.ckpt">checkpoint url</a>
+2. Add more benchmark datasets and their results</li>
+<li><a href="https://academictorrents.com/details/2dba9518166cbd141534cbf381aa3e99a087e83c">SynthText</a>, MSRA-TD500, CTW1500</li>
+<li>More benchmark results for DBNet are reported in <code>configs/det/dbnet/README.md</code>.
 3. Add checkpoint manager for saving top-k checkpoints and improve log.
 4. Python inference code refractored.
-5. Bug fix: use meter to average loss for large datasets, disable `pred_cast_fp32` for ctcloss in AMP training, fix error when invalid polygons exist.
-
-- 2023/05/04
-1. Support loading self-defined pretrained checkpoints via setting `model-pretrained` with checkpoint url or local path in yaml.
+5. Bug fix: use meter to average loss for large datasets, disable <code>pred_cast_fp32</code> for ctcloss in AMP training, fix error when invalid polygons exist.</li>
+</ul>
+</li>
+<li>
+<p>2023/05/04
+1. Support loading self-defined pretrained checkpoints via setting <code>model-pretrained</code> with checkpoint url or local path in yaml.
 2. Support setting probability for executing augmentation including rotation and flip.
-3. Add Exponential Moving Average(EMA) for model training, which can be enabled by setting `train-ema` (default: False) and `train-ema_decay` in the yaml config.
-4. Arg parameter changed：`num_columns_to_net` -> `net_input_column_index`: change the column number feeding into the network to the column index.
-5. Arg parameter changed：`num_columns_of_labels` -> `label_column_index`: change the column number corresponds to the label to the column index.
-
-- 2023/04/21
-1. Add parameter grouping to support flexible regularization in training. Usage: add `grouping_strategy` argument in yaml config to select a predefined grouping strategy, or use `no_weight_decay_params` argument to pick layers to exclude from weight decay (e.g., bias, norm). Example can be referred in `configs/rec/crnn/crnn_icdar15.yaml`
-2. Add gradient accumulation to support large batch size training. Usage: add `gradient_accumulation_steps` in yaml config, the global batch size = batch_size * devices * gradient_accumulation_steps. Example can be referred in `configs/rec/crnn/crnn_icdar15.yaml`
-3. Add gradient clip to support training stablization. Enable it by setting `grad_clip` as True in yaml config.
-
-- 2023/03/23
-1. Add dynamic loss scaler support, compatible with drop overflow update. To enable dynamic loss scaler, please set `type` of `loss_scale` as `dynamic`. A YAML example can be viewed in `configs/rec/crnn/crnn_icdar15.yaml`
-
-- 2023/03/20
-1. Arg names changed: `output_keys` -> `output_columns`, `num_keys_to_net` -> `num_columns_to_net`
-2. Data pipeline updated
-
-- 2023/03/13
+3. Add Exponential Moving Average(EMA) for model training, which can be enabled by setting <code>train-ema</code> (default: False) and <code>train-ema_decay</code> in the yaml config.
+4. Arg parameter changed：<code>num_columns_to_net</code> -&gt; <code>net_input_column_index</code>: change the column number feeding into the network to the column index.
+5. Arg parameter changed：<code>num_columns_of_labels</code> -&gt; <code>label_column_index</code>: change the column number corresponds to the label to the column index.</p>
+</li>
+<li>
+<p>2023/04/21
+1. Add parameter grouping to support flexible regularization in training. Usage: add <code>grouping_strategy</code> argument in yaml config to select a predefined grouping strategy, or use <code>no_weight_decay_params</code> argument to pick layers to exclude from weight decay (e.g., bias, norm). Example can be referred in <code>configs/rec/crnn/crnn_icdar15.yaml</code>
+2. Add gradient accumulation to support large batch size training. Usage: add <code>gradient_accumulation_steps</code> in yaml config, the global batch size = batch_size * devices * gradient_accumulation_steps. Example can be referred in <code>configs/rec/crnn/crnn_icdar15.yaml</code>
+3. Add gradient clip to support training stablization. Enable it by setting <code>grad_clip</code> as True in yaml config.</p>
+</li>
+<li>
+<p>2023/03/23
+1. Add dynamic loss scaler support, compatible with drop overflow update. To enable dynamic loss scaler, please set <code>type</code> of <code>loss_scale</code> as <code>dynamic</code>. A YAML example can be viewed in <code>configs/rec/crnn/crnn_icdar15.yaml</code></p>
+</li>
+<li>
+<p>2023/03/20
+1. Arg names changed: <code>output_keys</code> -&gt; <code>output_columns</code>, <code>num_keys_to_net</code> -&gt; <code>num_columns_to_net</code>
+2. Data pipeline updated</p>
+</li>
+<li>
+<p>2023/03/13
 1. Add system test and CI workflow.
 2. Add modelarts adapter to allow training on OpenI platform. To train on OpenI:
   <div class="highlight"><pre><span></span><code>  i)   Create a new training task on the openi cloud platform.
@@ -1201,27 +1276,22 @@ After downloading these datasets in the `DATASETS_DIR` folder, you can run `bash
   iii) Add run parameter `config` and write the yaml file path on the website UI interface, e.g., &#39;/home/work/user-job-dir/V0001/configs/rec/test.yaml&#39;
   iv)  Add run parameter `enable_modelarts` and set True on the website UI interface.
   v)   Fill in other blanks and launch.
-</code></pre></div>
-
-- 2023/03/08
-1. Add evaluation script with  arg `ckpt_load_path`
-2. Arg `ckpt_save_dir` is moved from `system` to `train` in yaml.
-3. Add drop_overflow_update control
-
-### How to Contribute
-
-We appreciate all kinds of contributions including issues and PRs to make MindOCR better.
-
-Please refer to [CONTRIBUTING.md](mkdocs/contributing.md) for the contributing guideline. Please follow the [Model Template and Guideline](mkdocs/customize_model.md) for contributing a model that fits the overall interface :)
-
-### License
-
-This project follows the [Apache License 2.0](mkdocs/license.md) open-source license.
-
-### Citation
-
-If you find this project useful in your research, please consider citing:
-
+</code></pre></div></p>
+</li>
+<li>
+<p>2023/03/08
+1. Add evaluation script with  arg <code>ckpt_load_path</code>
+2. Arg <code>ckpt_save_dir</code> is moved from <code>system</code> to <code>train</code> in yaml.
+3. Add drop_overflow_update control</p>
+</li>
+</ul>
+<h3 id="how-to-contribute">How to Contribute<a class="headerlink" href="#how-to-contribute" title="Permanent link">&para;</a></h3>
+<p>We appreciate all kinds of contributions including issues and PRs to make MindOCR better.</p>
+<p>Please refer to <a href="../mkdocs/contributing/">CONTRIBUTING.md</a> for the contributing guideline. Please follow the <a href="../mkdocs/customize_model/">Model Template and Guideline</a> for contributing a model that fits the overall interface :)</p>
+<h3 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h3>
+<p>This project follows the <a href="../mkdocs/license/">Apache License 2.0</a> open-source license.</p>
+<h3 id="citation">Citation<a class="headerlink" href="#citation" title="Permanent link">&para;</a></h3>
+<p>If you find this project useful in your research, please consider citing:</p>
 <div class="highlight"><pre><span></span><code>@misc<span class="nb">{</span>MindSpore OCR 2023,
     title=<span class="nb">{{</span>MindSpore OCR <span class="nb">}</span>:MindSpore OCR Toolbox<span class="nb">}</span>,
     author=<span class="nb">{</span>MindSpore Team<span class="nb">}</span>,
@@ -1229,6 +1299,7 @@ If you find this project useful in your research, please consider citing:
     year=<span class="nb">{</span>2023<span class="nb">}</span>
 <span class="nb">}</span>
 </code></pre></div>
+</details>
 
 
 

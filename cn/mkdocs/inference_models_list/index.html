@@ -70,11 +70,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#-mindocr" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -548,7 +543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tutorials/advanced_train.md" class="md-nav__link">
+      <a href="../../tutorials/advanced_train/" class="md-nav__link">
         Advance Training
       </a>
     </li>
@@ -604,7 +599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../inference_tutorial/" class="md-nav__link">
+      <a href="../../inference/inference_tutorial/" class="md-nav__link">
         Python/C++ Inference on Ascend 310
       </a>
     </li>
@@ -865,41 +860,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#-mindocr" class="md-nav__link">
-    推理 - MindOCR模型推理支持列表
-  </a>
-  
-    <nav class="md-nav" aria-label="推理 - MindOCR模型推理支持列表">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1. 文本检测
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2. 文本识别
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -931,102 +891,7 @@
 
   <h1>Inference models list.md</h1>
 
-<!-- BEGIN INCLUDE ../inference/models_list_cn.md -->
-<p><a href="../../inference/models_list_en/">English</a> | 中文</p>
-<h2 id="-mindocr">推理 - MindOCR模型推理支持列表<a class="headerlink" href="#-mindocr" title="Permanent link">&para;</a></h2>
-<p>MindOCR推理支持训练端ckpt导出的模型，本文档展示了已适配的模型列表。</p>
-<p>请<a href="../../../tools/export.py">自行导出</a>或下载已预先导出的MindIR文件，并参考<a href="../../inference/convert_tutorial_cn/">模型转换教程</a>，再进行推理。</p>
-<h3 id="1">1. 文本检测<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th align="left">模型</th>
-<th align="left">骨干网络</th>
-<th align="left">语言</th>
-<th align="left">配置文件</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">DBNet</td>
-<td align="left">MobileNetV3</td>
-<td align="left">en</td>
-<td align="left"><a href="../../../configs/det/dbnet/db_mobilenetv3_icdar15.yaml">db_mobilenetv3_icdar15.yaml</a></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">ResNet-18</td>
-<td align="left">en</td>
-<td align="left"><a href="../../../configs/det/dbnet/db_r18_icdar15.yaml">db_r18_icdar15.yaml</a></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">ResNet-50</td>
-<td align="left">en</td>
-<td align="left"><a href="../../../configs/det/dbnet/db_r50_icdar15.yaml">db_r50_icdar15.yaml</a></td>
-</tr>
-<tr>
-<td align="left">DBNet++</td>
-<td align="left">ResNet-50</td>
-<td align="left">en</td>
-<td align="left"><a href="../../../configs/det/dbnet/db++_r50_icdar15.yaml">db++_r50_icdar15.yaml</a></td>
-</tr>
-<tr>
-<td align="left">EAST</td>
-<td align="left">ResNet-50</td>
-<td align="left">en</td>
-<td align="left"><a href="../../../configs/det/east/east_r50_icdar15.yaml">east_r50_icdar15.yaml</a></td>
-</tr>
-<tr>
-<td align="left">PSENet</td>
-<td align="left">ResNet-152</td>
-<td align="left">en</td>
-<td align="left"><a href="../../../configs/det/psenet/pse_r152_icdar15.yaml">pse_r152_icdar15.yaml</a></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">ResNet-152</td>
-<td align="left">ch</td>
-<td align="left"><a href="../../../configs/det/psenet/pse_r152_ctw1500.yaml">pse_r152_ctw1500.yaml</a></td>
-</tr>
-</tbody>
-</table>
-<h3 id="2">2. 文本识别<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th align="left">模型</th>
-<th align="left">骨干网络</th>
-<th align="left">字典文件</th>
-<th align="left">语言</th>
-<th align="left">配置文件</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">CRNN</td>
-<td align="left">VGG7</td>
-<td align="left">默认</td>
-<td align="left">en</td>
-<td align="left"><a href="../../../configs/rec/crnn/crnn_vgg7.yaml">crnn_vgg7.yaml</a></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">ResNet34_vd</td>
-<td align="left">默认</td>
-<td align="left">en</td>
-<td align="left"><a href="../../../configs/rec/crnn/crnn_resnet34.yaml">crnn_resnet34.yaml</a></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">ResNet34_vd</td>
-<td align="left"><a href="../../../mindocr/utils/dict/ch_dict.txt">ch_dict.txt</a></td>
-<td align="left">ch</td>
-<td align="left"><a href="../../../configs/rec/crnn/crnn_resnet34_ch.yaml">crnn_resnet34_ch.yaml</a></td>
-</tr>
-</tbody>
-</table>
-<!-- END INCLUDE -->
+
 
 
 

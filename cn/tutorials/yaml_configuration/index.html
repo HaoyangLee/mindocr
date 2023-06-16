@@ -950,11 +950,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-train-eval-predict" class="md-nav__link">
-    8. 训练、评估和推理流程 (train, eval, predict)
+  <a href="#8-train-eval" class="md-nav__link">
+    8. 训练、评估流程 (train, eval)
   </a>
   
-    <nav class="md-nav" aria-label="8. 训练、评估和推理流程 (train, eval, predict)">
+    <nav class="md-nav" aria-label="8. 训练、评估流程 (train, eval)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1009,9 +1009,9 @@
 
 <h1 id="_1">配置文件参数说明<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <ul>
-<li><a href="#1-训练环境参数-system">训练环境参数-system</a></li>
-<li><a href="#2-通用参数-common">通用参数-common</a></li>
-<li><a href="#3-模型架构-model">模型架构-model</a></li>
+<li><a href="#1-环境参数-system">环境参数-system</a></li>
+<li><a href="#2-共用参数-common">共用参数-common</a></li>
+<li><a href="#3-模型定义参数-model">模型定义参数-model</a></li>
 <li><a href="#4-后处理-postprocess">后处理-postprocess</a></li>
 <li><a href="#5-评估指标-metric">评估指标-metric</a></li>
 <li><a href="#6-损失函数-loss">损失函数-loss</a></li>
@@ -1019,7 +1019,7 @@
 <li><a href="#学习率调整策略-scheduler">学习率调整策略-scheduler</a></li>
 <li><a href="#优化器-optimizer">优化器-optimizer</a></li>
 <li><a href="#损失缩放系数-loss_scaler">损失缩放-loss_scaler</a></li>
-<li><a href="#8-训练和评估流程-train-eval">训练和评估流程(train, eval)</a></li>
+<li><a href="#8-训练评估流程-train-eval">训练和评估流程(train, eval)</a></li>
 <li><a href="#训练流程-train">训练流程-train</a></li>
 <li><a href="#评估流程-eval">评估流程-eval</a></li>
 </ul>
@@ -1118,7 +1118,7 @@
 <h2 id="2-common">2. 共用参数 (common)<a class="headerlink" href="#2-common" title="Permanent link">&para;</a></h2>
 <p>因为同一个参数可能在不同的配置部分都需要重复利用，所以您可以在这个部分自定义一些通用的参数，以便管理。</p>
 <h2 id="3-model">3. 模型定义参数 (model)<a class="headerlink" href="#3-model" title="Permanent link">&para;</a></h2>
-<p>在MindOCR中，模型的网络架构划分为 Transform, Backbone, Neck和Head四个模块。详细请参阅<a href="../mindocr/models/README.md">文档</a>，以下是各部分的配置说明与例子。</p>
+<p>在MindOCR中，模型的网络架构划分为 Transform, Backbone, Neck和Head四个模块。详细请参阅<a href="../../../mindocr/models/README.md">文档</a>，以下是各部分的配置说明与例子。</p>
 <table>
 <thead>
 <tr>
@@ -1224,9 +1224,9 @@
 <blockquote>
 <p>注意：对于不同网络，backbone/neck/head模块可配置参数会有所不同，具体可配置参数由上表模块的<code>name</code>参数指定的类的__init__入参所决定 （如若指定下neck模块的name为DBFPN，由于DBFPN类初始化包括adaptive入参，则可在yaml中model.head层级下配置adaptive等参数。</p>
 </blockquote>
-<p>参考例子: <a href="./det/dbnet/db_r50_mlt2017.yaml">DBNet</a>, <a href="./rec/crnn/crnn_icdar15.yaml">CRNN</a></p>
+<p>参考例子: <a href="../../../configs/det/dbnet/db_r50_mlt2017.yaml">DBNet</a>, <a href="../../../configs/rec/crnn/crnn_icdar15.yaml">CRNN</a></p>
 <h2 id="4-postprocess">4. 后处理 (postprocess)<a class="headerlink" href="#4-postprocess" title="Permanent link">&para;</a></h2>
-<p>代码位置请看： <a href="../mindocr/postprocess/">mindocr/postprocess</a></p>
+<p>代码位置请看： <a href="../../../mindocr/postprocess/">mindocr/postprocess</a></p>
 <table>
 <thead>
 <tr>
@@ -1260,9 +1260,9 @@
 <blockquote>
 <p>注意：对于不同后处理方法（由name指定），可配置的参数有所不同，并由后处理类的初始化方法__init__的入参所决定。</p>
 </blockquote>
-<p>参考例子: <a href="./det/dbnet/db_r50_mlt2017.yaml">DBNet</a>, <a href="./det/psenet/pse_r152_icdar15.yaml">PSENet</a></p>
+<p>参考例子: <a href="../../../configs/det/dbnet/db_r50_mlt2017.yaml">DBNet</a>, <a href="../../../configs/det/psenet/pse_r152_icdar15.yaml">PSENet</a></p>
 <h2 id="5-metric">5. 评估指标 (metric)<a class="headerlink" href="#5-metric" title="Permanent link">&para;</a></h2>
-<p>代码位置请看： <a href="../mindocr/metrics">mindocr/metrics</a></p>
+<p>代码位置请看： <a href="../../../mindocr/metrics">mindocr/metrics</a></p>
 <table>
 <thead>
 <tr>
@@ -1306,7 +1306,7 @@
 </tbody>
 </table>
 <h2 id="6-loss">6. 损失函数 (loss)<a class="headerlink" href="#6-loss" title="Permanent link">&para;</a></h2>
-<p>代码位置请看： <a href="../mindocr/losses">mindocr/losses</a></p>
+<p>代码位置请看： <a href="../../../mindocr/losses">mindocr/losses</a></p>
 <table>
 <thead>
 <tr>
@@ -1348,7 +1348,7 @@
 </blockquote>
 <h2 id="7-scheduler-optimizer-loss_scaler">7. 学习率调整策略和优化器 (scheduler, optimizer, loss_scaler)<a class="headerlink" href="#7-scheduler-optimizer-loss_scaler" title="Permanent link">&para;</a></h2>
 <h3 id="scheduler">学习率调整策略 (scheduler)<a class="headerlink" href="#scheduler" title="Permanent link">&para;</a></h3>
-<p>代码位置请看： <a href="../mindocr/scheduler">mindocr/scheduler</a></p>
+<p>代码位置请看： <a href="../../../mindocr/scheduler">mindocr/scheduler</a></p>
 <table>
 <thead>
 <tr>
@@ -1398,7 +1398,7 @@
 </tbody>
 </table>
 <h3 id="optimizer">优化器 (optimizer)<a class="headerlink" href="#optimizer" title="Permanent link">&para;</a></h3>
-<p>代码位置请看： <a href="../mindocr/optim">mindocr/optim</a></p>
+<p>代码位置请看： <a href="../../../mindocr/optim">mindocr/optim</a></p>
 <table>
 <thead>
 <tr>
@@ -1478,7 +1478,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="8-train-eval-predict">8. 训练、评估和推理流程 (train, eval, predict)<a class="headerlink" href="#8-train-eval-predict" title="Permanent link">&para;</a></h2>
+<h2 id="8-train-eval">8. 训练、评估流程 (train, eval)<a class="headerlink" href="#8-train-eval" title="Permanent link">&para;</a></h2>
 <p>训练流程的配置放在 <code>train</code> 底下，评估阶段的配置放在 <code>eval</code> 底下。注意，在模型训练的时候，若打开边训练边评估模式，即val_while_train=True时，则在每个epoch训练完毕后按照 <code>eval</code> 底下的配置运行一次评估。在非训练阶段，只运行模型评估的时候，只读取 <code>eval</code> 配置。</p>
 <h3 id="train">训练流程 (train)<a class="headerlink" href="#train" title="Permanent link">&para;</a></h3>
 <table>
@@ -1548,7 +1548,7 @@
 <tr>
 <td align="left"><strong>dataset</strong></td>
 <td align="left">数据集配置</td>
-<td align="left">详细请参阅<a href="../mindocr/data/README.md">Data文档</a></td>
+<td align="left">详细请参阅<a href="../../../mindocr/data/README.md">Data文档</a></td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1591,7 +1591,7 @@
 <td align="left">transform_pipeline</td>
 <td align="left">数据处理流程</td>
 <td align="left">None</td>
-<td align="left">详情请看 <a href="../mindocr/data/transforms">transforms</a></td>
+<td align="left">详情请看 <a href="../../../mindocr/data/transforms/README.md">transforms</a></td>
 </tr>
 <tr>
 <td align="left">output_columns</td>
@@ -1649,7 +1649,7 @@
 </tr>
 </tbody>
 </table>
-<p>参考例子: <a href="./det/dbnet/db_r50_mlt2017.yaml">DBNet</a>, <a href="./rec/crnn/crnn_icdar15.yaml">CRNN</a></p>
+<p>参考例子: <a href="../../../configs/det/dbnet/db_r50_mlt2017.yaml">DBNet</a>, <a href="../../../configs/rec/crnn/crnn_icdar15.yaml">CRNN</a></p>
 <h3 id="eval">评估流程 (eval)<a class="headerlink" href="#eval" title="Permanent link">&para;</a></h3>
 <p><code>eval</code> 的参数与 <code>train</code> 基本一样，只补充说明几个额外的参数，其余的请参考上述<code>train</code>的参数说明。</p>
 <table>

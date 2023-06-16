@@ -1188,8 +1188,8 @@
 </tr>
 </tbody>
 </table>
-<p>Supported platforms: Linux, MacOS, Windows (Not tested)
-Supported devices: CPU, GPU, and Ascend.</p>
+<p>Supported platforms: Linux, MacOS, Windows (Not tested)</p>
+<p>Supported devices: CPU, GPU, and Ascend.</p>
 <p>Please clone MindOCR at first
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/mindspore-lab/mindocr.git
 </code></pre></div></p>
@@ -1318,6 +1318,9 @@ doc_cn3.png 马拉松选手不会为短暂的领先感到满意，而是永远�
 <span class="w">                                          </span>--det_algorithm<span class="w"> </span>DB++<span class="w">  </span><span class="se">\</span>
 <span class="w">                                          </span>--rec_algorithm<span class="w"> </span>CRNN
 </code></pre></div>
+<blockquote>
+<p>Note: set <code>--visualize_output True</code> if you want to visualize the detection and recognition results on the input image.</p>
+</blockquote>
 <p>After running, the inference results will be saved in <code>{args.draw_img_save_dir}/system_results.txt</code>,  where <code>--draw_img_save_dir</code> is the directory for saving  results and is set to <code>./inference_results</code> by default. Here are some results for examples.</p>
 <p>Example 1:</p>
 <p align="center">

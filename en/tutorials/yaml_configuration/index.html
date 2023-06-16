@@ -1009,8 +1009,8 @@
 
 <h1 id="configuration-parameter-description">Configuration parameter description<a class="headerlink" href="#configuration-parameter-description" title="Permanent link">&para;</a></h1>
 <ul>
-<li><a href="#1-training-environment-context-parameters-system">system</a></li>
-<li><a href="#2-common-parameters-common">common</a></li>
+<li><a href="#1-environment-parameters-system">system</a></li>
+<li><a href="#2-shared-parameters-common">common</a></li>
 <li><a href="#3-model-architecture-model">model</a></li>
 <li><a href="#4-postprocessing-postprocess">postprocess</a></li>
 <li><a href="#5-evaluation-metrics-metric">metric</a></li>
@@ -1019,7 +1019,7 @@
 <li><a href="#learning-rate-adjustment-strategy-scheduler">scheduler</a></li>
 <li><a href="#optimizer">optimizer</a></li>
 <li><a href="#loss-scaling-loss_scaler">loss_scaler</a></li>
-<li><a href="#8-training-and-evaluation-process-train-eval">train, eval</a></li>
+<li><a href="#8-training-evaluation-and-predict-process-train-eval-predict">train, eval</a></li>
 <li><a href="#training-process-train">train</a></li>
 <li><a href="#evaluation-process-eval">eval</a></li>
 </ul>
@@ -1118,7 +1118,7 @@
 <h2 id="2-shared-parameters-common">2. Shared parameters (common)<a class="headerlink" href="#2-shared-parameters-common" title="Permanent link">&para;</a></h2>
 <p>Because the same parameter may need to be reused in different configuration sections, you can customize some common parameters in this section for easy management.</p>
 <h2 id="3-model-architecture-model">3. Model architecture (model)<a class="headerlink" href="#3-model-architecture-model" title="Permanent link">&para;</a></h2>
-<p>In MindOCR, the network architecture of the model is divided into four modules: Transform, Backbone, Neck and Head. For details, please refer to <a href="../mindocr/models/README.md">documentation</a>, the following are the configuration instructions and examples of each module.</p>
+<p>In MindOCR, the network architecture of the model is divided into four modules: Transform, Backbone, Neck and Head. For details, please refer to <a href="../../../mindocr/models/README.md">documentation</a>, the following are the configuration instructions and examples of each module.</p>
 <table>
 <thead>
 <tr>
@@ -1224,9 +1224,9 @@
 <blockquote>
 <p>Note: For different networks, the configurable parameters of the backbone/neck/head module will be different. The specific configurable parameters are determined by the <strong>init</strong> input parameter of the class specified by the <code>name</code> parameter of the module in the above table (For example, assume you specify the neck module is DBFPN. Since the DBFPN class initialization includes adaptive input parameters, parameters such as adaptive can be configured under the model.head in yaml.)</p>
 </blockquote>
-<p>Reference example: <a href="./det/dbnet/db_r50_mlt2017.yaml">DBNet</a>, <a href="./rec/crnn/crnn_icdar15.yaml">CRNN</a></p>
+<p>Reference example: <a href="../../../configs/det/dbnet/db_r50_mlt2017.yaml">DBNet</a>, <a href="../../../configs/rec/crnn/crnn_icdar15.yaml">CRNN</a></p>
 <h2 id="4-postprocessing-postprocess">4. Postprocessing (postprocess)<a class="headerlink" href="#4-postprocessing-postprocess" title="Permanent link">&para;</a></h2>
-<p>Please see the code in <a href="../mindocr/postprocess/">mindocr/postprocess</a></p>
+<p>Please see the code in <a href="../../../mindocr/postprocess/">mindocr/postprocess</a></p>
 <table>
 <thead>
 <tr>
@@ -1260,9 +1260,9 @@
 <blockquote>
 <p>Note: For different post-processing methods (specified by name), the configurable parameters are different, and are determined by the input parameters of the initialization method <code>__init__</code> of the post-processing class.</p>
 </blockquote>
-<p>Reference example: <a href="./det/dbnet/db_r50_mlt2017.yaml">DBNet</a>, <a href="./det/psenet/pse_r152_icdar15.yaml">PSENet</a></p>
+<p>Reference example: <a href="../../../configs/det/dbnet/db_r50_mlt2017.yaml">DBNet</a>, <a href="../../../configs/det/psenet/pse_r152_icdar15.yaml">PSENet</a></p>
 <h2 id="5-evaluation-metrics-metric">5. Evaluation metrics (metric)<a class="headerlink" href="#5-evaluation-metrics-metric" title="Permanent link">&para;</a></h2>
-<p>Please see the code in <a href="../mindocr/metrics">mindocr/metrics</a></p>
+<p>Please see the code in <a href="../../../mindocr/metrics">mindocr/metrics</a></p>
 <table>
 <thead>
 <tr>
@@ -1306,7 +1306,7 @@
 </tbody>
 </table>
 <h2 id="6-loss-function-loss">6. Loss function (loss)<a class="headerlink" href="#6-loss-function-loss" title="Permanent link">&para;</a></h2>
-<p>Please see the code in <a href="../mindocr/losses">mindocr/losses</a></p>
+<p>Please see the code in <a href="../../../mindocr/losses">mindocr/losses</a></p>
 <table>
 <thead>
 <tr>
@@ -1348,7 +1348,7 @@
 </blockquote>
 <h2 id="7-learning-rate-adjustment-strategy-and-optimizer-scheduler-optimizer-loss_scaler">7. Learning rate adjustment strategy and optimizer (scheduler, optimizer, loss_scaler)<a class="headerlink" href="#7-learning-rate-adjustment-strategy-and-optimizer-scheduler-optimizer-loss_scaler" title="Permanent link">&para;</a></h2>
 <h3 id="learning-rate-adjustment-strategy-scheduler">Learning rate adjustment strategy (scheduler)<a class="headerlink" href="#learning-rate-adjustment-strategy-scheduler" title="Permanent link">&para;</a></h3>
-<p>Please see the code in <a href="../mindocr/scheduler">mindocr/scheduler</a></p>
+<p>Please see the code in <a href="../../../mindocr/scheduler">mindocr/scheduler</a></p>
 <table>
 <thead>
 <tr>
@@ -1398,7 +1398,7 @@
 </tbody>
 </table>
 <h3 id="optimizer">optimizer<a class="headerlink" href="#optimizer" title="Permanent link">&para;</a></h3>
-<p>Please see the code location: <a href="../mindocr/optim">mindocr/optim</a></p>
+<p>Please see the code location: <a href="../../../mindocr/optim">mindocr/optim</a></p>
 <table>
 <thead>
 <tr>
@@ -1549,7 +1549,7 @@
 <td align="left"><strong>dataset</strong></td>
 <td align="left">Dataset configuration</td>
 <td align="left"></td>
-<td align="left">For details, please refer to <a href="../mindocr/data/README.md">Data document</a></td>
+<td align="left">For details, please refer to <a href="../../../mindocr/data/README.md">Data document</a></td>
 </tr>
 <tr>
 <td align="left">type</td>
@@ -1591,7 +1591,7 @@
 <td align="left">transform_pipeline</td>
 <td align="left">Data processing flow</td>
 <td align="left">None</td>
-<td align="left">For details, please see <a href="../mindocr/data/transforms">transforms</a></td>
+<td align="left">For details, please see <a href="../../../mindocr/data/transforms/README.md">transforms</a></td>
 </tr>
 <tr>
 <td align="left">output_columns</td>
@@ -1649,7 +1649,7 @@
 </tr>
 </tbody>
 </table>
-<p>Reference example: <a href="./det/dbnet/db_r50_mlt2017.yaml">DBNet</a>, <a href="./rec/crnn/crnn_icdar15.yaml">CRNN</a></p>
+<p>Reference example: <a href="../../../configs/det/dbnet/db_r50_mlt2017.yaml">DBNet</a>, <a href="../../../configs/rec/crnn/crnn_icdar15.yaml">CRNN</a></p>
 <h3 id="evaluation-process-eval">Evaluation process (eval)<a class="headerlink" href="#evaluation-process-eval" title="Permanent link">&para;</a></h3>
 <p>The parameters of <code>eval</code> are basically the same as <code>train</code>, only a few additional parameters are added, and for the rest, please refer to the parameter description of <code>train</code> above.</p>
 <table>

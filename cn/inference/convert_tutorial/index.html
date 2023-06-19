@@ -829,7 +829,7 @@
   
     <li class="md-nav__item">
       <a href="../../reference/api_doc/" class="md-nav__link">
-        api
+        API doc
       </a>
     </li>
   
@@ -1114,7 +1114,7 @@
     ckpt --&gt; |export| MindIR --&gt; |&quot;converter_lite(离线转换)&quot;| o[MindIR];
 </code></pre></div>
 <h4 id="11">1.1 模型导出<a class="headerlink" href="#11" title="Permanent link">&para;</a></h4>
-<p>在推理之前，需要先把训练端的ckpt文件<a href="../../../configs/README.md">导出</a>为MindIR文件，它保存了模型的结构和权重参数。</p>
+<p>在推理之前，需要先把训练端的ckpt文件<a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/README.md">导出</a>为MindIR文件，它保存了模型的结构和权重参数。</p>
 <p>部分模型提供了MIndIR导出文件的下载链接，见<a href="../models_list/">模型列表</a>，可跳转到对应模型的介绍页面进行下载。</p>
 <h4 id="12">1.2 模型转换<a class="headerlink" href="#12" title="Permanent link">&para;</a></h4>
 <p>需要使用<code>converter_lite</code>工具，将上述导出的MindIR文件进行离线转换，从而用于MindSpore Lite的推理。</p>

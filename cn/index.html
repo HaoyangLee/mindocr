@@ -1293,7 +1293,7 @@
 <li>mindspore &gt;= 1.9  [<a href="https://www.mindspore.cn/install">安装</a>]</li>
 <li>python &gt;= 3.7</li>
 <li>openmpi 4.0.3 (for distributed training/evaluation)  [<a href="https://www.open-mpi.org/software/ompi/v4.0/">安装</a>]</li>
-<li>mindspore lite (for inference)  [<a href="docs/en/inference/environment.md">安装</a>]</li>
+<li>mindspore lite (for inference)  [<a href="inference/environment/">安装</a>]</li>
 </ul>
 <h4 id="_3">包依赖<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
 <p><div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
@@ -1335,7 +1335,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
   <em> 文本检测、识别结果可视化 </em>
 </p>
 
-<p>可以看到图像中的文字块均被检测出来并正确识别。更详细的用法介绍，请参考推理<a href="#使用教程">教程</a>。</p>
+<p>可以看到图像中的文字块均被检测出来并正确识别。更详细的用法介绍，请参考推理<a href="#_7">教程</a>。</p>
 <h3 id="-">模型训练与评估-快速指南<a class="headerlink" href="#-" title="Permanent link">&para;</a></h3>
 <p>使用<code>tools/train.py</code>脚本可以很容易地训练OCR模型，该脚本可支持文本检测和识别模型训练。
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>tools/train.py<span class="w"> </span>--config<span class="w"> </span><span class="o">{</span>path/to/model_config.yaml<span class="o">}</span>
@@ -1353,7 +1353,7 @@ python<span class="w"> </span>tools/train.py<span class="w"> </span>--config<spa
 <span class="w">    </span>--config<span class="w"> </span><span class="o">{</span>path/to/model_config.yaml<span class="o">}</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--opt<span class="w"> </span>eval.dataset_root<span class="o">={</span>path/to/your_dataset<span class="o">}</span><span class="w"> </span>eval.ckpt_load_path<span class="o">={</span>path/to/ckpt_file<span class="o">}</span>
 </code></pre></div></p>
-<p>更多使用方法，请参考<a href="#使用教程">使用教程</a>中的模型训练章节。</p>
+<p>更多使用方法，请参考<a href="#_7">使用教程</a>中的模型训练章节。</p>
 <h2 id="_7">使用教程<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ul>
 <li>数据集<ul>

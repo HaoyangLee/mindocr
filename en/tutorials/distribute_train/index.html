@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#distributed-parallel-training" class="md-skip">
           Skip to content
         </a>
       
@@ -626,15 +626,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#openmpi" class="md-nav__link">
-    通过OpenMPI运行脚本进行训练
+  <a href="#run-scripts-with-openmpi" class="md-nav__link">
+    Run scripts with OpenMPI
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#rank_table_file" class="md-nav__link">
-    配置RANK_TABLE_FILE进行训练
+  <a href="#configure-rank_table_file-for-training" class="md-nav__link">
+    Configure RANK_TABLE_FILE for training
   </a>
   
 </li>
@@ -919,8 +919,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -942,20 +940,6 @@
   
     <li class="md-nav__item">
       <a href="../../mkdocs/contributing/" class="md-nav__link">
-        Contributing
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../CONTRIBUTING.md" class="md-nav__link">
         Contributing
       </a>
     </li>
@@ -996,15 +980,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#openmpi" class="md-nav__link">
-    通过OpenMPI运行脚本进行训练
+  <a href="#run-scripts-with-openmpi" class="md-nav__link">
+    Run scripts with OpenMPI
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#rank_table_file" class="md-nav__link">
-    配置RANK_TABLE_FILE进行训练
+  <a href="#configure-rank_table_file-for-training" class="md-nav__link">
+    Configure RANK_TABLE_FILE for training
   </a>
   
 </li>
@@ -1040,81 +1024,90 @@
   
 
 
-<h1 id="_1">分布式并行训练<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>本文档提供分布式并行训练的教程，在Ascend处理器上有两种方式可以进行单机多卡训练，通过OpenMPI运行脚本或通过配置RANK_TABLE_FILE进行单机多卡训练。在GPU处理器上可通过OpenMPI运行脚本进行单机多卡训练。</p>
-<h2 id="openmpi">通过OpenMPI运行脚本进行训练<a class="headerlink" href="#openmpi" title="Permanent link">&para;</a></h2>
-<p>当前MindSpore在Ascend上已经支持了通过OpenMPI的mpirun命令运行脚本，用户可参考<a href="../../../configs/det/dbnet/README_CN.md#34-训练">dbnet readme</a>进行训练，以下为命令用例。
-运行命令前请确保yaml文件中的<code>distribute</code>参数为True。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># n is the number of GPUs/NPUs</span>
+<h1 id="distributed-parallel-training">Distributed parallel training<a class="headerlink" href="#distributed-parallel-training" title="Permanent link">&para;</a></h1>
+<p>This document provides a tutorial on distributed parallel training.
+There are two ways to train on the Ascend AI processor: by running scripts with OpenMPI or configuring <code>RANK_TABLE_FILE</code> for training.
+On GPU processors, scripts can be run with OpenMPI for training.</p>
+<h2 id="run-scripts-with-openmpi">Run scripts with OpenMPI<a class="headerlink" href="#run-scripts-with-openmpi" title="Permanent link">&para;</a></h2>
+<p>MindSpore supports scripts execution with OpenMPI's <code>mpirun</code> on Ascend hardware platform. Users can refer to <a href="../../../configs/det/dbnet/README.md#34-training">DBNet Readme</a> for more information on training. The following is the command use case:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># n is the number of GPUs/NPUs used in training</span>
 mpirun<span class="w"> </span>--allow-run-as-root<span class="w"> </span>-n<span class="w"> </span><span class="m">2</span><span class="w"> </span>python<span class="w"> </span>tools/train.py<span class="w"> </span>--config<span class="w"> </span>configs/det/dbnet/db_r50_icdar15.yaml
 </code></pre></div>
-<h2 id="rank_table_file">配置RANK_TABLE_FILE进行训练<a class="headerlink" href="#rank_table_file" title="Permanent link">&para;</a></h2>
-<p>使用此种方法在进行分布式训练前需要创建json格式的HCCL配置文件，即生成RANK_TABLE_FILE文件，以下为生成8卡相应配置文件命令，更具体信息及相应脚本参见<a href="https://gitee.com/mindspore/models/tree/master/utils/hccl_tools">hccl_tools</a>中的说明，
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>hccl_tools.py<span class="w"> </span>--device_num<span class="w"> </span><span class="s2">&quot;[0,8)&quot;</span>
+<blockquote>
+<p>Please ensure that the <code>distribute</code> parameter in the yaml file is set to <code>True</code> before running the command.</p>
+</blockquote>
+<h2 id="configure-rank_table_file-for-training">Configure RANK_TABLE_FILE for training<a class="headerlink" href="#configure-rank_table_file-for-training" title="Permanent link">&para;</a></h2>
+<p>Before using this method for distributed training, it is necessary to create an HCCL configuration file in json format,
+i.e. generate RANK_TABLE_FILE. The following is the command to generate the corresponding configuration file for 8 devices
+(for more information please refer to <a href="https://gitee.com/mindspore/models/tree/master/utils/hccl_tools">HCCL tools</a>):</p>
+<p><div class="highlight"><pre><span></span><code>python<span class="w"> </span>hccl_tools.py<span class="w"> </span>--device_num<span class="w"> </span><span class="s2">&quot;[0,8)&quot;</span>
 </code></pre></div>
-输出为：
+This command produces the following output file:
 <div class="highlight"><pre><span></span><code>hccl_8p_10234567_127.0.0.1.json
+</code></pre></div></p>
+<p>An example of the content in <code>hccl_8p_10234567_127.0.0.1.json</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;server_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;server_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;server_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;device&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;device_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.100.101&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;rank_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;device_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.101.101&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;rank_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;device_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.102.101&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;rank_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;device_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.103.101&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;rank_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;device_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.100.100&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;rank_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;device_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.101.100&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;rank_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;device_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.102.100&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;rank_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;device_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.103.100&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;rank_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;host_nic_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;reserve&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span>
+<span class="p">}</span>
 </code></pre></div>
-其中<code>hccl_8p_10234567_127.0.0.1.json</code>中内容示例为：
-<div class="highlight"><pre><span></span><code>{
-    &quot;version&quot;: &quot;1.0&quot;,
-    &quot;server_count&quot;: &quot;1&quot;,
-    &quot;server_list&quot;: [
-        {
-            &quot;server_id&quot;: &quot;127.0.0.1&quot;,
-            &quot;device&quot;: [
-                {
-                    &quot;device_id&quot;: &quot;0&quot;,
-                    &quot;device_ip&quot;: &quot;192.168.100.101&quot;,
-                    &quot;rank_id&quot;: &quot;0&quot;
-                },
-                {
-                    &quot;device_id&quot;: &quot;1&quot;,
-                    &quot;device_ip&quot;: &quot;192.168.101.101&quot;,
-                    &quot;rank_id&quot;: &quot;1&quot;
-                },
-                {
-                    &quot;device_id&quot;: &quot;2&quot;,
-                    &quot;device_ip&quot;: &quot;192.168.102.101&quot;,
-                    &quot;rank_id&quot;: &quot;2&quot;
-                },
-                {
-                    &quot;device_id&quot;: &quot;3&quot;,
-                    &quot;device_ip&quot;: &quot;192.168.103.101&quot;,
-                    &quot;rank_id&quot;: &quot;3&quot;
-                },
-                {
-                    &quot;device_id&quot;: &quot;4&quot;,
-                    &quot;device_ip&quot;: &quot;192.168.100.100&quot;,
-                    &quot;rank_id&quot;: &quot;4&quot;
-                },
-                {
-                    &quot;device_id&quot;: &quot;5&quot;,
-                    &quot;device_ip&quot;: &quot;192.168.101.100&quot;,
-                    &quot;rank_id&quot;: &quot;5&quot;
-                },
-                {
-                    &quot;device_id&quot;: &quot;6&quot;,
-                    &quot;device_ip&quot;: &quot;192.168.102.100&quot;,
-                    &quot;rank_id&quot;: &quot;6&quot;
-                },
-                {
-                    &quot;device_id&quot;: &quot;7&quot;,
-                    &quot;device_ip&quot;: &quot;192.168.103.100&quot;,
-                    &quot;rank_id&quot;: &quot;7&quot;
-                }
-            ],
-            &quot;host_nic_ip&quot;: &quot;reserve&quot;
-        }
-    ],
-    &quot;status&quot;: &quot;completed&quot;
-}
-</code></pre></div></p>
-<p>之后运行以下命令即可，运行命令前请确保yaml文件中的<code>distribute</code>参数为True。
+<p>Then start the training by running the following command:</p>
 <div class="highlight"><pre><span></span><code>bash<span class="w"> </span>ascend8p.sh
-</code></pre></div></p>
-<p>以CRNN训练为例，其<code>ascend8p.sh</code>脚本为：
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+</code></pre></div>
+<blockquote>
+<p>Please ensure that the <code>distribute</code> parameter in the yaml file is set to <code>True</code> before running the command.</p>
+</blockquote>
+<p>Here is an example of the <code>ascend8p.sh</code> script for CRNN training:</p>
+<p><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">DEVICE_NUM</span><span class="o">=</span><span class="m">8</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">RANK_SIZE</span><span class="o">=</span><span class="m">8</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">RANK_TABLE_FILE</span><span class="o">=</span><span class="s2">&quot;./hccl_8p_01234567_127.0.0.1.json&quot;</span>
@@ -1131,9 +1124,9 @@ mpirun<span class="w"> </span>--allow-run-as-root<span class="w"> </span>-n<span
 <span class="w">      </span>python<span class="w"> </span>-u<span class="w"> </span>tools/train.py<span class="w"> </span>--config<span class="w"> </span>configs/rec/crnn/crnn_resnet34_zh.yaml<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="p">&amp;</span>
 <span class="w">    </span><span class="k">fi</span>
 <span class="k">done</span>
-</code></pre></div></p>
-<p>当需要训练其他模型时，只要将脚本中的yaml config文件路径替换即可，即<code>python -u tools/train.py --config path/to/model_config.yaml</code></p>
-<p>此时训练已经开始，可在<code>train.log</code>中查看训练日志。</p>
+</code></pre></div>
+When training other models, simply replace the yaml config file path in the script, i.e. <code>path/to/model_config.yaml</code>.</p>
+<p>After the training has started, and you can find the training log <code>train.log</code> in the project root directory.</p>
 
 
 

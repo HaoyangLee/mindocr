@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#advanced-training" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -640,29 +640,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tricks-gradient-accumulation-gradient-clipping-and-ema" class="md-nav__link">
-    Tricks: Gradient Accumulation, Gradient Clipping, and EMA
+  <a href="#ema" class="md-nav__link">
+    策略：梯度累积，梯度裁剪，EMA
   </a>
   
-    <nav class="md-nav" aria-label="Tricks: Gradient Accumulation, Gradient Clipping, and EMA">
+    <nav class="md-nav" aria-label="策略：梯度累积，梯度裁剪，EMA">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#gradient-accumulation" class="md-nav__link">
-    Gradient Accumulation
+  <a href="#_2" class="md-nav__link">
+    梯度累积
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#gradient-clipping" class="md-nav__link">
-    Gradient Clipping
+  <a href="#_3" class="md-nav__link">
+    梯度裁剪
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ema" class="md-nav__link">
+  <a href="#ema_1" class="md-nav__link">
     EMA
   </a>
   
@@ -674,15 +674,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resume-training" class="md-nav__link">
-    Resume Training
+  <a href="#_4" class="md-nav__link">
+    断点续训
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#training-on-openi-cloud-platform" class="md-nav__link">
-    Training on OpenI Cloud Platform
+  <a href="#openi" class="md-nav__link">
+    OpenI云平台训练
   </a>
   
 </li>
@@ -953,8 +953,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -976,20 +974,6 @@
   
     <li class="md-nav__item">
       <a href="../../mkdocs/contributing/" class="md-nav__link">
-        Contributing
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../CONTRIBUTING.md" class="md-nav__link">
         Contributing
       </a>
     </li>
@@ -1030,29 +1014,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tricks-gradient-accumulation-gradient-clipping-and-ema" class="md-nav__link">
-    Tricks: Gradient Accumulation, Gradient Clipping, and EMA
+  <a href="#ema" class="md-nav__link">
+    策略：梯度累积，梯度裁剪，EMA
   </a>
   
-    <nav class="md-nav" aria-label="Tricks: Gradient Accumulation, Gradient Clipping, and EMA">
+    <nav class="md-nav" aria-label="策略：梯度累积，梯度裁剪，EMA">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#gradient-accumulation" class="md-nav__link">
-    Gradient Accumulation
+  <a href="#_2" class="md-nav__link">
+    梯度累积
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#gradient-clipping" class="md-nav__link">
-    Gradient Clipping
+  <a href="#_3" class="md-nav__link">
+    梯度裁剪
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ema" class="md-nav__link">
+  <a href="#ema_1" class="md-nav__link">
     EMA
   </a>
   
@@ -1064,15 +1048,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resume-training" class="md-nav__link">
-    Resume Training
+  <a href="#_4" class="md-nav__link">
+    断点续训
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#training-on-openi-cloud-platform" class="md-nav__link">
-    Training on OpenI Cloud Platform
+  <a href="#openi" class="md-nav__link">
+    OpenI云平台训练
   </a>
   
 </li>
@@ -1108,11 +1092,10 @@
   
 
 
-<h1 id="advanced-training">Advanced Training<a class="headerlink" href="#advanced-training" title="Permanent link">&para;</a></h1>
-<h3 id="tricks-gradient-accumulation-gradient-clipping-and-ema">Tricks: Gradient Accumulation, Gradient Clipping, and EMA<a class="headerlink" href="#tricks-gradient-accumulation-gradient-clipping-and-ema" title="Permanent link">&para;</a></h3>
-<p>All the training tricks can be configured in the model config files.
-After setting, please run <code>tools/train.py</code> script to initiate training.</p>
-<p><a href="../../../configs/rec/crnn/crnn_icdar15.yaml">Example Yaml Config</a></p>
+<h1 id="_1">进阶训练策略<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h3 id="ema">策略：梯度累积，梯度裁剪，EMA<a class="headerlink" href="#ema" title="Permanent link">&para;</a></h3>
+<p>训练策略可在模型YAML配置文件中进行配置。请在设置后运行<code>tools/train.py</code>脚本进行训练</p>
+<p><a href="../../../configs/rec/crnn/crnn_icdar15.yaml">Yaml配置文件参考样例</a></p>
 <div class="highlight"><pre><span></span><code><span class="nt">train</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">gradient_accumulation_steps</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
 <span class="w">  </span><span class="nt">clip_grad</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
@@ -1120,35 +1103,29 @@ After setting, please run <code>tools/train.py</code> script to initiate trainin
 <span class="w">  </span><span class="nt">ema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
 <span class="w">  </span><span class="nt">ema_decay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.9999</span>
 </code></pre></div>
-<h4 id="gradient-accumulation">Gradient Accumulation<a class="headerlink" href="#gradient-accumulation" title="Permanent link">&para;</a></h4>
-<p>Gradient accumulation is an effective way to address  memory limitation issue and allow <strong>training with large global batch size</strong>.</p>
-<p>To enable it, set <code>train.gradient_accumulation_steps</code> to values larger than 1 in yaml config.</p>
-<p>The equivalent global batch size would be
-<code>global_batch_size = batch_size * num_devices * gradient_accumulation_steps</code></p>
-<h4 id="gradient-clipping">Gradient Clipping<a class="headerlink" href="#gradient-clipping" title="Permanent link">&para;</a></h4>
-<p>Gradient clipping is a method to address gradient explosion/overflow problem and
-stabilize model convergence.</p>
-<p>To enable it, set <code>train.ema</code> to <code>True</code> and optionally adjust the norm value in <code>train.clip_norm</code>.</p>
-<h4 id="ema">EMA<a class="headerlink" href="#ema" title="Permanent link">&para;</a></h4>
-<p>Exponential Moving Average (EMA) can be viewed as a model ensemble method that smooths the model weights.
-It can help stabilize model convergence in training and usually leads to better model performance.</p>
-<p>To enable it, set <code>train.ema</code> to <code>True</code>. You may also adjust <code>train.ema_decay</code> to control the decay rate.</p>
-<h3 id="resume-training">Resume Training<a class="headerlink" href="#resume-training" title="Permanent link">&para;</a></h3>
-<p>Resuming training is useful when the training was interrupted unexpectedly.</p>
-<p>To resume training, set <code>model.resume</code> to <code>True</code> in the yaml config as follows:
+<h4 id="_2">梯度累积<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p>梯度累积可以有效解决显存不足的问题，使得在同等显存，允许**使用更大的全局batch size进行训练**。可以通过在yaml配置中将<code>train.gradient_accumulation_steps</code> 设置为大于1的值来启用梯度累积功能。
+等价的全局batch size为：</p>
+<p><code>global_batch_size = batch_size * num_devices * gradient_accumulation_steps</code></p>
+<h4 id="_3">梯度裁剪<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>梯度裁剪通常用来缓解梯度爆炸/溢出问题，以使模型收敛更稳定。可以通过在yaml配置中设置<code>train.clip_grad</code>为<code>True</code>来启用该功能，调整<code>train.clip_norm</code>的值可以控制梯度裁剪范数的大小。</p>
+<h4 id="ema_1">EMA<a class="headerlink" href="#ema_1" title="Permanent link">&para;</a></h4>
+<p>Exponential Moving Average（EMA）是一种平滑模型权重的模型集成方法。它能帮助模型在训练中稳定收敛，并且通常会带来更好的模型性能。
+可以通过在yaml配置中设置<code>train.ema</code>为<code>True</code>来使用该功能，并且可以调整<code>train.ema_decay</code>来控制权重衰减率，通常设置为接近1的值.</p>
+<h3 id="_4">断点续训<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>断点续训通常用于训练意外中断时，此时使用该功能可以继续从中断处epoch继续训练。可以通过在yaml配置中设置<code>model.resume</code>为<code>True</code>来使用该功能，用例如下：</p>
 <div class="highlight"><pre><span></span><code><span class="nt">model</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">resume</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
-</code></pre></div></p>
+</code></pre></div>
 <blockquote>
-<p>By default, it will resume from the "train_resume.ckpt" checkpoint file located in the directory
-specified in <code>train.ckpt_save_dir</code>.</p>
+<p>默认情况下，它将从<code>train.ckpt_save_dir</code>目录中保存的<code>train_resume.ckpt</code>恢复。</p>
 </blockquote>
-<p>If you want to use another checkpoint to resume from, specify the checkpoint path in <code>resume</code> as follows:</p>
+<p>如果要使用其他epoch用于恢复训练，请在<code>resume</code>中指定epoch路径，用例如下：</p>
 <div class="highlight"><pre><span></span><code><span class="nt">model</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">resume</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/some/path/to/train_resume.ckpt</span>
 </code></pre></div>
-<h3 id="training-on-openi-cloud-platform">Training on OpenI Cloud Platform<a class="headerlink" href="#training-on-openi-cloud-platform" title="Permanent link">&para;</a></h3>
-<p>Please refer to the <a href="../training_on_openi/">MindOCR OpenI Training Guideline</a></p>
+<h3 id="openi">OpenI云平台训练<a class="headerlink" href="#openi" title="Permanent link">&para;</a></h3>
+<p>请参考<a href="../training_on_openi/">MindOCR云上训练快速入门</a></p>
 
 
 

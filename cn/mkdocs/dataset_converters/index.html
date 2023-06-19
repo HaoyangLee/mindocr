@@ -74,11 +74,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#_1" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -481,45 +476,9 @@
       
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Dataset Preparation
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         Dataset Preparation
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    文本检测/端到端文本检测
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    文本识别
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -967,28 +926,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    文本检测/端到端文本检测
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    文本识别
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1021,55 +958,7 @@
   <h1>Dataset Preparation</h1>
 
 <!-- BEGIN INCLUDE ../../../tools/dataset_converters/README_CN.md -->
-<p><a href="../../../tools/dataset_converters/README.md">English</a> | 中文</p>
-<p>本文档展示了如何将OCR数据集的标注文件（不包括LMDB）转换为通用格式以进行模型训练。</p>
-<p>您也可以参考 <a href="../../../tools/convert_datasets.sh"><code>convert_datasets.sh</code></a>。这是将给定目录下所有数据集的标注文件转换为通用格式的Shell 脚本。</p>
-<p>要下载OCR数据集并进行格式转换，您可以参考 <a href="../../datasets/chinese_text_recognition/">Chinese text recognition</a>, <a href="../../datasets/ctw1500/">CTW1500</a>, <a href="../../datasets/icdar2015/">ICDAR2015</a>, <a href="../../datasets/mlt2017/">MLT2017</a>, <a href="../../datasets/svt/">SVT</a>, <a href="../../datasets/syntext150k/">Syntext 150k</a>, <a href="../../datasets/td500/">TD500</a>, <a href="../../datasets/totaltext/">Total Text</a>, <a href="../../datasets/synthtext/">SynthText</a> 的说明。</p>
-<h2 id="_1">文本检测/端到端文本检测<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>转换后的标注文件格式应为：
-<div class="highlight"><pre><span></span><code>img_61.jpg\t[{&quot;transcription&quot;: &quot;MASA&quot;, &quot;points&quot;: [[310, 104], [416, 141], [418, 216], [312, 179]]}, {...}]
-</code></pre></div></p>
-<p>以ICDAR2015（ic15）数据集为例，要将ic15数据集转换为所需的格式，请运行：</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># convert training anotation</span>
-python<span class="w"> </span>tools/dataset_converters/convert.py<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--dataset_name<span class="w">  </span>ic15<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--task<span class="w"> </span>det<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--image_dir<span class="w"> </span>/path/to/ic15/det/train/ch4_training_images<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--label_dir<span class="w"> </span>/path/to/ic15/det/train/ch4_training_localization_transcription_gt<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--output_path<span class="w"> </span>/path/to/ic15/det/train/det_gt.txt
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1"># convert testing anotation</span>
-python<span class="w"> </span>tools/dataset_converters/convert.py<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--dataset_name<span class="w">  </span>ic15<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--task<span class="w"> </span>det<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--image_dir<span class="w"> </span>/path/to/ic15/det/test/ch4_test_images<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--label_dir<span class="w"> </span>/path/to/ic15/det/test/ch4_test_localization_transcription_gt<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--output_path<span class="w"> </span>/path/to/ic15/det/test/det_gt.txt
-</code></pre></div>
-<h2 id="_2">文本识别<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>文本识别数据集的标注格式如下：</p>
-<p><div class="highlight"><pre><span></span><code>word_7.png  fusionopolis
-word_8.png  fusionopolis
-word_9.png  Reserve
-word_10.png CAUTION
-word_11.png citi
-</code></pre></div>
-请注意，图像名称和文本标签以<code>\t</code>分隔。</p>
-<p>要转换标注文件，请运行：
-<div class="highlight"><pre><span></span><code><span class="c1"># convert training anotation</span>
-python<span class="w"> </span>tools/dataset_converters/convert.py<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--dataset_name<span class="w">  </span>ic15<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--task<span class="w"> </span>rec<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--label_dir<span class="w"> </span>/path/to/ic15/rec/ch4_training_word_images_gt/gt.txt
-<span class="w">        </span>--output_path<span class="w"> </span>/path/to/ic15/rec/train/ch4_training_word_images_gt/rec_gt.txt
-</code></pre></div></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># convert testing anotation</span>
-python<span class="w"> </span>tools/dataset_converters/convert.py<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--dataset_name<span class="w">  </span>ic15<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--task<span class="w"> </span>rec<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--label_dir<span class="w"> </span>/path/to/ic15/rec/ch4_test_word_images_gt/gt.txt
-<span class="w">        </span>--output_path<span class="w"> </span>/path/to/ic15/rec/ch4_test_word_images_gt/rec_gt.txt
-</code></pre></div>
+<p>请参考<a href="../../datasets/converters/"><code>docs/cn/datasets/converters.md</code></a>。</p>
 <!-- END INCLUDE -->
 
 

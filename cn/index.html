@@ -1357,28 +1357,28 @@ python<span class="w"> </span>tools/train.py<span class="w"> </span>--config<spa
 <h2 id="_7">使用教程<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ul>
 <li>数据集<ul>
-<li><a href="tools/dataset_converters/README_CN.md">数据集准备</a></li>
-<li><a href="docs/cn/tutorials/transform_tutorial.md">数据增强策略</a></li>
+<li><a href="datasets/converters/">数据集准备</a></li>
+<li><a href="tutorials/transform_tutorial/">数据增强策略</a></li>
 </ul>
 </li>
 <li>模型训练<ul>
-<li><a href="docs/cn/tutorials/yaml_configuration.md">Yaml配置文件</a></li>
-<li><a href="docs/cn/tutorials/training_detection_custom_dataset.md">文本检测</a></li>
-<li><a href="docs/cn/tutorials/training_recognition_custom_dataset.md">文本识别</a></li>
-<li><a href="docs/cn/tutorials/distribute_train.md">分布式训练</a></li>
-<li><a href="docs/cn/tutorials/advanced_train.md">进阶技巧：梯度累积，EMA，断点续训等</a></li>
+<li><a href="tutorials/yaml_configuration/">Yaml配置文件</a></li>
+<li><a href="tutorials/training_detection_custom_dataset/">文本检测</a></li>
+<li><a href="tutorials/training_recognition_custom_dataset/">文本识别</a></li>
+<li><a href="tutorials/distribute_train/">分布式训练</a></li>
+<li><a href="tutorials/advanced_train/">进阶技巧：梯度累积，EMA，断点续训等</a></li>
 </ul>
 </li>
 <li>推理与部署<ul>
-<li><a href="docs/cn/inference/inference_tutorial.md">基于Python/C++和昇腾310的OCR推理</a></li>
-<li><a href="tools/infer/text/README.md">基于Python的OCR在线推理</a></li>
+<li><a href="inference/inference_tutorial/">基于Python/C++和昇腾310的OCR推理</a></li>
+<li><a href="mkdocs/online_inference/">基于Python的OCR在线推理</a></li>
 </ul>
 </li>
 <li>开发者指南<ul>
-<li><a href="mindocr/data/README.md">如何自定义数据集</a></li>
-<li><a href="mindocr/data/transforms/README.md">如何自定义数据增强方法</a></li>
-<li><a href="mindocr/models/README.md">如何创建新的OCR模型</a></li>
-<li><a href="mindocr/postprocess/README.md">如何自定义后处理方法</a></li>
+<li><a href="mkdocs/customize_dataset/">如何自定义数据集</a></li>
+<li><a href="mkdocs/customize_data_transform/">如何自定义数据增强方法</a></li>
+<li><a href="mkdocs/customize_model/">如何创建新的OCR模型</a></li>
+<li><a href="mkdocs/customize_postprocess/">如何自定义后处理方法</a></li>
 </ul>
 </li>
 </ul>
@@ -1386,36 +1386,36 @@ python<span class="w"> </span>tools/train.py<span class="w"> </span>--config<spa
 <details open="open">
 <summary>文本检测</summary>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="configs/det/dbnet/README.md">DBNet</a> (AAAI'2020)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="configs/det/dbnet/README.md">DBNet++</a> (TPAMI'2022)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="configs/det/psenet/README.md">PSENet</a> (CVPR'2019)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="configs/det/east/README.md">EAST</a>(CVPR'2017)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/det/dbnet/README.md">DBNet</a> (AAAI'2020)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/det/dbnet/README.md">DBNet++</a> (TPAMI'2022)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/det/psenet/README.md">PSENet</a> (CVPR'2019)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/det/east/README.md">EAST</a>(CVPR'2017)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://arxiv.org/abs/2104.10442">FCENet</a> (CVPR'2021) [敬请期待]</li>
 </ul>
 </details>
 <details open="open">
 <summary>文本识别</summary>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="configs/rec/crnn/README.md">CRNN</a> (TPAMI'2016)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="configs/rec/rare/README.md">CRNN-Seq2Seq/RARE</a> (CVPR'2016)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="configs/rec/svtr/README.md">SVTR</a> (IJCAI'2022)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/rec/crnn/README.md">CRNN</a> (TPAMI'2016)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/rec/rare/README.md">CRNN-Seq2Seq/RARE</a> (CVPR'2016)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/rec/svtr/README.md">SVTR</a> (IJCAI'2022)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://arxiv.org/abs/2103.06495">ABINet</a> (CVPR'2021) [coming soon]</li>
 </ul>
 </details>
-<p>关于以上模型的具体训练方法和结果，请参见<a href="./configs">configs</a>下各模型子目录的readme文档。</p>
-<p>关于<a href="https://www.mindspore.cn/lite">MindSpore Lite</a>和<a href="https://www.hiascend.com/document/detail/zh/canncommercial/63RC1/inferapplicationdev/aclcppdevg/aclcppdevg_000004.html">ACL</a>模型推理的支持列表，请参见<a href="docs/en/inference/models_list.md">MindOCR支持模型列表</a> and <a href="docs/en/inference/models_list_thirdparty.md">第三方模型推理支持列表</a>。</p>
+<p>关于以上模型的具体训练方法和结果，请参见<a href="https://github.com/mindspore-lab/mindocr/blob/main/configs">configs</a>下各模型子目录的readme文档。</p>
+<p>关于<a href="https://www.mindspore.cn/lite">MindSpore Lite</a>和<a href="https://www.hiascend.com/document/detail/zh/canncommercial/63RC1/inferapplicationdev/aclcppdevg/aclcppdevg_000004.html">ACL</a>模型推理的支持列表，请参见<a href="inference/models_list/">MindOCR支持模型列表</a> and <a href="inference/models_list_thirdparty/">第三方模型推理支持列表</a>。</p>
 <h2 id="_9">数据集列表<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
-<p>MindOCR提供了<a href="tools/dataset_converters">数据格式转换工具</a> ，以支持不同格式的OCR数据集，支持用户自定义的数据集。
+<p>MindOCR提供了<a href="datasets/converters/">数据格式转换工具</a> ，以支持不同格式的OCR数据集，支持用户自定义的数据集。
 当前已在模型训练评估中验证过的公开OCR数据集如下。</p>
 <details open="open">
 <summary>通用OCR数据集</summary>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://rrc.cvc.uab.es/?ch=4">ICDAR2015</a> [<a href="https://rrc.cvc.uab.es/files/short_rrc_2015.pdf">paper</a>] [<a href="docs/cn/datasets/icdar2015.md">download</a>]</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/cs-chan/Total-Text-Dataset/tree/master/Dataset">Total-Text</a>  [<a href="https://arxiv.org/abs/1710.10400">paper</a>]  [<a href="docs/en/datasets/totaltext.md">download</a>]</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/aim-uofa/AdelaiDet">Syntext150k</a> [<a href="https://arxiv.org/abs/2002.10200">paper</a>] [<a href="docs/en/datasets/syntext150k.md">download</a>]</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://rrc.cvc.uab.es/?ch=8&amp;com=introduction">MLT2017</a> [<a href="https://ieeexplore.ieee.org/abstract/document/8270168">paper</a>]  [<a href="docs/en/datasets/mlt2017.md">download</a>] (multi-language)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="http://www.iapr-tc11.org/mediawiki/index.php/MSRA_Text_Detection_500_Database_(MSRA-TD500)">MSRA-TD500</a> [<a href="https://ieeexplore.ieee.org/abstract/document/6247787">paper</a>]  [<a href="docs/en/datasets/td500.md">download</a>]</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/Yuliang-Liu/Curve-Text-Detector">SCUT-CTW1500</a> [<a href="https://www.sciencedirect.com/science/article/pii/S0031320319300664">paper</a>]   [<a href="docs/en/datasets/ctw1500.md">download</a>]</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://rrc.cvc.uab.es/?ch=4">ICDAR2015</a> [<a href="https://rrc.cvc.uab.es/files/short_rrc_2015.pdf">paper</a>] [<a href="datasets/icdar2015/">download</a>]</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/cs-chan/Total-Text-Dataset/tree/master/Dataset">Total-Text</a>  [<a href="https://arxiv.org/abs/1710.10400">paper</a>]  [<a href="datasets/totaltext/">download</a>]</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/aim-uofa/AdelaiDet">Syntext150k</a> [<a href="https://arxiv.org/abs/2002.10200">paper</a>] [<a href="datasets/syntext150k/">download</a>]</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://rrc.cvc.uab.es/?ch=8&amp;com=introduction">MLT2017</a> [<a href="https://ieeexplore.ieee.org/abstract/document/8270168">paper</a>]  [<a href="datasets/mlt2017/">download</a>] (multi-language)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="http://www.iapr-tc11.org/mediawiki/index.php/MSRA_Text_Detection_500_Database_(MSRA-TD500)">MSRA-TD500</a> [<a href="https://ieeexplore.ieee.org/abstract/document/6247787">paper</a>]  [<a href="datasets/td500/">download</a>]</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/Yuliang-Liu/Curve-Text-Detector">SCUT-CTW1500</a> [<a href="https://www.sciencedirect.com/science/article/pii/S0031320319300664">paper</a>]   [<a href="datasets/ctw1500/">download</a>]</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/FudanVI/benchmarking-chinese-text-recognition">Chinese-Text-Recognition-Benchmark</a>  [<a href="https://arxiv.org/abs/2112.15093">paper</a>]   [<a href="https://github.com/FudanVI/benchmarking-chinese-text-recognition#download">download</a>]</li>
 </ul>
 </details>
@@ -1427,28 +1427,28 @@ python<span class="w"> </span>tools/train.py<span class="w"> </span>--config<spa
 <p>2023/06/07
 1. 增加新模型</p>
 <ul>
-<li>文本检测<a href="configs/det/psenet">PSENet</a></li>
-<li>文本检测<a href="configs/det/east">EAST</a></li>
-<li>文本识别<a href="configs/rec/svtr">SVTR</a>
+<li>文本检测<a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/det/psenet">PSENet</a></li>
+<li>文本检测<a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/det/east">EAST</a></li>
+<li>文本识别<a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/rec/svtr">SVTR</a>
 2. 添加更多基准数据集及其结果</li>
-<li><a href="docs/cn/datasets/totaltext.md">totaltext</a></li>
-<li><a href="docs/cn/datasets/mlt2017.md">mlt2017</a></li>
-<li><a href="docs/cn/datasets/chinese_text_recognition.md">chinese_text_recognition</a>
+<li><a href="datasets/totaltext/">totaltext</a></li>
+<li><a href="datasets/mlt2017/">mlt2017</a></li>
+<li><a href="datasets/chinese_text_recognition/">chinese_text_recognition</a>
 3. 增加断点续训(resume training)功能，可在训练意外中断时使用。如需使用，请在配置文件中<code>model</code>字段下增加<code>resume</code>参数，允许传入具体路径<code>resume: /path/to/train_resume.ckpt</code>或者通过设置<code>resume: True</code>来加载在ckpt_save_dir下保存的trian_resume.ckpt
 4. 改进检测模块的后处理部分：默认情况下，将检测到的文本多边形重新缩放到原始图像空间，可以通过在<code>eval.dataset.output_columns</code>列表中增加"shape_list"实现。
-5. 重构在线推理以支持更多模型，详情请参见<a href="tools/infer/text/README.md">README.md</a> 。</li>
+5. 重构在线推理以支持更多模型，详情请参见<a href="mkdocs/online_inference/">README.md</a> 。</li>
 </ul>
 </li>
 <li>
 <p>2023/05/15
 1. 增加新模型</p>
 <ul>
-<li>文本检测<a href="configs/det/dbnet">DBNet++</a></li>
-<li>文本识别<a href="configs/rec/rare">CRNN-Seq2Seq</a></li>
+<li>文本检测<a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/det/dbnet">DBNet++</a></li>
+<li>文本识别<a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/rec/rare">CRNN-Seq2Seq</a></li>
 <li>在SynthText数据集上预训练的<a href="https://download.mindspore.cn/toolkits/mindocr/dbnet/dbnet_resnet50_synthtext-40655acb.ckpt">DBNet</a>
 2. 添加更多基准数据集及其结果</li>
-<li><a href="https://academictorrents.com/details/2dba9518166cbd141534cbf381aa3e99a087e83c">SynthText</a>, <a href="docs/cn/datasets/td500.md">MSRA-TD500</a>, <a href="docs/cn/datasets/ctw1500.md">CTW1500</a></li>
-<li>DBNet的更多基准结果可以<a href="configs/det/dbnet/README_CN.md">在此找到</a>.
+<li><a href="https://academictorrents.com/details/2dba9518166cbd141534cbf381aa3e99a087e83c">SynthText</a>, <a href="datasets/td500/">MSRA-TD500</a>, <a href="datasets/ctw1500/">CTW1500</a></li>
+<li>DBNet的更多基准结果可以<a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/det/dbnet/README_CN.md">在此找到</a>.
 3. 添加用于保存前k个checkpoint的checkpoint manager并改进日志。
 4. Python推理代码重构。
 5. Bug修复：对大型数据集使用平均损失meter，在AMP训练中对ctcloss禁用<code>pred_cast_fp32</code>，修复存在无效多边形的错误。</li>
@@ -1491,9 +1491,9 @@ python<span class="w"> </span>tools/train.py<span class="w"> </span>--config<spa
 </ul>
 <h3 id="_12">如何贡献<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <p>我们欢迎包括问题单和PR在内的所有贡献，来让MindOCR变得更好。</p>
-<p>请参考<a href="CONTRIBUTING.md">CONTRIBUTING.md</a>作为贡献指南，请按照<a href="mindocr/models/README.md">Model Template and Guideline</a>的指引贡献一个适配所有接口的模型，多谢合作。</p>
+<p>请参考<a href="mkdocs/contributing/">CONTRIBUTING.md</a>作为贡献指南，请按照<a href="mkdocs/customize_model/">Model Template and Guideline</a>的指引贡献一个适配所有接口的模型，多谢合作。</p>
 <h3 id="_13">许可<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
-<p>本项目遵从<a href="LICENSE">Apache License 2.0</a>开源许可。</p>
+<p>本项目遵从<a href="mkdocs/license/">Apache License 2.0</a>开源许可。</p>
 <h3 id="_14">引用<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
 <p>如果本项目对您的研究有帮助，请考虑引用：</p>
 <div class="highlight"><pre><span></span><code>@misc<span class="nb">{</span>MindSpore OCR 2023,

@@ -275,7 +275,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../mkdocs/dataset_converters/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../datasets/converters/" class="md-tabs__link md-tabs__link--active">
         Tutorials
       </a>
     </li>
@@ -472,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mkdocs/dataset_converters/" class="md-nav__link">
+      <a href="../../datasets/converters/" class="md-nav__link">
         Dataset Preparation
       </a>
     </li>
@@ -1336,8 +1336,8 @@
 <p>This document provides tutorials on how to train recognition networks using custom datasets, including the training of recognition networks in Chinese and English languages.</p>
 <h2 id="dataset-preperation">Dataset preperation<a class="headerlink" href="#dataset-preperation" title="Permanent link">&para;</a></h2>
 <p>Currently, MindOCR recognition network supports two input formats, namely
-- <code>Common Dataset</code>：A file format that stores images and text files. It is read by <a href="../../../mindocr/data/rec_dataset.py">RecDataset</a>.
-- <code>LMDB Dataset</code>: A file format provided by <a href="https://www.symas.com/lmdb">LMDB</a>. It is read by <a href="../../../mindocr/data/rec_lmdb_dataset.py">LMDBDataset</a>.</p>
+- <code>Common Dataset</code>：A file format that stores images and text files. It is read by <a href="https://github.com/mindspore-lab/mindocr/blob/main/mindocr/data/rec_dataset.py">RecDataset</a>.
+- <code>LMDB Dataset</code>: A file format provided by <a href="https://www.symas.com/lmdb">LMDB</a>. It is read by <a href="https://github.com/mindspore-lab/mindocr/blob/main/mindocr/data/rec_lmdb_dataset.py">LMDBDataset</a>.</p>
 <p>The following tutorials take the use of the <code>Common Dataset</code> file format as an example.</p>
 <h3 id="preparing-training-data">Preparing Training Data<a class="headerlink" href="#preparing-training-data" title="Permanent link">&para;</a></h3>
 <p>Please place all training images in a single folder, and specify a txt file at a higher directory to label all training image names and corresponding labels. An example of the txt file is as follows:</p>

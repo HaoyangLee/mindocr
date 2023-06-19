@@ -275,7 +275,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../mkdocs/dataset_converters/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../datasets/converters/" class="md-tabs__link md-tabs__link--active">
         教程
       </a>
     </li>
@@ -472,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mkdocs/dataset_converters/" class="md-nav__link">
+      <a href="../../datasets/converters/" class="md-nav__link">
         Dataset Preparation
       </a>
     </li>
@@ -1027,7 +1027,7 @@
 <h1 id="_1">分布式并行训练<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>本文档提供分布式并行训练的教程，在Ascend处理器上有两种方式可以进行单机多卡训练，通过OpenMPI运行脚本或通过配置RANK_TABLE_FILE进行单机多卡训练。在GPU处理器上可通过OpenMPI运行脚本进行单机多卡训练。</p>
 <h2 id="openmpi">通过OpenMPI运行脚本进行训练<a class="headerlink" href="#openmpi" title="Permanent link">&para;</a></h2>
-<p>当前MindSpore在Ascend上已经支持了通过OpenMPI的mpirun命令运行脚本，用户可参考<a href="../../../configs/det/dbnet/README_CN.md#34-训练">dbnet readme</a>进行训练，以下为命令用例。
+<p>当前MindSpore在Ascend上已经支持了通过OpenMPI的mpirun命令运行脚本，用户可参考<a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/det/dbnet/README_CN.md#34-训练">dbnet readme</a>进行训练，以下为命令用例。
 运行命令前请确保yaml文件中的<code>distribute</code>参数为True。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># n is the number of GPUs/NPUs</span>
 mpirun<span class="w"> </span>--allow-run-as-root<span class="w"> </span>-n<span class="w"> </span><span class="m">2</span><span class="w"> </span>python<span class="w"> </span>tools/train.py<span class="w"> </span>--config<span class="w"> </span>configs/det/dbnet/db_r50_icdar15.yaml

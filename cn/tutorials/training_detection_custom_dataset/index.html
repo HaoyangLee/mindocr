@@ -275,7 +275,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../mkdocs/dataset_converters/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../datasets/converters/" class="md-tabs__link md-tabs__link--active">
         教程
       </a>
     </li>
@@ -472,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mkdocs/dataset_converters/" class="md-nav__link">
+      <a href="../../datasets/converters/" class="md-nav__link">
         Dataset Preparation
       </a>
     </li>
@@ -1287,10 +1287,10 @@
 <p><code>Common Dataset</code>：一种文件格式，存储图像、文本边界框和文本标注。目标文件格式的一个示例是：
 <div class="highlight"><pre><span></span><code>img_1.jpg\t[{&quot;transcription&quot;: &quot;MASA&quot;, &quot;points&quot;: [[310, 104], [416, 141], [418, 216], [312, 179]]}, {...}]
 </code></pre></div>
-它由 <a href="../../../mindocr/data/det_dataset.py">DetDataset</a> 读取。如果您的数据集不是与示例格式相同的格式，请参阅 <a href="../../../tools/dataset_converters/README.md">说明</a> ，了解如何将不同数据集的注释转换为支持的格式。</p>
+它由 <a href="https://github.com/mindspore-lab/mindocr/blob/main/mindocr/data/det_dataset.py">DetDataset</a> 读取。如果您的数据集不是与示例格式相同的格式，请参阅 <a href="../../datasets/converters/">说明</a> ，了解如何将不同数据集的注释转换为支持的格式。</p>
 </li>
 <li>
-<p><code>SynthTextDataset</code>：由 <a href="https://github.com/ankush-me/SynthText">SynthText800k</a> 提供的一种文件格式。 更多关于这个数据集的细节可以参考<a href="../datasets/synthtext_CN.md">这里</a>。它的标注文件是一个<code>.mat</code>文件，其中包括 <code>imnames</code>（图像名称）、<code>wordBB</code>（单词级边界框）、<code>charBB</code>（字符级边界框）和 <code>txt</code>（文本字符串）。它由 <a href="../../../mindocr/data/det_dataset.py">SynthTextDataset</a> 读取。用户可以参考 <code>SynthTextDataset</code>来编写自定义数据集类。</p>
+<p><code>SynthTextDataset</code>：由 <a href="https://github.com/ankush-me/SynthText">SynthText800k</a> 提供的一种文件格式。 更多关于这个数据集的细节可以参考<a href="../../datasets/synthtext/">这里</a>。它的标注文件是一个<code>.mat</code>文件，其中包括 <code>imnames</code>（图像名称）、<code>wordBB</code>（单词级边界框）、<code>charBB</code>（字符级边界框）和 <code>txt</code>（文本字符串）。它由 <a href="https://github.com/mindspore-lab/mindocr/blob/main/mindocr/data/det_dataset.py">SynthTextDataset</a> 读取。用户可以参考 <code>SynthTextDataset</code>来编写自定义数据集类。</p>
 </li>
 </ul>
 <p>我们建议用户将文本检测数据集准备成 <code>Common Dataset</code>格式，然后使用 <code>DetDataset</code> 来加载数据。以下教程进一步解释了详细步骤。</p>
@@ -1510,7 +1510,7 @@ mpirun<span class="w"> </span>--allow-run-as-root<span class="w"> </span>-n<span
 <span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span>
 <span class="p">}</span>
 </code></pre></div></p>
-<p>目标设备的<code>device_ip</code>可以通过运行<code>cat /etc/hccn.conf</code>获取。输出结果中的<code>address_x</code>就是<code>ip</code>地址。更多细节可以在<a href="(../../cn/tutorials/distribute_train_CN.md)">分布式训练教程</a>中找到。</p>
+<p>目标设备的<code>device_ip</code>可以通过运行<code>cat /etc/hccn.conf</code>获取。输出结果中的<code>address_x</code>就是<code>ip</code>地址。更多细节可以在<a href="../distribute_train/">分布式训练教程</a>中找到。</p>
 <h3 id="32">3.2 评估<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
 <p>为了评估训练模型的准确性，用户可以使用<code>tools/eval.py</code>。</p>
 <p>以单机评估为例。在yaml配置文件中，<code>system.distribute</code>应该为<code>False</code>；<code>eval.ckpt_load_path</code>应该是目标checkpoint路径；<code>eval.dataset_root</code>，<code>eval.data_dir</code>和<code>eval.label_file</code>应该指定为正确的测试集路径。然后可以通过运行以下命令开始测试：
@@ -1526,7 +1526,7 @@ mpirun<span class="w"> </span>--allow-run-as-root<span class="w"> </span>-n<span
 <h3 id="33">3.3 推理<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
 <p>MindOCR推理支持Ascend310/Ascend310P设备，支持<a href="https://www.mindspore.cn/lite">MindSpore Lite</a>和 <a href="https://www.hiascend.com/document/detail/zh/canncommercial/63RC1/inferapplicationdev/aclcppdevg/aclcppdevg_000004.html">ACL</a> 推理后端。推理教程给出了如何使用MindOCR进行推理的详细步骤，主要包括三个步骤：环境准备、模型转换和推理。</p>
 <h4 id="331">3.3.1 环境准备<a class="headerlink" href="#331" title="Permanent link">&para;</a></h4>
-<p>请参考<a href="../inference/environment_cn.md">环境安装</a>获取更多信息，并根据模型注意选择ACL/Lite环境。</p>
+<p>请参考<a href="../../inference/environment/">环境安装</a>获取更多信息，并根据模型注意选择ACL/Lite环境。</p>
 <h4 id="332">3.3.2 模型转换<a class="headerlink" href="#332" title="Permanent link">&para;</a></h4>
 <p>在运行推理之前，用户需要从训练得到的checkpoint文件导出一个MindIR文件。MindSpore IR (MindIR)是基于图形表示的函数式IR。MindIR文件存储了推理所需的模型结构和权重参数。</p>
 <p>根据训练好的dbnet checkpoint文件，用户可以使用以下命令导出MindIR：
@@ -1535,7 +1535,7 @@ mpirun<span class="w"> </span>--allow-run-as-root<span class="w"> </span>-n<span
 python<span class="w"> </span>tools/export.py<span class="w"> </span>--model_name<span class="w"> </span>configs/det/dbnet/db_r50_icdar15.yaml<span class="w"> </span>--data_shape<span class="w"> </span><span class="m">736</span><span class="w"> </span><span class="m">1280</span><span class="w"> </span>--local_ckpt_path<span class="w"> </span>/path/to/local_ckpt.ckpt
 </code></pre></div></p>
 <p><code>data_shape</code>是MindIR文件的模型输入图片的高度和宽度。当用户使用其他的模型时，<code>data_shape</code>可能会改变。</p>
-<p>请参考<a href="../inference/convert_tutorial_cn.md">转换教程</a>获取更多关于模型转换的细节。</p>
+<p>请参考<a href="../../inference/convert_tutorial/">转换教程</a>获取更多关于模型转换的细节。</p>
 <h4 id="333-python">3.3.3 推理 (Python)<a class="headerlink" href="#333-python" title="Permanent link">&para;</a></h4>
 <p>经过模型转换后， 用户能得到<code>output.mindir</code>文件。用户可以进入到<code>deploy/py_infer</code>目录，并使用以下命令进行推理：</p>
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>infer.py<span class="w"> </span><span class="se">\</span>
@@ -1547,7 +1547,7 @@ python<span class="w"> </span>tools/export.py<span class="w"> </span>--model_nam
 <span class="w">    </span>--backend<span class="o">=</span>lite<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--res_save_dir<span class="o">=</span>results_dir
 </code></pre></div>
-<p>请参考<a href="../inference/inference_tutorial_cn.md#41-命令示例">推理教程</a>获取更多例子。</p>
+<p>请参考<a href="../../inference/inference_tutorial/">推理教程</a>的<code>4.1 命令示例</code>章节获取更多例子。</p>
 
 
 

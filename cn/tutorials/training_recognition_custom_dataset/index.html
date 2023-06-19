@@ -275,7 +275,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../mkdocs/dataset_converters/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../datasets/converters/" class="md-tabs__link md-tabs__link--active">
         教程
       </a>
     </li>
@@ -472,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mkdocs/dataset_converters/" class="md-nav__link">
+      <a href="../../datasets/converters/" class="md-nav__link">
         Dataset Preparation
       </a>
     </li>
@@ -1324,8 +1324,8 @@
 <p>本文档提供如何使用自定义数据集进行识别网络训练的教学，包括训练中、英文等不同语种的识别网络。</p>
 <h2 id="_2">数据集准备<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>目前MindOCR识别网络支持两种输入形式，分别为
-- <code>通用数据</code>：使用图像和文本文件储存的文件格式，以<a href="../../../mindocr/data/rec_dataset.py">RecDataset</a>类型读取。
-- <code>LMDB数据</code>: 使用<a href="https://www.symas.com/lmdb">LMDB</a>储存的文件格式，以<a href="../../../mindocr/data/rec_lmdb_dataset.py">LMDBDataset</a>类型读取。</p>
+- <code>通用数据</code>：使用图像和文本文件储存的文件格式，以<a href="https://github.com/mindspore-lab/mindocr/blob/main/mindocr/data/rec_dataset.py">RecDataset</a>类型读取。
+- <code>LMDB数据</code>: 使用<a href="https://www.symas.com/lmdb">LMDB</a>储存的文件格式，以<a href="https://github.com/mindspore-lab/mindocr/blob/main/mindocr/data/rec_lmdb_dataset.py">LMDBDataset</a>类型读取。</p>
 <p>以下教学以使用<code>通用数据</code>文件格式为例。</p>
 <h3 id="_3">训练集准备<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>请将所有训练图片置入同一文件夹，并在上层路径指定一个txt文件用来标注所有训练图片名和对应标签。txt文件例子如下</p>

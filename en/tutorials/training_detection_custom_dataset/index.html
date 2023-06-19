@@ -275,7 +275,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../mkdocs/dataset_converters/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../datasets/converters/" class="md-tabs__link md-tabs__link--active">
         Tutorials
       </a>
     </li>
@@ -472,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mkdocs/dataset_converters/" class="md-nav__link">
+      <a href="../../datasets/converters/" class="md-nav__link">
         Dataset Preparation
       </a>
     </li>
@@ -1285,11 +1285,11 @@
 - <code>Common Dataset</code>：A file format that stores images, text bounding boxes, and transcriptions. An example of the target file format is:
 <div class="highlight"><pre><span></span><code>img_1.jpg\t[{&quot;transcription&quot;: &quot;MASA&quot;, &quot;points&quot;: [[310, 104], [416, 141], [418, 216], [312, 179]]}, {...}]
 </code></pre></div></p>
-<p>It is read by <a href="../../../mindocr/data/det_dataset.py">DetDataset</a>. If your dataset is not in the same format as the example format, see <a href="../../../tools/dataset_converters/README.md">instructions</a> on how convert different datasets' annotations into the supported format.</p>
+<p>It is read by <a href="https://github.com/mindspore-lab/mindocr/blob/main/mindocr/data/det_dataset.py">DetDataset</a>. If your dataset is not in the same format as the example format, see <a href="../../datasets/converters/">instructions</a> on how convert different datasets' annotations into the supported format.</p>
 <ul>
-<li><code>SynthTextDataset</code>: A file format provided by <a href="https://github.com/ankush-me/SynthText">SynthText800k</a>. More details about this dataset can be found <a href="../../datasets/synthtext/">here</a>. The annotation file is a <code>.mat</code> file consisting of <code>imnames</code>(image names), <code>wordBB</code>(word-level bounding-boxes), <code>charBB</code>(character-level bounding boxes), and <code>txt</code> (text strings). It is read by <a href="../../../mindocr/data/det_dataset.py">SynthTextDataset</a>. Users can take <code>SynthTextDataset</code> as a reference to write their custom dataset class.</li>
+<li><code>SynthTextDataset</code>: A file format provided by <a href="https://github.com/ankush-me/SynthText">SynthText800k</a>. More details about this dataset can be found <a href="../../datasets/synthtext/">here</a>. The annotation file is a <code>.mat</code> file consisting of <code>imnames</code>(image names), <code>wordBB</code>(word-level bounding-boxes), <code>charBB</code>(character-level bounding boxes), and <code>txt</code> (text strings). It is read by <a href="https://github.com/mindspore-lab/mindocr/blob/main/mindocr/data/det_dataset.py">SynthTextDataset</a>. Users can take <code>SynthTextDataset</code> as a reference to write their custom dataset class.</li>
 </ul>
-<p>We recommend users to prepare text detection datasets in the <code>Common Dataset</code> format, and then use <a href="../../../mindocr/data/det_dataset.py">DetDataset</a> to load the data. The following tutorials further explain on the detailed steps.</p>
+<p>We recommend users to prepare text detection datasets in the <code>Common Dataset</code> format, and then use <a href="https://github.com/mindspore-lab/mindocr/blob/main/mindocr/data/det_dataset.py">DetDataset</a> to load the data. The following tutorials further explain on the detailed steps.</p>
 <h3 id="11-preparing-training-data">1.1 Preparing Training Data<a class="headerlink" href="#11-preparing-training-data" title="Permanent link">&para;</a></h3>
 <p>Please place all training images in a single folder, and specify a txt file <code>train_det.txt</code> at a higher directory to label all training image names and corresponding labels. An example of the txt file is as follows:</p>
 <p><div class="highlight"><pre><span></span><code># File Name # A list of dictionaries
@@ -1522,9 +1522,9 @@ To get the <code>device_ip</code> of the target device, run <code>cat /etc/hccn.
 <h3 id="33-inference">3.3 Inference<a class="headerlink" href="#33-inference" title="Permanent link">&para;</a></h3>
 <p>MindOCR inference supports Ascend310/Ascend310P devices, supports <a href="https://www.mindspore.cn/lite">MindSpore Lite</a> and
 <a href="https://www.hiascend.com/document/detail/zh/canncommercial/63RC1/inferapplicationdev/aclcppdevg/aclcppdevg_000004.html">ACL</a>
-inference backend. <a href="../inference/inference_tutorial_en.md">Inference Tutorial</a> gives detailed steps on how to run inference with MindOCR, which include mainly three steps: environment preparation, model conversion, and inference.</p>
+inference backend. <a href="../../inference/inference_tutorial/">Inference Tutorial</a> gives detailed steps on how to run inference with MindOCR, which include mainly three steps: environment preparation, model conversion, and inference.</p>
 <h4 id="331-environment-preparation">3.3.1 Environment Preparation<a class="headerlink" href="#331-environment-preparation" title="Permanent link">&para;</a></h4>
-<p>Please refer to the <a href="../inference/environment_en.md">environment installation</a> for more information, and pay attention to selecting the ACL/Lite environment based on the model.</p>
+<p>Please refer to the <a href="../../inference/environment/">environment installation</a> for more information, and pay attention to selecting the ACL/Lite environment based on the model.</p>
 <h4 id="332-model-conversion">3.3.2 Model Conversion<a class="headerlink" href="#332-model-conversion" title="Permanent link">&para;</a></h4>
 <p>Before runing infernence, users need to export a MindIR file from the trained checkpoint. <a href="https://www.mindspore.cn/docs/en/r2.0/design/mindir.html">MindSpore IR (MindIR)</a> is a function-style IR based on graph representation. The MindIR filew stores the model structure and weight parameters needed for inference.</p>
 <p>Given the trained dbnet checkpoint file, user can use the following commands to export MindIR:</p>
@@ -1533,7 +1533,7 @@ inference backend. <a href="../inference/inference_tutorial_en.md">Inference Tut
 python<span class="w"> </span>tools/export.py<span class="w"> </span>--model_name<span class="w"> </span>configs/det/dbnet/db_r50_icdar15.yaml<span class="w"> </span>--data_shape<span class="w"> </span><span class="m">736</span><span class="w"> </span><span class="m">1280</span><span class="w"> </span>--local_ckpt_path<span class="w"> </span>/path/to/local_ckpt.ckpt
 </code></pre></div>
 <p>The <code>data_shape</code> is the model input shape of height and width for MindIR file. It may change when the model is changed.</p>
-<p>Please refer to the <a href="../inference/convert_tutorial_en.md">Conversion Tutorial</a> for more details about model conversion.</p>
+<p>Please refer to the <a href="../../inference/convert_tutorial/">Conversion Tutorial</a> for more details about model conversion.</p>
 <h4 id="333-inference-python">3.3.3 Inference (Python)<a class="headerlink" href="#333-inference-python" title="Permanent link">&para;</a></h4>
 <p>After model conversion, the <code>output.mindir</code> is obtained. Users can go to the <code>deploy/py_infer</code> directory, and use the following command for inference:</p>
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>infer.py<span class="w"> </span><span class="se">\</span>
@@ -1545,7 +1545,7 @@ python<span class="w"> </span>tools/export.py<span class="w"> </span>--model_nam
 <span class="w">    </span>--backend<span class="o">=</span>lite<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--res_save_dir<span class="o">=</span>results_dir
 </code></pre></div>
-<p>Please refer to the <a href="../inference/inference_tutorial_en.md#41-command-example">Inference Tutorials</a> on more examples of inference commands.</p>
+<p>Please refer to the <a href="../../inference/inference_tutorial/">Inference Tutorials</a> chapter <code>4.1 Command example</code> on more examples of inference commands.</p>
 
 
 

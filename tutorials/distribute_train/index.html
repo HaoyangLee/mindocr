@@ -275,7 +275,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../mkdocs/dataset_converters/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../datasets/converters/" class="md-tabs__link md-tabs__link--active">
         Tutorials
       </a>
     </li>
@@ -472,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mkdocs/dataset_converters/" class="md-nav__link">
+      <a href="../../datasets/converters/" class="md-nav__link">
         Dataset Preparation
       </a>
     </li>
@@ -1029,7 +1029,7 @@
 There are two ways to train on the Ascend AI processor: by running scripts with OpenMPI or configuring <code>RANK_TABLE_FILE</code> for training.
 On GPU processors, scripts can be run with OpenMPI for training.</p>
 <h2 id="run-scripts-with-openmpi">Run scripts with OpenMPI<a class="headerlink" href="#run-scripts-with-openmpi" title="Permanent link">&para;</a></h2>
-<p>MindSpore supports scripts execution with OpenMPI's <code>mpirun</code> on Ascend hardware platform. Users can refer to <a href="../../../configs/det/dbnet/README.md#34-training">DBNet Readme</a> for more information on training. The following is the command use case:</p>
+<p>MindSpore supports scripts execution with OpenMPI's <code>mpirun</code> on Ascend hardware platform. Users can refer to <a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/det/dbnet/README.md#34-training">DBNet Readme</a> for more information on training. The following is the command use case:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># n is the number of GPUs/NPUs used in training</span>
 mpirun<span class="w"> </span>--allow-run-as-root<span class="w"> </span>-n<span class="w"> </span><span class="m">2</span><span class="w"> </span>python<span class="w"> </span>tools/train.py<span class="w"> </span>--config<span class="w"> </span>configs/det/dbnet/db_r50_icdar15.yaml
 </code></pre></div>

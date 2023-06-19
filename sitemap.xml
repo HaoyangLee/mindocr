@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/"/>
@@ -10,7 +10,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/index_mainpage/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/index_mainpage/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/index_mainpage/"/>
@@ -18,7 +18,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/datasets/chinese_text_recognition/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/datasets/chinese_text_recognition/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/datasets/chinese_text_recognition/"/>
@@ -26,7 +26,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/datasets/ctw1500/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/datasets/ctw1500/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/datasets/ctw1500/"/>
@@ -34,7 +34,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/datasets/icdar2015/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/datasets/icdar2015/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/datasets/icdar2015/"/>
@@ -42,7 +42,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/datasets/mlt2017/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/datasets/mlt2017/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/datasets/mlt2017/"/>
@@ -50,7 +50,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/datasets/svt/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/datasets/svt/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/datasets/svt/"/>
@@ -58,7 +58,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/datasets/syntext150k/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/datasets/syntext150k/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/datasets/syntext150k/"/>
@@ -66,7 +66,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/datasets/synthtext/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/datasets/synthtext/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/datasets/synthtext/"/>
@@ -74,7 +74,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/datasets/td500/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/datasets/td500/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/datasets/td500/"/>
@@ -82,7 +82,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/datasets/totaltext/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/datasets/totaltext/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/datasets/totaltext/"/>
@@ -90,7 +90,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/inference/convert_dynamic/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/inference/convert_dynamic/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/inference/convert_dynamic/"/>
@@ -98,7 +98,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/inference/convert_tutorial/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/inference/convert_tutorial/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/inference/convert_tutorial/"/>
@@ -106,7 +106,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/inference/environment/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/inference/environment/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/inference/environment/"/>
@@ -114,7 +114,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/inference/inference_tutorial/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/inference/inference_tutorial/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/inference/inference_tutorial/"/>
@@ -122,7 +122,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/inference/model_evaluation/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/inference/model_evaluation/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/inference/model_evaluation/"/>
@@ -130,7 +130,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/inference/model_perf_thirdparty/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/inference/model_perf_thirdparty/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/inference/model_perf_thirdparty/"/>
@@ -138,7 +138,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/inference/models_list/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/inference/models_list/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/inference/models_list/"/>
@@ -146,7 +146,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/inference/models_list_thirdparty/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/inference/models_list_thirdparty/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/inference/models_list_thirdparty/"/>
@@ -154,7 +154,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/mkdocs/contributing/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/mkdocs/contributing/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/mkdocs/contributing/"/>
@@ -162,7 +162,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/mkdocs/customize_data_transform/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/mkdocs/customize_data_transform/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/mkdocs/customize_data_transform/"/>
@@ -170,7 +170,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/mkdocs/customize_dataset/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/mkdocs/customize_dataset/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/mkdocs/customize_dataset/"/>
@@ -178,7 +178,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/mkdocs/customize_model/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/mkdocs/customize_model/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/mkdocs/customize_model/"/>
@@ -186,7 +186,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/mkdocs/customize_postprocess/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/mkdocs/customize_postprocess/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/mkdocs/customize_postprocess/"/>
@@ -194,7 +194,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/mkdocs/dataset_converters/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/mkdocs/dataset_converters/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/mkdocs/dataset_converters/"/>
@@ -202,7 +202,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/mkdocs/license/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/mkdocs/license/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/mkdocs/license/"/>
@@ -210,7 +210,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/mkdocs/modelzoo/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/mkdocs/modelzoo/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/mkdocs/modelzoo/"/>
@@ -218,7 +218,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/mkdocs/online_inference/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/mkdocs/online_inference/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/mkdocs/online_inference/"/>
@@ -226,7 +226,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/reference/api_doc/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/reference/api_doc/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/reference/api_doc/"/>
@@ -234,7 +234,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/tutorials/advanced_train/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/tutorials/advanced_train/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/tutorials/advanced_train/"/>
@@ -242,15 +242,23 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/tutorials/distribute_train/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/tutorials/distribute_train/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/tutorials/distribute_train/"/>
          
     </url>
     <url>
+         <loc>https://mindspore-lab.github.io/mindocr/tutorials/training_detection_custom_dataset/</loc>
+         <lastmod>2023-06-19</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/tutorials/training_detection_custom_dataset/"/>
+         <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/tutorials/training_detection_custom_dataset/"/>
+         
+    </url>
+    <url>
          <loc>https://mindspore-lab.github.io/mindocr/tutorials/training_recognition_custom_dataset/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/tutorials/training_recognition_custom_dataset/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/tutorials/training_recognition_custom_dataset/"/>
@@ -258,7 +266,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/tutorials/transform_tutorial/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/tutorials/transform_tutorial/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/tutorials/transform_tutorial/"/>
@@ -266,7 +274,7 @@
     </url>
     <url>
          <loc>https://mindspore-lab.github.io/mindocr/tutorials/yaml_configuration/</loc>
-         <lastmod>2023-06-16</lastmod>
+         <lastmod>2023-06-19</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/tutorials/yaml_configuration/"/>
          <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/tutorials/yaml_configuration/"/>

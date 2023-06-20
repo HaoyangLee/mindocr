@@ -1110,9 +1110,8 @@
 <h2 id="-">推理 - 模型转换教程<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
 <h3 id="1-mindocr">1. MindOCR模型<a class="headerlink" href="#1-mindocr" title="Permanent link">&para;</a></h3>
 <p>MindOCR模型的推理使用<a href="https://www.mindspore.cn/lite">MindSpore Lite</a>后端。</p>
-<div class="highlight"><pre><span></span><code>graph LR;
-    ckpt --&gt; |export| MindIR --&gt; |&quot;converter_lite(离线转换)&quot;| o[MindIR];
-</code></pre></div>
+<pre class="mermaid"><code>graph LR;
+    ckpt --&gt; |export| MindIR --&gt; |"converter_lite(离线转换)"| o[MindIR];</code></pre>
 <h4 id="11">1.1 模型导出<a class="headerlink" href="#11" title="Permanent link">&para;</a></h4>
 <p>在推理之前，需要先把训练端的ckpt文件<a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/README.md">导出</a>为MindIR文件，它保存了模型的结构和权重参数。</p>
 <p>部分模型提供了MIndIR导出文件的下载链接，见<a href="../models_list/">模型列表</a>，可跳转到对应模型的介绍页面进行下载。</p>
@@ -1179,11 +1178,10 @@ precision_mode=enforce_fp32
 <p>如不设置，默认为<code>enforce_fp16</code>。</p>
 <h3 id="2-paddleocr">2. PaddleOCR模型<a class="headerlink" href="#2-paddleocr" title="Permanent link">&para;</a></h3>
 <p>PaddleOCR模型的推理可以使用<a href="https://www.hiascend.com/document/detail/zh/canncommercial/63RC1/inferapplicationdev/aclcppdevg/aclcppdevg_000004.html">ACL</a>和<a href="https://www.mindspore.cn/lite">MindSpore Lite</a>两种后端，分别对应OM模型和MindIR模型。</p>
-<div class="highlight"><pre><span></span><code>graph LR;
+<pre class="mermaid"><code>graph LR;
     训练模型 -- export --&gt; 推理模型 -- paddle2onnx --&gt; ONNX;
     ONNX -- atc --&gt; o1(OM);
-    ONNX -- converter_lite --&gt; o2(MindIR);
-</code></pre></div>
+    ONNX -- converter_lite --&gt; o2(MindIR);</code></pre>
 <h4 id="21-">2.1 训练模型 -&gt; 推理模型<a class="headerlink" href="#21-" title="Permanent link">&para;</a></h4>
 <p>在PaddleOCR模型的下载链接中，有训练模型和推理模型两种格式，如果提供的是训练模型，则需要将其转换为推理模型的格式。</p>
 <p>在每个训练模型的原PaddleOCR介绍页面，一般会有转换脚本样例，只需要传入训练模型的配置文件、模型文件和保存路径即可。
@@ -1288,11 +1286,10 @@ python<span class="w"> </span>tools/export_model.py<span class="w"> </span><span
 <h3 id="3-mmocr">3. MMOCR模型<a class="headerlink" href="#3-mmocr" title="Permanent link">&para;</a></h3>
 <p>MMOCR使用Pytorch，其模型文件一般是pth格式。</p>
 <p>需要先把它导出为ONNX格式，再转换为<a href="https://www.hiascend.com/document/detail/zh/canncommercial/63RC1/inferapplicationdev/aclcppdevg/aclcppdevg_000004.html">ACL</a>/<a href="https://www.mindspore.cn/lite">MindSpore Lite</a>支持的OM/MindIR格式。</p>
-<div class="highlight"><pre><span></span><code>graph LR;
+<pre class="mermaid"><code>graph LR;
     pth -- export --&gt;  ONNX;
     ONNX -- atc --&gt; o1(OM);
-    ONNX -- converter_lite --&gt; o2(MindIR);
-</code></pre></div>
+    ONNX -- converter_lite --&gt; o2(MindIR);</code></pre>
 <h4 id="31-mmocr-onnx">3.1 MMOCR模型 -&gt; ONNX<a class="headerlink" href="#31-mmocr-onnx" title="Permanent link">&para;</a></h4>
 <p><a href="https://github.com/open-mmlab/mmdeploy">MMDeploy</a>提供了MMOCR模型导出ONNX的命令，详细教程见<a href="https://github.com/open-mmlab/mmdeploy/blob/main/docs/zh_cn/02-how-to-run/convert_model.md">如何转换模型</a>。</p>
 <p>对于参数<code>deploy_cfg</code>需选择目录<a href="https://github.com/open-mmlab/mmdeploy/tree/main/configs/mmocr">mmdeploy/configs/mmocr</a>下的<code>*_onnxruntime_dynamic.py</code>文件，从而导出为动态Shape版ONNX模型。</p>

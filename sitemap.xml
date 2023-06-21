@@ -209,11 +209,11 @@
          
     </url>
     <url>
-         <loc>https://mindspore-lab.github.io/mindocr/mkdocs/modelzoo/</loc>
+         <loc>https://mindspore-lab.github.io/mindocr/mkdocs/modelzoo_training/</loc>
          <lastmod>2023-06-21</lastmod>
          <changefreq>daily</changefreq>
-         <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/mkdocs/modelzoo/"/>
-         <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/mkdocs/modelzoo/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="https://mindspore-lab.github.io/mindocr/en/mkdocs/modelzoo_training/"/>
+         <xhtml:link rel="alternate" hreflang="cn" href="https://mindspore-lab.github.io/mindocr/cn/mkdocs/modelzoo_training/"/>
          
     </url>
     <url>

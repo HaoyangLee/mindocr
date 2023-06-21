@@ -1101,8 +1101,8 @@
   <h1>Model perf thirdparty.md</h1>
 
 <h2 id="third-party-model-inference-performance-table">Third-party Model Inference Performance Table<a class="headerlink" href="#third-party-model-inference-performance-table" title="Permanent link">&para;</a></h2>
-<p>This document will give the performance of the third-party inference model using the MindIR format after performing
-<a href="../convert_tutorial/">model conversion</a>.</p>
+<p>This document will give the inference performance of the third-party model (PaddleOCR, MMOCR, etc.) using the MindIR
+format after performing <a href="../convert_tutorial/">model conversion</a>.</p>
 <h3 id="1-text-detection">1. Text detection<a class="headerlink" href="#1-text-detection" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1110,133 +1110,133 @@
 <th align="center">name</th>
 <th align="center">model</th>
 <th align="center">backbone</th>
+<th align="left">source</th>
 <th align="center">test data</th>
 <th align="center">recall</th>
 <th align="center">precision</th>
 <th align="center">f-score</th>
-<th align="center">source</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td align="center">ch_pp_server_det_v2.0</td>
-<td align="center">DB</td>
+<td align="center">DBNet</td>
 <td align="center">ResNet18_vd</td>
+<td align="left">PaddleOCR</td>
 <td align="center">MLT17</td>
 <td align="center">0.3637</td>
 <td align="center">0.6340</td>
 <td align="center">0.4622</td>
-<td align="center">PaddleOCR</td>
 </tr>
 <tr>
 <td align="center">ch_pp_det_OCRv3</td>
-<td align="center">DB</td>
+<td align="center">DBNet</td>
 <td align="center">MobileNetV3</td>
+<td align="left">PaddleOCR</td>
 <td align="center">MLT17</td>
 <td align="center">0.2557</td>
 <td align="center">0.5021</td>
 <td align="center">0.3389</td>
-<td align="center">PaddleOCR</td>
 </tr>
 <tr>
 <td align="center">ch_pp_det_OCRv2</td>
-<td align="center">DB</td>
+<td align="center">DBNet</td>
 <td align="center">MobileNetV3</td>
+<td align="left">PaddleOCR</td>
 <td align="center">MLT17</td>
 <td align="center">0.3258</td>
 <td align="center">0.6318</td>
 <td align="center">0.4299</td>
-<td align="center">PaddleOCR</td>
 </tr>
 <tr>
 <td align="center">ch_pp_mobile_det_v2.0_slim</td>
-<td align="center">DB</td>
+<td align="center">DBNet</td>
 <td align="center">MobileNetV3</td>
+<td align="left">PaddleOCR</td>
 <td align="center">MLT17</td>
 <td align="center">0.2346</td>
 <td align="center">0.4868</td>
 <td align="center">0.3166</td>
-<td align="center">PaddleOCR</td>
 </tr>
 <tr>
 <td align="center">ch_pp_mobile_det_v2.0</td>
-<td align="center">DB</td>
+<td align="center">DBNet</td>
 <td align="center">MobileNetV3</td>
+<td align="left">PaddleOCR</td>
 <td align="center">MLT17</td>
 <td align="center">0.2403</td>
 <td align="center">0.4597</td>
 <td align="center">0.3156</td>
-<td align="center">PaddleOCR</td>
 </tr>
 <tr>
 <td align="center">en_pp_det_OCRv3</td>
-<td align="center">DB</td>
+<td align="center">DBNet</td>
 <td align="center">MobileNetV3</td>
+<td align="left">PaddleOCR</td>
 <td align="center">IC15</td>
 <td align="center">0.3866</td>
 <td align="center">0.4630</td>
 <td align="center">0.4214</td>
-<td align="center">PaddleOCR</td>
 </tr>
 <tr>
 <td align="center">ml_pp_det_OCRv3</td>
-<td align="center">DB</td>
+<td align="center">DBNet</td>
 <td align="center">MobileNetV3</td>
+<td align="left">PaddleOCR</td>
 <td align="center">MLT17</td>
 <td align="center">0.5992</td>
 <td align="center">0.7348</td>
 <td align="center">0.6601</td>
-<td align="center">PaddleOCR</td>
 </tr>
 <tr>
 <td align="center">en_pp_det_dbnet_resnet50vd</td>
 <td align="center">DBNet</td>
 <td align="center">ResNet50_vd</td>
+<td align="left">PaddleOCR</td>
 <td align="center">IC15</td>
 <td align="center">0.8281</td>
 <td align="center">0.7716</td>
 <td align="center">0.7989</td>
-<td align="center">PaddleOCR</td>
 </tr>
 <tr>
 <td align="center">en_pp_det_sast_resnet50vd</td>
 <td align="center">SAST</td>
 <td align="center">ResNet50_vd</td>
+<td align="left">PaddleOCR</td>
 <td align="center">IC15</td>
 <td align="center">0.7463</td>
 <td align="center">0.9043</td>
 <td align="center">0.8177</td>
-<td align="center">PaddleOCR</td>
 </tr>
 <tr>
 <td align="center">en_pp_det_psenet_resnet50vd</td>
 <td align="center">PSENet</td>
 <td align="center">ResNet50_vd</td>
+<td align="left">PaddleOCR</td>
 <td align="center">IC15</td>
 <td align="center">0.7664</td>
 <td align="center">0.8463</td>
 <td align="center">0.8044</td>
-<td align="center">PaddleOCR</td>
 </tr>
 <tr>
 <td align="center">en_mm_det_dbnetpp_resnet50</td>
 <td align="center">DBNet++</td>
 <td align="center">ResNet50</td>
+<td align="left">MMOCR</td>
 <td align="center">IC15</td>
 <td align="center">0.8387</td>
 <td align="center">0.7900</td>
 <td align="center">0.8136</td>
-<td align="center">MMOCR</td>
 </tr>
 <tr>
 <td align="center">en_mm_det_fcenet_resnet50</td>
 <td align="center">FCENet</td>
 <td align="center">ResNet50</td>
+<td align="left">MMOCR</td>
 <td align="center">IC15</td>
 <td align="center">0.8681</td>
 <td align="center">0.8074</td>
 <td align="center">0.8367</td>
-<td align="center">MMOCR</td>
 </tr>
 </tbody>
 </table>
@@ -1247,10 +1247,10 @@
 <th align="center">name</th>
 <th align="center">model</th>
 <th align="center">backbone</th>
+<th align="center">source</th>
 <th align="center">test data</th>
 <th align="center">accuracy</th>
 <th align="center">norm edit distance</th>
-<th align="center">source</th>
 </tr>
 </thead>
 <tbody>
@@ -1258,109 +1258,109 @@
 <td align="center">ch_pp_server_rec_v2.0</td>
 <td align="center">CRNN</td>
 <td align="center">ResNet34</td>
+<td align="center">PaddleOCR</td>
 <td align="center">MLT17 (only Chinese)</td>
 <td align="center">0.4991</td>
 <td align="center">0.7411</td>
-<td align="center">PaddleOCR</td>
 </tr>
 <tr>
 <td align="center">ch_pp_rec_OCRv3</td>
 <td align="center">SVTR</td>
 <td align="center">MobileNetV1Enhance</td>
+<td align="center">PaddleOCR</td>
 <td align="center">MLT17 (only Chinese)</td>
 <td align="center">0.4991</td>
 <td align="center">0.7535</td>
-<td align="center">PaddleOCR</td>
 </tr>
 <tr>
 <td align="center">ch_pp_rec_OCRv2</td>
 <td align="center">CRNN</td>
 <td align="center">MobileNetV1Enhance</td>
+<td align="center">PaddleOCR</td>
 <td align="center">MLT17 (only Chinese)</td>
 <td align="center">0.4459</td>
 <td align="center">0.7036</td>
-<td align="center">PaddleOCR</td>
 </tr>
 <tr>
 <td align="center">ch_pp_mobile_rec_v2.0</td>
 <td align="center">CRNN</td>
 <td align="center">MobileNetV3</td>
+<td align="center">PaddleOCR</td>
 <td align="center">MLT17 (only Chinese)</td>
 <td align="center">0.2459</td>
 <td align="center">0.4878</td>
-<td align="center">PaddleOCR</td>
 </tr>
 <tr>
 <td align="center">en_pp_rec_OCRv3</td>
 <td align="center">SVTR</td>
 <td align="center">MobileNetV1Enhance</td>
+<td align="center">PaddleOCR</td>
 <td align="center">MLT17 (only English)</td>
 <td align="center">0.7964</td>
 <td align="center">0.8854</td>
-<td align="center">PaddleOCR</td>
 </tr>
 <tr>
 <td align="center">en_pp_mobile_rec_number_v2.0_slim</td>
 <td align="center">CRNN</td>
 <td align="center">MobileNetV3</td>
+<td align="center">PaddleOCR</td>
 <td align="center">MLT17 (only English)</td>
 <td align="center">0.0164</td>
 <td align="center">0.0657</td>
-<td align="center">PaddleOCR</td>
 </tr>
 <tr>
 <td align="center">en_pp_mobile_rec_number_v2.0</td>
 <td align="center">CRNN</td>
 <td align="center">MobileNetV3</td>
+<td align="center">PaddleOCR</td>
 <td align="center">MLT17 (only English)</td>
 <td align="center">0.4304</td>
 <td align="center">0.5944</td>
-<td align="center">PaddleOCR</td>
 </tr>
 <tr>
 <td align="center">en_pp_rec_crnn_resnet34vd</td>
 <td align="center">CRNN</td>
 <td align="center">ResNet34_vd</td>
+<td align="center">PaddleOCR</td>
 <td align="center">IC15</td>
 <td align="center">0.6635</td>
 <td align="center">0.8392</td>
-<td align="center">PaddleOCR</td>
 </tr>
 <tr>
 <td align="center">en_pp_rec_rosetta_resnet34vd</td>
 <td align="center">Rosetta</td>
 <td align="center">ResNet34_vd</td>
+<td align="center">PaddleOCR</td>
 <td align="center">IC15</td>
 <td align="center">0.6428</td>
 <td align="center">0.8321</td>
-<td align="center">PaddleOCR</td>
 </tr>
 <tr>
 <td align="center">en_pp_rec_vitstr_vitstr</td>
 <td align="center">VITSTR</td>
-<td align="center">vitstr</td>
+<td align="center">Vitstr</td>
+<td align="center">PaddleOCR</td>
 <td align="center">IC15</td>
 <td align="center">0.6842</td>
 <td align="center">0.8578</td>
-<td align="center">PaddleOCR</td>
 </tr>
 <tr>
 <td align="center">en_mm_rec_nrtr_resnet31</td>
 <td align="center">NRTR</td>
 <td align="center">ResNet31</td>
+<td align="center">MMOCR</td>
 <td align="center">IC15</td>
 <td align="center">0.6726</td>
 <td align="center">0.8574</td>
-<td align="center">MMOCR</td>
 </tr>
 <tr>
 <td align="center">en_mm_rec_satrn_shallowcnn</td>
 <td align="center">SATRN</td>
 <td align="center">shallowcnn</td>
+<td align="center">MMOCR</td>
 <td align="center">IC15</td>
 <td align="center">0.7352</td>
 <td align="center">0.8887</td>
-<td align="center">MMOCR</td>
 </tr>
 </tbody>
 </table>

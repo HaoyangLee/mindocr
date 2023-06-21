@@ -1289,7 +1289,7 @@
 <h3 id="2">2. 运行环境<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>请参考<a href="../environment/">运行环境准备</a>，配置MindOCR的推理运行环境，注意结合模型的支持情况来选择ACL/Lite环境。</p>
 <h3 id="3">3. 模型转换<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<p>MindOCR除了支持自身训练端导出模型的推理外，还支持第三方模型的推理，列表见<a href="../models_list/">MindOCR模型支持列表</a>和<a href="../models_list_thirdparty/">第三方模型支持列表</a>。</p>
+<p>MindOCR除了支持自身训练端导出模型的推理外，还支持第三方模型的推理，列表见<a href="../models_list/">MindOCR模型支持列表</a>和<a href="../models_list_thirdparty/">第三方模型支持列表</a>（如PaddleOCR、MMOCR等）。</p>
 <p>请参考<a href="../convert_tutorial/">模型转换教程</a>，将其转换为MindOCR推理支持的模型格式。</p>
 <h3 id="4-python">4. 推理 (Python)<a class="headerlink" href="#4-python" title="Permanent link">&para;</a></h3>
 <p>进入到MindOCR推理侧目录下：<code>cd deploy/py_infer</code>.</p>
@@ -1571,7 +1571,7 @@ word_1814.png  &quot;cathay&quot;
 </tbody>
 </table>
 <p>说明：</p>
-<p><code>*_model_name_or_config</code>可以填模型名或YAML配置文件路径，可参考<a href="../models_list/">MindOCR模型支持列表</a>和<a href="../models_list_thirdparty/">第三方模型支持列表</a>。</p>
+<p><code>*_model_name_or_config</code>可以填模型名或YAML配置文件路径，可参考<a href="../models_list/">MindOCR模型支持列表</a>和<a href="../models_list_thirdparty/">第三方模型支持列表</a>（如PaddleOCR、MMOCR等）。</p>
 <h3 id="5-c">5. 推理 (C++)<a class="headerlink" href="#5-c" title="Permanent link">&para;</a></h3>
 <p>目前暂时只支持pp-ocr系列的中文DBNET、CRNN、SVTR模型。</p>
 <p>进入到MindOCR推理测目录下 <code>cd deploy/cpp_infer</code>,执行编译脚本 <code>bash build.sh</code>, 构建完成之后在当前路径dist目录下生成可执行文件infer。</p>

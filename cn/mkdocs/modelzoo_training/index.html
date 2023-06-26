@@ -458,6 +458,33 @@
     训练 - MindOCR模型支持列表
   </a>
   
+    <nav class="md-nav" aria-label="训练 - MindOCR模型支持列表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    文本检测
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    文本识别
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    文本方向分类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1043,6 +1070,33 @@
     训练 - MindOCR模型支持列表
   </a>
   
+    <nav class="md-nav" aria-label="训练 - MindOCR模型支持列表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    文本检测
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    文本识别
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    文本方向分类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1079,13 +1133,13 @@
   <h1>1. Training</h1>
 
 <h2 id="-mindocr">训练 - MindOCR模型支持列表<a class="headerlink" href="#-mindocr" title="Permanent link">&para;</a></h2>
+<h3 id="_1">文本检测<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
 <th align="center">model</th>
-<th align="center">type</th>
 <th align="center">dataset</th>
-<th align="center">fscore(detection)/accuracy(recognition)</th>
+<th align="center">F-score</th>
 <th align="center">mindocr recipe</th>
 <th align="center">vanilla mindspore</th>
 </tr>
@@ -1093,7 +1147,6 @@
 <tbody>
 <tr>
 <td align="center">dbnet_mobilenetv3</td>
-<td align="center">detection</td>
 <td align="center">icdar2015</td>
 <td align="center">77.28</td>
 <td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/det/dbnet">config</a></td>
@@ -1101,7 +1154,6 @@
 </tr>
 <tr>
 <td align="center">dbnet_resnet18</td>
-<td align="center">detection</td>
 <td align="center">icdar2015</td>
 <td align="center">83.71</td>
 <td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/det/dbnet">config</a></td>
@@ -1109,7 +1161,6 @@
 </tr>
 <tr>
 <td align="center">dbnet_resnet50</td>
-<td align="center">detection</td>
 <td align="center">icdar2015</td>
 <td align="center">84.99</td>
 <td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/det/dbnet">config</a></td>
@@ -1117,7 +1168,6 @@
 </tr>
 <tr>
 <td align="center">dbnet_resnet50</td>
-<td align="center">detection</td>
 <td align="center">msra-td500</td>
 <td align="center">85.03</td>
 <td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/det/dbnet">config</a></td>
@@ -1125,7 +1175,6 @@
 </tr>
 <tr>
 <td align="center">dbnet++_resnet50</td>
-<td align="center">detection</td>
 <td align="center">icdar2015</td>
 <td align="center">86.60</td>
 <td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/det/dbnet">config</a></td>
@@ -1133,7 +1182,6 @@
 </tr>
 <tr>
 <td align="center">psenet_resnet152</td>
-<td align="center">detection</td>
 <td align="center">icdar2015</td>
 <td align="center">82.06</td>
 <td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/det/psenet">config</a></td>
@@ -1141,15 +1189,34 @@
 </tr>
 <tr>
 <td align="center">east_resnet50</td>
-<td align="center">detection</td>
 <td align="center">icdar2015</td>
 <td align="center">84.87</td>
 <td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/det/east">config</a></td>
 <td align="center"><a href="https://gitee.com/mindspore/models/tree/r2.0/research/cv/east">link</a></td>
 </tr>
 <tr>
+<td align="center">fcenet_resnet50</td>
+<td align="center">icdar2015</td>
+<td align="center">84.12</td>
+<td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/det/fcenet">config</a></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_2">文本识别<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th align="center">model</th>
+<th align="center">dataset</th>
+<th align="center">acc</th>
+<th align="center">mindocr recipe</th>
+<th align="center">vanilla mindspore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td align="center">svtr_tiny</td>
-<td align="center">recognition</td>
 <td align="center">IC03,13,15,IIIT,etc</td>
 <td align="center">89.02</td>
 <td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/rec/svtr">config</a></td>
@@ -1157,7 +1224,6 @@
 </tr>
 <tr>
 <td align="center">crnn_vgg7</td>
-<td align="center">recognition</td>
 <td align="center">IC03,13,15,IIIT,etc</td>
 <td align="center">82.03</td>
 <td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/rec/crnn">config</a></td>
@@ -1165,7 +1231,6 @@
 </tr>
 <tr>
 <td align="center">crnn_resnet34_vd</td>
-<td align="center">recognition</td>
 <td align="center">IC03,13,15,IIIT,etc</td>
 <td align="center">84.45</td>
 <td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/rec/crnn">config</a></td>
@@ -1173,10 +1238,30 @@
 </tr>
 <tr>
 <td align="center">rare_resnet34_vd</td>
-<td align="center">recognition</td>
 <td align="center">IC03,13,15,IIIT,etc</td>
 <td align="center">85.19</td>
 <td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/rec/rare">config</a></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">文本方向分类<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th align="center">model</th>
+<th align="center">dataset</th>
+<th align="center">acc</th>
+<th align="center">mindocr recipe</th>
+<th align="center">vanilla mindspore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">mobilenetv3</td>
+<td align="center">RCTW17,MTWI,LSVT</td>
+<td align="center">94.59</td>
+<td align="center"><a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/cls/mobilenetv3">config</a></td>
 <td align="center"></td>
 </tr>
 </tbody>

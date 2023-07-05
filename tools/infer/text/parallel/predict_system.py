@@ -82,7 +82,7 @@ def predict_det(args):
 
         image = np.squeeze(image.asnumpy(), axis=0)  # TODO: only works when batch size = 1
         image = recover_image(image)
-        cropped_images = vis_tool(image, box_list[idx][0][0])
+        cropped_images = vis_tool(image, box_list[idx]["polys"][0])
         # cropped_images_dict[original_img_filename] = cropped_images
         box_dict[
             original_img_filename
@@ -92,7 +92,7 @@ def predict_det(args):
         if args.crop_save_dir:
             for i, crop in enumerate(cropped_images):
                 crop_save_filename = original_img_filename + "_crop_" + str(i) + ".jpg"
-                box_dict[original_img_filename][crop_save_filename] = box_list[idx][0][0][i]
+                box_dict[original_img_filename][crop_save_filename] = box_list[idx]["polys"][0][i]
                 cv2.imwrite(os.path.join(args.crop_save_dir, crop_save_filename), crop)
 
     det_pred_outputs["predicted_boxes"] = box_dict
@@ -151,4 +151,9 @@ def main():
 
 
 if __name__ == "__main__":
+    from time import time
+
+    start = time()
     main()
+    end = time()
+    print(f"time cost: {end - start}s")

@@ -436,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../inference/models_list/" class="md-nav__link">
+      <a href="../../inference/inference_quickstart/" class="md-nav__link">
         2. Inference - MindOCR Models List
       </a>
     </li>
@@ -450,7 +450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../inference/models_list_thirdparty/" class="md-nav__link">
+      <a href="../../inference/inference_thirdparty_quickstart/" class="md-nav__link">
         3. Inference - Third-party Models List
       </a>
     </li>
@@ -1527,7 +1527,7 @@ img_2.jpg\t[{&quot;transcription&quot;: &quot;guardian&quot;, &quot;points&quot;
 <span class="w">  </span><span class="nt">main_indicator</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">f-score</span>
 
 <span class="nt">loss</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">L1BalancedCELoss</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DBLoss</span>
 <span class="w">  </span><span class="nt">eps</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0e-6</span>
 <span class="w">  </span><span class="nt">l1_scale</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
 <span class="w">  </span><span class="nt">bce_scale</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
@@ -1546,7 +1546,7 @@ img_2.jpg\t[{&quot;transcription&quot;: &quot;guardian&quot;, &quot;points&quot;
 <span class="w">  </span><span class="nt">momentum</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.9</span>
 <span class="w">  </span><span class="nt">weight_decay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0e-4</span>
 </code></pre></div>
-它使用 <code>SGD</code> 优化器（在 <code>mindocr/optim/optim.factory.py</code> 中）和 <code>polynomial_decay</code>（在 <code>mindocr/scheduler/scheduler_factory.py</code> 中）作为学习率调整策略。损失函数是 <code>L1BalancedCELoss</code>（在 <code>mindocr/losses/det_loss.py</code> 中），评估指标是 <code>DetMetric</code>（在 <code>mindocr/metrics/det_metrics.py</code> 中）。</p>
+它使用 <code>SGD</code> 优化器（在 <code>mindocr/optim/optim.factory.py</code> 中）和 <code>polynomial_decay</code>（在 <code>mindocr/scheduler/scheduler_factory.py</code> 中）作为学习率调整策略。损失函数是 <code>DBLoss</code>（在 <code>mindocr/losses/det_loss.py</code> 中），评估指标是 <code>DetMetric</code>（在 <code>mindocr/metrics/det_metrics.py</code> 中）。</p>
 <h2 id="3">3. 模型训练, 测试和推理<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <p>当所有配置文件都已设置好后，用户就可以开始训练他们的模型。MindOCR支持在模型训练完成后进行测试和推理。</p>
 <h3 id="31">3.1 训练<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>

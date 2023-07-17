@@ -17,7 +17,7 @@
     
     
       
-        <title>数据集下载 - MindOCR Docs</title>
+        <title>MLT-2017 数据集 - MindOCR Docs</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#mlt-2017" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              数据集下载
+              MLT-2017 数据集
             
           </span>
         </div>
@@ -430,7 +430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../inference/models_list/" class="md-nav__link">
+      <a href="../../inference/inference_quickstart/" class="md-nav__link">
         2. Inference - MindOCR Models List
       </a>
     </li>
@@ -444,7 +444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../inference/models_list_thirdparty/" class="md-nav__link">
+      <a href="../../inference/inference_thirdparty_quickstart/" class="md-nav__link">
         3. Inference - Third-party Models List
       </a>
     </li>
@@ -989,6 +989,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    数据集下载
+  </a>
+  
+    <nav class="md-nav" aria-label="数据集下载">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    文本检测
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    文本识别
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1018,29 +1053,23 @@
   
 
 
-<h1 id="_1">数据集下载<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>MLT (Multi-Lingual) 2017 <a href="https://ieeexplore.ieee.org/abstract/document/8270168">文章</a></p>
-<p><a href="https://rrc.cvc.uab.es/?ch=8&amp;com=downloads">下载地址</a>: 在下载之前，您需要先注册一个账号。</p>
-<details>
-  <summary>从何处下载 MLT 2017</summary>
-
-MLT 2017 数据集包含两个任务. 任务 1 是文本检测 (多语言文本)。 任务2是文本识别。
-
-### 文本检测
-
-有11个与任务1相关的文件需要下载（[下载地址](https://rrc.cvc.uab.es/?ch=8&com=downloads)）， 它们分别是：
-
+<h1 id="mlt-2017">MLT-2017 数据集<a class="headerlink" href="#mlt-2017" title="Permanent link">&para;</a></h1>
+<h2 id="_1">数据集下载<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>MLT (Multi-Lingual) 2017 <a href="https://ieeexplore.ieee.org/abstract/document/8270168">论文</a> | <a href="https://rrc.cvc.uab.es/?ch=8&amp;com=downloads">下载链接</a></p>
+<blockquote>
+<p>注意：在下载之前，请先注册一个账号。</p>
+</blockquote>
+<p>MLT 2017 数据集包含两个任务：任务 1 是文本检测 (多语言文本)。 任务2是文本识别。</p>
+<h3 id="_2">文本检测<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>有11个与任务1相关的文件需要下载，它们分别是：</p>
 <div class="highlight"><pre><span></span><code>ch8_training_images_x.zip(x from 1 to 8)
 ch8_validation_images.zip
 ch8_training_localization_transcription_gt_v2.zip
 ch8_validation_localization_transcription_gt_v2.zip
 </code></pre></div>
-
-测试集不需要下载。
-
-### 文本识别
-
-有6个与任务2相关的文件需要下载（[下载地址](https://rrc.cvc.uab.es/?ch=8&com=downloads)）， 它们分别是：
+<p>测试集不需要下载。</p>
+<h3 id="_3">文本识别<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>有6个与任务2相关的文件需要下载，它们分别是：
 <div class="highlight"><pre><span></span><code> ch8_training_word_images_gt_part_x.zip (x from 1 to 3)
  ch8_validation_word_images_gt.zip
  ch8_training_word_gt_v2.zip
@@ -1071,12 +1100,9 @@ path-to-data-dir/
     ch8_training_word_images_gt_part_3.zip
     ch8_training_word_gt_v2.zip
     ch8_validation_word_images_gt.zip
-    ch8_validation_word_gt_v2.zip
-
-
-```
-
-[返回dataset converters](converters.md)
+    ch8_validation_word_gt_v2.zip</p>
+<p>```</p>
+<p><a href="../converters/">返回dataset converters</a></p>
 
 
 

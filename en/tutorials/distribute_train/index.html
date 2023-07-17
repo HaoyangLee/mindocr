@@ -436,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../inference/models_list/" class="md-nav__link">
+      <a href="../../inference/inference_quickstart/" class="md-nav__link">
         2. Inference - MindOCR Models List
       </a>
     </li>
@@ -450,7 +450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../inference/models_list_thirdparty/" class="md-nav__link">
+      <a href="../../inference/inference_thirdparty_quickstart/" class="md-nav__link">
         3. Inference - Third-party Models List
       </a>
     </li>
@@ -700,16 +700,69 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#run-scripts-with-openmpi" class="md-nav__link">
-    Run scripts with OpenMPI
+  <a href="#1-ascend" class="md-nav__link">
+    1. Ascend
   </a>
+  
+    <nav class="md-nav" aria-label="1. Ascend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-run-scripts-with-openmpi" class="md-nav__link">
+    1.1 Run scripts with OpenMPI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-configure-rank_table_file-for-training" class="md-nav__link">
+    1.2 Configure RANK_TABLE_FILE for training
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 Configure RANK_TABLE_FILE for training">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-running-on-eight-all-devices" class="md-nav__link">
+    1.2.1 Running on Eight (All) Devices
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-running-on-four-partial-devices" class="md-nav__link">
+    1.2.2 Running on Four (Partial) Devices
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-rank_table_file-for-training" class="md-nav__link">
-    Configure RANK_TABLE_FILE for training
+  <a href="#2-gpu" class="md-nav__link">
+    2. GPU
   </a>
+  
+    <nav class="md-nav" aria-label="2. GPU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-run-scripts-with-openmpi" class="md-nav__link">
+    2.1 Run scripts with OpenMPI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1054,16 +1107,69 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#run-scripts-with-openmpi" class="md-nav__link">
-    Run scripts with OpenMPI
+  <a href="#1-ascend" class="md-nav__link">
+    1. Ascend
   </a>
+  
+    <nav class="md-nav" aria-label="1. Ascend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-run-scripts-with-openmpi" class="md-nav__link">
+    1.1 Run scripts with OpenMPI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-configure-rank_table_file-for-training" class="md-nav__link">
+    1.2 Configure RANK_TABLE_FILE for training
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 Configure RANK_TABLE_FILE for training">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-running-on-eight-all-devices" class="md-nav__link">
+    1.2.1 Running on Eight (All) Devices
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-running-on-four-partial-devices" class="md-nav__link">
+    1.2.2 Running on Four (Partial) Devices
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-rank_table_file-for-training" class="md-nav__link">
-    Configure RANK_TABLE_FILE for training
+  <a href="#2-gpu" class="md-nav__link">
+    2. GPU
   </a>
+  
+    <nav class="md-nav" aria-label="2. GPU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-run-scripts-with-openmpi" class="md-nav__link">
+    2.1 Run scripts with OpenMPI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1102,15 +1208,44 @@
 <p>This document provides a tutorial on distributed parallel training.
 There are two ways to train on the Ascend AI processor: by running scripts with OpenMPI or configuring <code>RANK_TABLE_FILE</code> for training.
 On GPU processors, scripts can be run with OpenMPI for training.</p>
-<h2 id="run-scripts-with-openmpi">Run scripts with OpenMPI<a class="headerlink" href="#run-scripts-with-openmpi" title="Permanent link">&para;</a></h2>
-<p>MindSpore supports scripts execution with OpenMPI's <code>mpirun</code> on Ascend hardware platform. Users can refer to <a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/det/dbnet/README.md#34-training">DBNet Readme</a> for more information on training. The following is the command use case:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># n is the number of GPUs/NPUs used in training</span>
+<blockquote>
+<p>Please ensure that the <code>distribute</code> parameter in the yaml file is set to <code>True</code> before running the following commands for distributed training.</p>
+</blockquote>
+<ul>
+<li><a href="#distributed-parallel-training">Distributed parallel training</a></li>
+<li><a href="#1-ascend">1. Ascend</a><ul>
+<li><a href="#11-run-scripts-with-openmpi">1.1 Run scripts with OpenMPI</a></li>
+<li><a href="#12-configure-rank_table_file-for-training">1.2 Configure RANK_TABLE_FILE for training</a></li>
+<li><a href="#121-running-on-eight-all-devices">1.2.1 Running on Eight (All) Devices</a></li>
+<li><a href="#122-running-on-four-partial-devices">1.2.2 Running on Four (Partial) Devices</a></li>
+</ul>
+</li>
+<li><a href="#2-gpu">2. GPU</a><ul>
+<li><a href="#21-run-scripts-with-openmpi">2.1 Run scripts with OpenMPI</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="1-ascend">1. Ascend<a class="headerlink" href="#1-ascend" title="Permanent link">&para;</a></h2>
+<p><strong>Notes</strong>:</p>
+<p>On Ascend platform, some common restrictions on using the distributed service are as follows:</p>
+<ul>
+<li>
+<p>In a single-node system, a cluster of 1, 2, 4, or 8 devices is supported. In a multi-node system, a cluster of 8 x N devices is supported.</p>
+</li>
+<li>
+<p>Each host has four devices numbered 0 to 3 and four devices numbered 4 to 7 deployed on two different networks. During training of 2 or 4 devices, the devices must be connected and clusters cannot be created across networks. This means, when training with 4 devices, only <code>{0, 1, 2, 3}</code> and  <code>{4, 5, 6, 7}</code> are available. While in training with 2 devices, devices cross networks, such as <code>{0, 4}</code> are not allowed. However, devices within networks, such as <code>{0, 1}</code>or <code>{1, 2}</code>, are allowed.</p>
+</li>
+</ul>
+<h3 id="11-run-scripts-with-openmpi">1.1 Run scripts with OpenMPI<a class="headerlink" href="#11-run-scripts-with-openmpi" title="Permanent link">&para;</a></h3>
+<p>On Ascend hardware platform, users can use OpenMPI's <code>mpirun</code> to run distributed training with <code>n</code> devices. For example, in <a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/det/dbnet/README.md#34-training">DBNet Readme</a>, the following command is used to train the model on devices <code>0</code> and <code>1</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># n is the number of NPUs used in training</span>
 mpirun<span class="w"> </span>--allow-run-as-root<span class="w"> </span>-n<span class="w"> </span><span class="m">2</span><span class="w"> </span>python<span class="w"> </span>tools/train.py<span class="w"> </span>--config<span class="w"> </span>configs/det/dbnet/db_r50_icdar15.yaml
 </code></pre></div>
 <blockquote>
-<p>Please ensure that the <code>distribute</code> parameter in the yaml file is set to <code>True</code> before running the command.</p>
+<p>Note that <code>mpirun</code> will run training on sequential devices starting from device <code>0</code>. For example, <code>mpirun -n 4 python-command</code> will run training on the four devices: <code>{0, 1, 2, 3}</code>.</p>
 </blockquote>
-<h2 id="configure-rank_table_file-for-training">Configure RANK_TABLE_FILE for training<a class="headerlink" href="#configure-rank_table_file-for-training" title="Permanent link">&para;</a></h2>
+<h3 id="12-configure-rank_table_file-for-training">1.2 Configure RANK_TABLE_FILE for training<a class="headerlink" href="#12-configure-rank_table_file-for-training" title="Permanent link">&para;</a></h3>
+<h4 id="121-running-on-eight-all-devices">1.2.1 Running on Eight (All) Devices<a class="headerlink" href="#121-running-on-eight-all-devices" title="Permanent link">&para;</a></h4>
 <p>Before using this method for distributed training, it is necessary to create an HCCL configuration file in json format,
 i.e. generate RANK_TABLE_FILE. The following is the command to generate the corresponding configuration file for 8 devices
 (for more information please refer to <a href="https://gitee.com/mindspore/models/tree/master/utils/hccl_tools">HCCL tools</a>):</p>
@@ -1186,7 +1321,7 @@ This command produces the following output file:
 <span class="nb">export</span><span class="w"> </span><span class="nv">RANK_SIZE</span><span class="o">=</span><span class="m">8</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">RANK_TABLE_FILE</span><span class="o">=</span><span class="s2">&quot;./hccl_8p_01234567_127.0.0.1.json&quot;</span>
 
-<span class="k">for</span><span class="w"> </span><span class="o">((</span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span>i<span class="w"> </span>&lt;<span class="w"> </span><span class="si">${</span><span class="nv">DEVICE_NUM</span><span class="si">}</span><span class="p">;</span><span class="w"> </span>i++<span class="o">))</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="k">for</span><span class="w"> </span><span class="o">((</span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span>i<span class="w"> </span>&lt;<span class="w"> </span><span class="si">${</span><span class="nv">RANK_SIZE</span><span class="si">}</span><span class="p">;</span><span class="w"> </span>i++<span class="o">))</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">DEVICE_ID</span><span class="o">=</span><span class="nv">$i</span>
 <span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">RANK_ID</span><span class="o">=</span><span class="nv">$i</span>
 <span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Launching rank: </span><span class="si">${</span><span class="nv">RANK_ID</span><span class="si">}</span><span class="s2">, device: </span><span class="si">${</span><span class="nv">DEVICE_ID</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -1201,6 +1336,82 @@ This command produces the following output file:
 </code></pre></div>
 When training other models, simply replace the yaml config file path in the script, i.e. <code>path/to/model_config.yaml</code>.</p>
 <p>After the training has started, and you can find the training log <code>train.log</code> in the project root directory.</p>
+<h4 id="122-running-on-four-partial-devices">1.2.2 Running on Four (Partial) Devices<a class="headerlink" href="#122-running-on-four-partial-devices" title="Permanent link">&para;</a></h4>
+<p>To run training on four devices, for example, <code>{4, 5, 6, 7}</code>, the <code>RANK_TABLE_FILE</code> and the run script are different from those for running on eight devices.</p>
+<p>The <code>rank_table.json</code> is created by running the following command:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>hccl_tools.py<span class="w"> </span>--device_num<span class="w"> </span><span class="s2">&quot;[4,8)&quot;</span>
+</code></pre></div>
+<p>This command produces the following output file:
+<div class="highlight"><pre><span></span><code>hccl_4p_4567_127.0.0.1.json
+</code></pre></div></p>
+<p>An example of the content in <code>hccl_4p_4567_127.0.0.1.json</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;server_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;server_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;server_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;device&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;device_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.100.100&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;rank_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;device_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.101.100&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;rank_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;device_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.102.100&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;rank_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;device_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.103.100&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;rank_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;host_nic_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;reserve&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Then start the training by running the following command:</p>
+<div class="highlight"><pre><span></span><code>bash<span class="w"> </span>ascend4p.sh
+</code></pre></div>
+<p>Here is an example of the <code>ascend4p.sh</code> script for CRNN training:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">DEVICE_NUM</span><span class="o">=</span><span class="m">8</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">RANK_SIZE</span><span class="o">=</span><span class="m">4</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">RANK_TABLE_FILE</span><span class="o">=</span><span class="s2">&quot;./hccl_4p_4567_127.0.0.1.json&quot;</span>
+
+<span class="k">for</span><span class="w"> </span><span class="o">((</span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span>i<span class="w"> </span>&lt;<span class="w"> </span><span class="si">${</span><span class="nv">RANK_SIZE</span><span class="si">}</span><span class="p">;</span><span class="w"> </span>i++<span class="o">))</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">DEVICE_ID</span><span class="o">=</span><span class="k">$((</span><span class="nv">i</span><span class="o">+</span><span class="m">4</span><span class="k">))</span>
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">RANK_ID</span><span class="o">=</span><span class="nv">$i</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Launching rank: </span><span class="si">${</span><span class="nv">RANK_ID</span><span class="si">}</span><span class="s2">, device: </span><span class="si">${</span><span class="nv">DEVICE_ID</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$i</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">      </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;i am 0&#39;</span>
+<span class="w">      </span>python<span class="w"> </span>-u<span class="w"> </span>tools/train.py<span class="w"> </span>--config<span class="w"> </span>configs/rec/crnn/crnn_resnet34_zh.yaml<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>./train.log<span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">      </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;not 0&#39;</span>
+<span class="w">      </span>python<span class="w"> </span>-u<span class="w"> </span>tools/train.py<span class="w"> </span>--config<span class="w"> </span>configs/rec/crnn/crnn_resnet34_zh.yaml<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="k">done</span>
+</code></pre></div>
+<p>Note that the <code>DEVICE_ID</code> and <code>RANK_ID</code> should be matched with <code>hccl_4p_4567_127.0.0.1.json</code>.</p>
+<h2 id="2-gpu">2. GPU<a class="headerlink" href="#2-gpu" title="Permanent link">&para;</a></h2>
+<h3 id="21-run-scripts-with-openmpi">2.1 Run scripts with OpenMPI<a class="headerlink" href="#21-run-scripts-with-openmpi" title="Permanent link">&para;</a></h3>
+<p>On GPU hardware platform, only OpenMPI's <code>mpirun</code> can be used for distributed training. The following command will run training on devices <code>0</code> and <code>1</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># n is the number of GPUs used in training</span>
+mpirun<span class="w"> </span>--allow-run-as-root<span class="w"> </span>-n<span class="w"> </span><span class="m">2</span><span class="w"> </span>python<span class="w"> </span>tools/train.py<span class="w"> </span>--config<span class="w"> </span>configs/det/dbnet/db_r50_icdar15.yaml
+</code></pre></div>
+<p>In the case when users want to run training on <code>device 2</code> and <code>device 3</code>, users can run <code>export CUDA_VISIBLE_DEVICES=2,3</code> before running the command above, or run the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># n is the number of GPUs used in training</span>
+<span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">2</span>,3<span class="w"> </span>mpirun<span class="w"> </span>--allow-run-as-root<span class="w"> </span>-n<span class="w"> </span><span class="m">2</span><span class="w"> </span>python<span class="w"> </span>tools/train.py<span class="w"> </span>--config<span class="w"> </span>configs/det/dbnet/db_r50_icdar15.yaml
+</code></pre></div>
 
 
 

@@ -17,7 +17,7 @@
     
     
       
-        <title>Data Downloading - MindOCR Docs</title>
+        <title>ICDAR 2015 Datasets - MindOCR Docs</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#data-downloading" class="md-skip">
+        <a href="#icdar-2015-datasets" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Data Downloading
+              ICDAR 2015 Datasets
             
           </span>
         </div>
@@ -430,7 +430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../inference/models_list/" class="md-nav__link">
+      <a href="../../inference/inference_quickstart/" class="md-nav__link">
         2. Inference - MindOCR Models List
       </a>
     </li>
@@ -444,7 +444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../inference/models_list_thirdparty/" class="md-nav__link">
+      <a href="../../inference/inference_thirdparty_quickstart/" class="md-nav__link">
         3. Inference - Third-party Models List
       </a>
     </li>
@@ -989,6 +989,48 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-downloading" class="md-nav__link">
+    Data Downloading
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Downloading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#text-localization" class="md-nav__link">
+    Text Localization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#word-recognition" class="md-nav__link">
+    Word Recognition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e2e" class="md-nav__link">
+    E2E
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1018,49 +1060,37 @@
   
 
 
-<h1 id="data-downloading">Data Downloading<a class="headerlink" href="#data-downloading" title="Permanent link">&para;</a></h1>
-<p>ICDAR 2015 <a href="https://rrc.cvc.uab.es/?ch=4">paper</a></p>
-<p><a href="https://rrc.cvc.uab.es/?ch=4&amp;com=downloads">download source</a>: one must register an account to download the dataset.</p>
-<details>
-  <summary>Where to Download ICDAR 2015</summary>
-
-ICDAR 2015 Challenge has three tasks. Task 1 is Text Localization. Task 3 is Word Recognition. Task 4 is End-to-end Text Spotting. Task 2 Text Segmentation is not available.
-
-### Text Localization
-
-The four files downloaded from [web](https://rrc.cvc.uab.es/?ch=4&com=downloads) for task 1 are
+<h1 id="icdar-2015-datasets">ICDAR 2015 Datasets<a class="headerlink" href="#icdar-2015-datasets" title="Permanent link">&para;</a></h1>
+<h2 id="data-downloading">Data Downloading<a class="headerlink" href="#data-downloading" title="Permanent link">&para;</a></h2>
+<p>ICDAR 2015 <a href="https://rrc.cvc.uab.es/?ch=4">Official Website</a> | <a href="https://rrc.cvc.uab.es/?ch=4&amp;com=downloads">Download Link</a></p>
+<blockquote>
+<p>Note: Please register an account to download this dataset.</p>
+</blockquote>
+<p>ICDAR 2015 Challenge has three tasks. Task 1 is Text Localization. Task 3 is Word Recognition. Task 4 is End-to-end Text Spotting. Task 2 Text Segmentation is not available.</p>
+<h3 id="text-localization">Text Localization<a class="headerlink" href="#text-localization" title="Permanent link">&para;</a></h3>
+<p>The four files downloaded for task 1 are
 <div class="highlight"><pre><span></span><code>ch4_training_images.zip
 ch4_training_localization_transcription_gt.zip
 ch4_test_images.zip
 Challenge4_Test_Task1_GT.zip
-</code></pre></div>
-
-### Word Recognition
-
-The three files downloaded from [web](https://rrc.cvc.uab.es/?ch=4&com=downloads) for task 3 are
+</code></pre></div></p>
+<h3 id="word-recognition">Word Recognition<a class="headerlink" href="#word-recognition" title="Permanent link">&para;</a></h3>
+<p>The three files downloaded for task 3 are
 <div class="highlight"><pre><span></span><code>ch4_training_word_images_gt.zip
 ch4_test_word_images_gt.zip
 Challenge4_Test_Task3_GT.txt
 </code></pre></div>
-The three files are only needed for training word recognition models. Training text detection models does not require the three files.
-
-
-
-
-
-### E2E
-
-The nine files downloaded from [web](https://rrc.cvc.uab.es/?ch=4&com=downloads) for task 4 are the union of the four files in the text localization task (task 1) and five vocabulary files
+The three files are only needed for training word recognition models. Training text detection models does not require the three files.</p>
+<h3 id="e2e">E2E<a class="headerlink" href="#e2e" title="Permanent link">&para;</a></h3>
+<p>The nine files downloaded for task 4 are the union of the four files in the text localization task (task 1) and five vocabulary files
 <div class="highlight"><pre><span></span><code>ch4_training_vocabulary.txt
 ch4_training_vocabularies_per_image.zip
 ch4_test_vocabulary.txt
 ch4_test_vocabularies_per_image.zip
 GenericVocabulary.txt
 </code></pre></div>
-If you download a file named `Challenge4_Test_Task4_GT.zip`, please note that it is the same file as `Challenge4_Test_Task1_GT.zip`, except for its name. In this repository, we will use `Challenge4_Test_Task4_GT.zip` for ICDAR2015 dataset.
-
+If you download a file named <code>Challenge4_Test_Task4_GT.zip</code>, please note that it is the same file as <code>Challenge4_Test_Task1_GT.zip</code>, except for its name. In this repository, we will use <code>Challenge4_Test_Task4_GT.zip</code> for ICDAR2015 dataset.</p>
 </details>
-
 <p>After downloading the icdar2015 dataset, place all the files under <code>[path-to-data-dir]</code> folder:
 <div class="highlight"><pre><span></span><code>path-to-data-dir/
   ic15/

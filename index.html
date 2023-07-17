@@ -462,15 +462,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#text-detection-and-recognition-demo" class="md-nav__link">
-    Text Detection and Recognition Demo
+  <a href="#1-text-detection-and-recognition-demo" class="md-nav__link">
+    1. Text Detection and Recognition Demo
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#model-training-and-evaluation-quick-guideline" class="md-nav__link">
-    Model Training and Evaluation - Quick Guideline
+  <a href="#2-model-training-and-evaluation-quick-guideline" class="md-nav__link">
+    2. Model Training and Evaluation - Quick Guideline
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-model-inference-quick-guideline" class="md-nav__link">
+    3. Model Inference - Quick Guideline
   </a>
   
 </li>
@@ -607,7 +614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="inference/models_list/" class="md-nav__link">
+      <a href="inference/inference_quickstart/" class="md-nav__link">
         2. Inference - MindOCR Models List
       </a>
     </li>
@@ -621,7 +628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="inference/models_list_thirdparty/" class="md-nav__link">
+      <a href="inference/inference_thirdparty_quickstart/" class="md-nav__link">
         3. Inference - Third-party Models List
       </a>
     </li>
@@ -1231,15 +1238,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#text-detection-and-recognition-demo" class="md-nav__link">
-    Text Detection and Recognition Demo
+  <a href="#1-text-detection-and-recognition-demo" class="md-nav__link">
+    1. Text Detection and Recognition Demo
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#model-training-and-evaluation-quick-guideline" class="md-nav__link">
-    Model Training and Evaluation - Quick Guideline
+  <a href="#2-model-training-and-evaluation-quick-guideline" class="md-nav__link">
+    2. Model Training and Evaluation - Quick Guideline
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-model-inference-quick-guideline" class="md-nav__link">
+    3. Model Inference - Quick Guideline
   </a>
   
 </li>
@@ -1397,7 +1411,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
 <p>As this project is under active development, the version installed from PyPI is out-of-date currently. (will update soon).</p>
 </blockquote>
 <h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<h3 id="text-detection-and-recognition-demo">Text Detection and Recognition Demo<a class="headerlink" href="#text-detection-and-recognition-demo" title="Permanent link">&para;</a></h3>
+<h3 id="1-text-detection-and-recognition-demo">1. Text Detection and Recognition Demo<a class="headerlink" href="#1-text-detection-and-recognition-demo" title="Permanent link">&para;</a></h3>
 <p>After installing MindOCR, we can run text detection and recognition on an arbitrary image easily as follows.</p>
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>tools/infer/text/predict_system.py<span class="w"> </span>--image_dir<span class="w"> </span><span class="o">{</span>path_to_img<span class="w"> </span>or<span class="w"> </span>dir_to_imgs<span class="o">}</span><span class="w"> </span><span class="se">\</span>
 <span class="w">                                          </span>--det_algorithm<span class="w"> </span>DB++<span class="w">  </span><span class="se">\</span>
@@ -1412,7 +1426,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
 </p>
 
 <p>We can see that all texts on the image are detected and recognized accurately. For more usage, please refer to the inference section in <a href="#tutorials">tutorials</a>.</p>
-<h3 id="model-training-and-evaluation-quick-guideline">Model Training and Evaluation - Quick Guideline<a class="headerlink" href="#model-training-and-evaluation-quick-guideline" title="Permanent link">&para;</a></h3>
+<h3 id="2-model-training-and-evaluation-quick-guideline">2. Model Training and Evaluation - Quick Guideline<a class="headerlink" href="#2-model-training-and-evaluation-quick-guideline" title="Permanent link">&para;</a></h3>
 <p>It is easy to train your OCR model with the <code>tools/train.py</code> script, which supports both text detection and recognition model training.</p>
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>tools/train.py<span class="w"> </span>--config<span class="w"> </span><span class="o">{</span>path/to/model_config.yaml<span class="o">}</span>
 </code></pre></div>
@@ -1431,6 +1445,9 @@ python<span class="w"> </span>tools/train.py<span class="w"> </span>--config<spa
 <span class="w">    </span>--opt<span class="w"> </span>eval.dataset_root<span class="o">={</span>path/to/your_dataset<span class="o">}</span><span class="w"> </span>eval.ckpt_load_path<span class="o">={</span>path/to/ckpt_file<span class="o">}</span>
 </code></pre></div></p>
 <p>For more illustration and usage, please refer to the model training section in <a href="#tutorials">Tutorials</a>.</p>
+<h3 id="3-model-inference-quick-guideline">3. Model Inference - Quick Guideline<a class="headerlink" href="#3-model-inference-quick-guideline" title="Permanent link">&para;</a></h3>
+<p>You can do MindSpore Lite inference in MindOCR using <strong>MindOCR models</strong> or <strong>Third-party models</strong> (PaddleOCR, MMOCR, etc.).
+Please refer to <a href="inference/inference_quickstart/">MindOCR Models Inference - Quick Start</a> or <a href="inference/inference_thirdparty_quickstart/">Third-party Models Inference - Quick Start</a>.</p>
 <h2 id="tutorials">Tutorials<a class="headerlink" href="#tutorials" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Datasets<ul>
@@ -1467,7 +1484,7 @@ python<span class="w"> </span>tools/train.py<span class="w"> </span>--config<spa
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/det/dbnet/README.md">DBNet++</a> (TPAMI'2022)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/det/psenet/README.md">PSENet</a> (CVPR'2019)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/det/east/README.md">EAST</a>(CVPR'2017)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://arxiv.org/abs/2104.10442">FCENet</a> (CVPR'2021) [coming soon]</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/det/fcenet/README.md">FCENet</a> (CVPR'2021)</li>
 </ul>
 </details>
 <details open="open">
@@ -1476,23 +1493,40 @@ python<span class="w"> </span>tools/train.py<span class="w"> </span>--config<spa
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/rec/crnn/README.md">CRNN</a> (TPAMI'2016)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/rec/rare/README.md">CRNN-Seq2Seq/RARE</a> (CVPR'2016)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/rec/svtr/README.md">SVTR</a> (IJCAI'2022)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/rec/master/README.md">MASTER</a> (PR'2019)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/rec/visionlan/README.md">VISIONLAN</a> (ICCV'2021)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/rec/robustscanner/README.md">RobustScanner</a> (ECCV'2020)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://arxiv.org/abs/2103.06495">ABINet</a> (CVPR'2021) [coming soon]</li>
 </ul>
 </details>
 <p>For the detailed performance of the trained models, please refer to <a href="https://github.com/mindspore-lab/mindocr/blob/main/configs">configs</a>.</p>
-<p>For detailed support for MindSpore Lite and ACL inference models, please refer to <a href="inference/models_list/">MindOCR Models Support List</a> and <a href="inference/models_list_thirdparty/">Third-party Models Support List</a> (PaddleOCR, MMOCR, etc.).</p>
+<p>For details of MindSpore Lite and ACL inference models support, please refer to <a href="inference/inference_quickstart/">MindOCR Models Support List</a> and <a href="inference/inference_thirdparty_quickstart/">Third-party Models Support List</a> (PaddleOCR, MMOCR, etc.).</p>
 <h2 id="dataset-list">Dataset List<a class="headerlink" href="#dataset-list" title="Permanent link">&para;</a></h2>
 <p>MindOCR provides a <a href="datasets/converters/">dataset conversion tool</a> to OCR datasets with different formats and support customized dataset by users. We have validated the following public OCR datasets in model training/evaluation.</p>
 <details open="open">
 <summary>General OCR Datasets</summary>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://rrc.cvc.uab.es/?ch=4">ICDAR2015</a> [<a href="https://rrc.cvc.uab.es/files/short_rrc_2015.pdf">paper</a>][[download](datasets/icdar2015.md)]</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/cs-chan/Total-Text-Dataset/tree/master/Dataset">Total-Text</a>  [<a href="https://arxiv.org/abs/1710.10400">paper</a>]  [<a href="datasets/totaltext/">download</a>]</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/aim-uofa/AdelaiDet">Syntext150k</a> [<a href="https://arxiv.org/abs/2002.10200">paper</a>][[download](datasets/syntext150k.md)]</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://rrc.cvc.uab.es/?ch=8&amp;com=introduction">MLT2017</a> [<a href="https://ieeexplore.ieee.org/abstract/document/8270168">paper</a>]  [<a href="datasets/mlt2017/">download</a>] (multi-language)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="http://www.iapr-tc11.org/mediawiki/index.php/MSRA_Text_Detection_500_Database_(MSRA-TD500)">MSRA-TD500</a> [<a href="https://ieeexplore.ieee.org/abstract/document/6247787">paper</a>]  [<a href="datasets/td500/">download</a>]</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/Yuliang-Liu/Curve-Text-Detector">SCUT-CTW1500</a> [<a href="https://www.sciencedirect.com/science/article/pii/S0031320319300664">paper</a>]   [<a href="datasets/ctw1500/">download</a>]</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/FudanVI/benchmarking-chinese-text-recognition">Chinese-Text-Recognition-Benchmark</a>  [<a href="https://arxiv.org/abs/2112.15093">paper</a>]   [<a href="https://github.com/FudanVI/benchmarking-chinese-text-recognition#download">download</a>]</li>
+<ul>
+<li><a href="https://rrc.cvc.uab.es/?ch=1">Born-Digital Images</a> [<a href="datasets/borndigital/">download</a>]</li>
+<li><a href="http://www.nlpr.ia.ac.cn/pal/CASIA10K.html">CASIA-10K</a> [<a href="datasets/casia10k/">download</a>]</li>
+<li><a href="https://github.com/detectRecog/CCPD">CCPD</a> [<a href="datasets/ccpd/">download</a>]</li>
+<li><a href="https://github.com/FudanVI/benchmarking-chinese-text-recognition">Chinese Text Recognition Benchmark</a> [<a href="https://arxiv.org/abs/2112.15093">paper</a>]  [<a href="datasets/chinese_text_recognition/">download</a>]</li>
+<li><a href="https://rrc.cvc.uab.es/?ch=5">COCO-Text</a> [<a href="datasets/cocotext/">download</a>]</li>
+<li><a href="https://ctwdataset.github.io/">CTW</a> [<a href="datasets/ctw/">download</a>]</li>
+<li><a href="https://rrc.cvc.uab.es/?ch=4">ICDAR2015</a> [<a href="https://rrc.cvc.uab.es/files/short_rrc_2015.pdf">paper</a>]  [<a href="datasets/icdar2015/">download</a>]</li>
+<li><a href="https://rrc.cvc.uab.es/?ch=14">ICDAR2019 ArT</a> [<a href="datasets/ic19_art/">download</a>]</li>
+<li><a href="https://rrc.cvc.uab.es/?ch=16">LSVT</a> [<a href="datasets/lsvt/">download</a>]</li>
+<li><a href="https://rrc.cvc.uab.es/?ch=8">MLT2017</a> [<a href="https://ieeexplore.ieee.org/abstract/document/8270168">paper</a>]  [<a href="datasets/mlt2017/">download</a>]</li>
+<li><a href="http://www.iapr-tc11.org/mediawiki/index.php/MSRA_Text_Detection_500_Database_(MSRA-TD500)">MSRA-TD500</a> [<a href="https://ieeexplore.ieee.org/abstract/document/6247787">paper</a>]  [<a href="datasets/td500/">download</a>]</li>
+<li><a href="https://tianchi.aliyun.com/competition/entrance/231651/introduction">MTWI-2018</a> [<a href="datasets/mtwi2018/">download</a>]</li>
+<li><a href="https://rctw.vlrlab.net/">RCTW-17</a> [<a href="datasets/rctw17/">download</a>]</li>
+<li><a href="https://rrc.cvc.uab.es/?ch=12">ReCTS</a> [<a href="datasets/rects/">download</a>]</li>
+<li><a href="https://github.com/Yuliang-Liu/Curve-Text-Detector">SCUT-CTW1500</a> [<a href="https://www.sciencedirect.com/science/article/pii/S0031320319300664">paper</a>]  [<a href="datasets/ctw1500/">download</a>]</li>
+<li><a href="https://rrc.cvc.uab.es/?ch=13">SROIE</a> [<a href="datasets/sroie/">download</a>]</li>
+<li><a href="http://www.iapr-tc11.org/mediawiki/index.php/The_Street_View_Text_Dataset">SVT</a> [<a href="datasets/svt/">download</a>]</li>
+<li><a href="https://github.com/aim-uofa/AdelaiDet">SynText150k</a> [<a href="https://arxiv.org/abs/2002.10200">paper</a>]  [<a href="datasets/syntext150k/">download</a>]</li>
+<li><a href="https://www.robots.ox.ac.uk/~vgg/data/scenetext/">SynthText</a> [<a href="https://www.robots.ox.ac.uk/~vgg/publications/2016/Gupta16/">paper</a>]  [<a href="datasets/synthtext/">download</a>]</li>
+<li><a href="https://textvqa.org/textocr/">TextOCR</a> [<a href="datasets/textocr/">download</a>]</li>
+<li><a href="https://github.com/cs-chan/Total-Text-Dataset/tree/master/Dataset">Total-Text</a> [<a href="https://arxiv.org/abs/1710.10400">paper</a>]  [<a href="datasets/totaltext/">download</a>]</li>
 </ul>
 </details>
 <p>We will include more datasets for training and evaluation. This list will be continuously updated.</p>

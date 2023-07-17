@@ -17,7 +17,7 @@
     
     
       
-        <title>Data Downloading - MindOCR Docs</title>
+        <title>MLT 2017 Datasets - MindOCR Docs</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#data-downloading" class="md-skip">
+        <a href="#mlt-2017-datasets" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Data Downloading
+              MLT 2017 Datasets
             
           </span>
         </div>
@@ -430,7 +430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../inference/models_list/" class="md-nav__link">
+      <a href="../../inference/inference_quickstart/" class="md-nav__link">
         2. Inference - MindOCR Models List
       </a>
     </li>
@@ -444,7 +444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../inference/models_list_thirdparty/" class="md-nav__link">
+      <a href="../../inference/inference_thirdparty_quickstart/" class="md-nav__link">
         3. Inference - Third-party Models List
       </a>
     </li>
@@ -989,6 +989,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-downloading" class="md-nav__link">
+    Data Downloading
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Downloading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#text-detectionmulti-script" class="md-nav__link">
+    Text Detection(Multi-script)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#word-identification" class="md-nav__link">
+    Word Identification
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1018,30 +1053,23 @@
   
 
 
-<h1 id="data-downloading">Data Downloading<a class="headerlink" href="#data-downloading" title="Permanent link">&para;</a></h1>
-<p>MLT (Multi-Lingual) 2017 <a href="https://ieeexplore.ieee.org/abstract/document/8270168">paper</a></p>
-<p><a href="https://rrc.cvc.uab.es/?ch=8&amp;com=downloads">download source</a>. One need to register an account to download this dataset.</p>
-<details>
-  <summary>Where to Download MLT 2017</summary>
-
-MLT 2017 dataset consists of two tasks. Task 1 is Text detection (Multi-Language Script) and Task 2 is Word Recognition.
-
-### Text Detection(Multi-script)
-
-The 11 files downloaded from [web](https://rrc.cvc.uab.es/?ch=8&com=downloads) for task 1 are
-
+<h1 id="mlt-2017-datasets">MLT 2017 Datasets<a class="headerlink" href="#mlt-2017-datasets" title="Permanent link">&para;</a></h1>
+<h2 id="data-downloading">Data Downloading<a class="headerlink" href="#data-downloading" title="Permanent link">&para;</a></h2>
+<p>MLT (Multi-Lingual) 2017 dataset <a href="https://ieeexplore.ieee.org/abstract/document/8270168">Paper</a> | <a href="https://rrc.cvc.uab.es/?ch=8&amp;com=downloads">Download Link</a></p>
+<blockquote>
+<p>Note: Please register an account to download this dataset.</p>
+</blockquote>
+<p>MLT 2017 dataset consists of two tasks. Task 1 is Text detection (Multi-Language Script) and Task 2 is Word Recognition.</p>
+<h3 id="text-detectionmulti-script">Text Detection(Multi-script)<a class="headerlink" href="#text-detectionmulti-script" title="Permanent link">&para;</a></h3>
+<p>The 11 files downloaded for task 1 are</p>
 <div class="highlight"><pre><span></span><code>ch8_training_images_x.zip(x from 1 to 8)
 ch8_validation_images.zip
 ch8_training_localization_transcription_gt_v2.zip
 ch8_validation_localization_transcription_gt_v2.zip
 </code></pre></div>
-
-No need to download the Test Set.
-
-
-### Word Identification
-
-The 6 files downloaded from [web](https://rrc.cvc.uab.es/?ch=8&com=downloads) for task 2 are
+<p>No need to download the Test Set.</p>
+<h3 id="word-identification">Word Identification<a class="headerlink" href="#word-identification" title="Permanent link">&para;</a></h3>
+<p>The 6 files downloaded for task 2 are
 <div class="highlight"><pre><span></span><code> ch8_training_word_images_gt_part_x.zip (x from 1 to 3)
  ch8_validation_word_images_gt.zip
  ch8_training_word_gt_v2.zip
@@ -1072,11 +1100,9 @@ path-to-data-dir/
     ch8_training_word_images_gt_part_3.zip
     ch8_training_word_gt_v2.zip
     ch8_validation_word_images_gt.zip
-    ch8_validation_word_gt_v2.zip
-
-```
-
-[Back to dataset converters](converters.md)
+    ch8_validation_word_gt_v2.zip</p>
+<p>```</p>
+<p><a href="../converters/">Back to dataset converters</a></p>
 
 
 

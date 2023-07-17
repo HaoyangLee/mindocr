@@ -430,7 +430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../models_list/" class="md-nav__link">
+      <a href="../inference_quickstart/" class="md-nav__link">
         2. Inference - MindOCR Models List
       </a>
     </li>
@@ -444,7 +444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../models_list_thirdparty/" class="md-nav__link">
+      <a href="../inference_thirdparty_quickstart/" class="md-nav__link">
         3. Inference - Third-party Models List
       </a>
     </li>
@@ -1071,36 +1071,36 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#23-onnx-om" class="md-nav__link">
-    2.3 ONNX -&gt; OM
-  </a>
-  
-    <nav class="md-nav" aria-label="2.3 ONNX -> OM">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#231-shape" class="md-nav__link">
-    2.3.1 模型Shape配置
+  <a href="#23-onnx-mindir" class="md-nav__link">
+    2.3 ONNX -&gt; MindIR
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#232" class="md-nav__link">
-    2.3.2 模型精度模式配置
+  <a href="#24-onnx-om" class="md-nav__link">
+    2.4 ONNX -&gt; OM
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 ONNX -> OM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241-shape" class="md-nav__link">
+    2.4.1 模型Shape配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242" class="md-nav__link">
+    2.4.2 模型精度模式配置
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24-onnx-mindir" class="md-nav__link">
-    2.4 ONNX -&gt; MindIR
-  </a>
   
 </li>
         
@@ -1125,15 +1125,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#32-onnx-om" class="md-nav__link">
-    3.2 ONNX -&gt; OM
+  <a href="#32-onnx-mindir" class="md-nav__link">
+    3.2 ONNX -&gt; MindIR
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#33-onnx-mindir" class="md-nav__link">
-    3.3 ONNX -&gt; MindIR
+  <a href="#33-onnx-om" class="md-nav__link">
+    3.3 ONNX -&gt; OM
   </a>
   
 </li>
@@ -1182,13 +1182,25 @@
   <h1>Convert tutorial.md</h1>
 
 <h2 id="-">推理 - 模型转换教程<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
+<p>MindOCR支持MindOCR训练模型以及三方模型(PaddelOCR和mmOCR)的推理。</p>
 <h3 id="1-mindocr">1. MindOCR模型<a class="headerlink" href="#1-mindocr" title="Permanent link">&para;</a></h3>
 <p>MindOCR模型的推理使用<a href="https://www.mindspore.cn/lite">MindSpore Lite</a>后端。</p>
 <pre class="mermaid"><code>graph LR;
-    ckpt --&gt; |export| MindIR --&gt; |"converter_lite(离线转换)"| o[MindIR];</code></pre>
+    A[MindOCR models] -- export --&gt; B[MindIR] -- converter_lite --&gt; C[MindSpore Lite MindIR];</code></pre>
 <h4 id="11">1.1 模型导出<a class="headerlink" href="#11" title="Permanent link">&para;</a></h4>
-<p>在推理之前，需要先把训练端的ckpt文件<a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/README.md">导出</a>为MindIR文件，它保存了模型的结构和权重参数。</p>
-<p>部分模型提供了MIndIR导出文件的下载链接，见<a href="../models_list/">模型列表</a>，可跳转到对应模型的介绍页面进行下载。</p>
+<p>在推理之前，需要先把训练端的ckpt文件导出为MindIR文件，请执行<code>tools/export.py</code>：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 在线下载模型参数，导出`dbnet_resnet50` 模型的MindIR</span>
+python<span class="w"> </span>tools/export.py<span class="w"> </span>--model_name<span class="w"> </span>dbnet_resnet50<span class="w"> </span>--data_shape<span class="w"> </span><span class="m">736</span><span class="w"> </span><span class="m">1280</span>
+
+<span class="c1"># 使用本地ckpt文件，导出`dbnet_resnet50` 模型的MindIR</span>
+python<span class="w"> </span>tools/export.py<span class="w"> </span>--model_name<span class="w"> </span>dbnet_resnet50<span class="w"> </span>--data_shape<span class="w"> </span><span class="m">736</span><span class="w"> </span><span class="m">1280</span><span class="w"> </span>--local_ckpt_path<span class="w"> </span>/path/to/local_ckpt
+
+<span class="c1"># 使用本地ckpt文件和参数yaml文件，导出`dbnet_resnet50` 模型的MindIR</span>
+python<span class="w"> </span>tools/export.py<span class="w"> </span>--model_name<span class="w"> </span>configs/rec/crnn/crnn_resnet34.yaml<span class="w"> </span>--local_ckpt_path<span class="w"> </span>~/.mindspore/models/crnn_resnet34-83f37f07.ckpt<span class="w"> </span>--data_shape<span class="w"> </span><span class="m">32</span><span class="w"> </span><span class="m">100</span>
+
+更多参数使用详情，请执行<span class="w"> </span><span class="sb">`</span>python<span class="w"> </span>tools/export.py<span class="w"> </span>-h<span class="sb">`</span>.
+</code></pre></div>
+<p>部分模型提供了MIndIR导出文件的下载链接，见<a href="../inference_quickstart/">模型列表</a>，可跳转到对应模型的介绍页面进行下载。</p>
 <h4 id="12">1.2 模型转换<a class="headerlink" href="#12" title="Permanent link">&para;</a></h4>
 <p>需要使用<code>converter_lite</code>工具，将上述导出的MindIR文件进行离线转换，从而用于MindSpore Lite的推理。</p>
 <p><code>converter_lite</code>的详细教程见<a href="https://www.mindspore.cn/lite/docs/zh-CN/master/use/cloud_infer/converter_tool.html">推理模型离线转换</a>。</p>
@@ -1251,11 +1263,34 @@ precision_mode=enforce_fp32
 </code></pre></div>
 <p>如不设置，默认为<code>enforce_fp16</code>。</p>
 <h3 id="2-paddleocr">2. PaddleOCR模型<a class="headerlink" href="#2-paddleocr" title="Permanent link">&para;</a></h3>
-<p>PaddleOCR模型的推理可以使用<a href="https://www.hiascend.com/document/detail/zh/canncommercial/63RC1/inferapplicationdev/aclcppdevg/aclcppdevg_000004.html">ACL</a>和<a href="https://www.mindspore.cn/lite">MindSpore Lite</a>两种后端，分别对应OM模型和MindIR模型。</p>
+<p>PaddleOCR模型的推理可以使用<a href="https://www.mindspore.cn/lite">MindSpore Lite</a>和<a href="https://www.hiascend.com/document/detail/zh/canncommercial/63RC1/inferapplicationdev/aclcppdevg/aclcppdevg_000004.html">ACL</a>两种后端，分别对应MindSpore Lite MindIR模型和OM模型。</p>
 <pre class="mermaid"><code>graph LR;
-    训练模型 -- export --&gt; 推理模型 -- paddle2onnx --&gt; ONNX;
-    ONNX -- atc --&gt; o1(OM);
-    ONNX -- converter_lite --&gt; o2(MindIR);</code></pre>
+    PaddleOCR训练模型 -- export --&gt; PaddleOCR推理模型 -- paddle2onnx --&gt; ONNX;
+    ONNX -- converter_lite --&gt; o2(MindSpore Lite MindIR);
+    ONNX -- atc --&gt; o1(OM);</code></pre>
+<p>涉及到2种格式的Paddle模型，训练模型和推理模型，区别如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">模型类型</th>
+<th align="left">模型格式</th>
+<th align="left">简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">训练模型</td>
+<td align="left">.pdparams、.pdopt、.states</td>
+<td align="left">PaddlePaddle训练模型，可保存的模型的权重、优化器状态等信息</td>
+</tr>
+<tr>
+<td align="left">推理模型</td>
+<td align="left">inference.pdmodel、inference.pdiparams</td>
+<td align="left">PaddlePaddle推理模型，可由其训练模型导出得到，保存了模型的结构和参数</td>
+</tr>
+</tbody>
+</table>
+<p>下载模型文件并解压，请根据模型格式来区别是训练模型还是推理模型。</p>
 <h4 id="21-">2.1 训练模型 -&gt; 推理模型<a class="headerlink" href="#21-" title="Permanent link">&para;</a></h4>
 <p>在PaddleOCR模型的下载链接中，有训练模型和推理模型两种格式，如果提供的是训练模型，则需要将其转换为推理模型的格式。</p>
 <p>在每个训练模型的原PaddleOCR介绍页面，一般会有转换脚本样例，只需要传入训练模型的配置文件、模型文件和保存路径即可。
@@ -1281,10 +1316,23 @@ python<span class="w"> </span>tools/export_model.py<span class="w"> </span><span
 <span class="w">    </span>--enable_onnx_checker<span class="w"> </span>True
 </code></pre></div>
 <p>参数中input_shape_dict的值，一般可以通过<a href="https://github.com/lutzroeder/netron">Netron</a>工具打开推理模型查看，或者在上述<a href="https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.6/tools/export_model.py">tools/export_model.py</a>的代码中找到。</p>
-<h4 id="23-onnx-om">2.3 ONNX -&gt; OM<a class="headerlink" href="#23-onnx-om" title="Permanent link">&para;</a></h4>
+<h4 id="23-onnx-mindir">2.3 ONNX -&gt; MindIR<a class="headerlink" href="#23-onnx-mindir" title="Permanent link">&para;</a></h4>
+<p>使用converter_lite工具可以将ONNX模型转换为MindSpore Lite MindIR模型。工具的详细教程见<a href="https://www.mindspore.cn/lite/docs/zh-CN/master/use/cloud_infer/converter_tool.html">MindSpore Lite云侧推理离线模型转换</a>。</p>
+<p>转换命令如下：</p>
+<div class="highlight"><pre><span></span><code>converter_lite<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--saveType<span class="o">=</span>MINDIR<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--NoFusion<span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--fmk<span class="o">=</span>ONNX<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--device<span class="o">=</span>Ascend<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--modelFile<span class="o">=</span>det_db.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--outputFile<span class="o">=</span>det_db_output<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--configFile<span class="o">=</span>config.txt
+</code></pre></div>
+<p>转换流程和<a href="#1-mindocr模型">MindOCR模型</a>完全相同，仅有区别是<code>--fmk</code>需指定输入是ONNX模型，这里不再赘述。</p>
+<h4 id="24-onnx-om">2.4 ONNX -&gt; OM<a class="headerlink" href="#24-onnx-om" title="Permanent link">&para;</a></h4>
 <p>使用ATC工具可以将ONNX模型转换为OM模型。</p>
 <p>昇腾张量编译器（Ascend Tensor Compiler，简称ATC）是异构计算架构CANN体系下的模型转换工具，它可以将开源框架的网络模型转换为昇腾AI处理器支持的.om格式离线模型，详细教程见<a href="https://www.hiascend.com/document/detail/zh/canncommercial/63RC1/inferapplicationdev/atctool/atctool_000001.html">ATC模型转换</a>。</p>
-<h5 id="231-shape">2.3.1 模型Shape配置<a class="headerlink" href="#231-shape" title="Permanent link">&para;</a></h5>
+<h5 id="241-shape">2.4.1 模型Shape配置<a class="headerlink" href="#241-shape" title="Permanent link">&para;</a></h5>
 <p>上述示例中导出的ONNX模型输入Shape为(-1, 3,-1,-1)。</p>
 <ul>
 <li><strong>静态Shape</strong></li>
@@ -1330,7 +1378,7 @@ python<span class="w"> </span>tools/export_model.py<span class="w"> </span><span
 <p>为了简化模型转换流程，我们开发了**自动分档工具**，可以一键式完成动态值选择和模型转换过程，详细教程请参考<a href="../convert_dynamic/">模型Shape分档</a>。</p>
 <p><strong>注意：</strong></p>
 <p>如果导出的模型是静态Shape版的，则无法分档，需确保导出动态Shape版的模型。</p>
-<h5 id="232">2.3.2 模型精度模式配置<a class="headerlink" href="#232" title="Permanent link">&para;</a></h5>
+<h5 id="242">2.4.2 模型精度模式配置<a class="headerlink" href="#242" title="Permanent link">&para;</a></h5>
 <p>对于模型推理的精度，需要在转换模型时通过<code>ATC</code>设置。</p>
 <p>请参考参数<a href="https://www.hiascend.com/document/detail/zh/canncommercial/63RC1/inferapplicationdev/atctool/atctool_000092.html">precision_mode</a>的说明，可选择<code>force_fp16</code>、<code>force_fp32</code>、<code>allow_fp32_to_fp16</code>、<code>must_keep_origin_dtype</code>和<code>allow_mix_precision</code>等。</p>
 <p>故而，可以在上述<code>atc</code>命令中增加<code>precision_mode</code>参数来设置精度：</p>
@@ -1344,33 +1392,20 @@ python<span class="w"> </span>tools/export_model.py<span class="w"> </span><span
     --log=error
 </code></pre></div>
 <p>如不设置，默认为<code>force_fp16</code>。</p>
-<h4 id="24-onnx-mindir">2.4 ONNX -&gt; MindIR<a class="headerlink" href="#24-onnx-mindir" title="Permanent link">&para;</a></h4>
-<p>使用converter_lite工具可以将ONNX模型转换为MindIR模型。工具的详细教程见<a href="https://www.mindspore.cn/lite/docs/zh-CN/master/use/cloud_infer/converter_tool.html">MindSpore Lite云侧推理离线模型转换</a>。</p>
-<p>转换命令如下：</p>
-<div class="highlight"><pre><span></span><code>converter_lite<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--saveType<span class="o">=</span>MINDIR<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--NoFusion<span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--fmk<span class="o">=</span>ONNX<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--device<span class="o">=</span>Ascend<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--modelFile<span class="o">=</span>det_db.onnx<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--outputFile<span class="o">=</span>det_db_output<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--configFile<span class="o">=</span>config.txt
-</code></pre></div>
-<p>转换流程和<a href="#1-mindocr模型">MindOCR模型</a>完全相同，仅有区别是<code>--fmk</code>需指定输入是ONNX模型，这里不再赘述。</p>
 <h3 id="3-mmocr">3. MMOCR模型<a class="headerlink" href="#3-mmocr" title="Permanent link">&para;</a></h3>
 <p>MMOCR使用Pytorch，其模型文件一般是pth格式。</p>
 <p>需要先把它导出为ONNX格式，再转换为<a href="https://www.hiascend.com/document/detail/zh/canncommercial/63RC1/inferapplicationdev/aclcppdevg/aclcppdevg_000004.html">ACL</a>/<a href="https://www.mindspore.cn/lite">MindSpore Lite</a>支持的OM/MindIR格式。</p>
 <pre class="mermaid"><code>graph LR;
-    pth -- export --&gt;  ONNX;
-    ONNX -- atc --&gt; o1(OM);
-    ONNX -- converter_lite --&gt; o2(MindIR);</code></pre>
+    MMOCR_pth -- export --&gt;  ONNX;
+    ONNX -- converter_lite --&gt; o2(MindSpore Lite MindIR);
+    ONNX -- atc --&gt; o1(OM);</code></pre>
 <h4 id="31-mmocr-onnx">3.1 MMOCR模型 -&gt; ONNX<a class="headerlink" href="#31-mmocr-onnx" title="Permanent link">&para;</a></h4>
 <p><a href="https://github.com/open-mmlab/mmdeploy">MMDeploy</a>提供了MMOCR模型导出ONNX的命令，详细教程见<a href="https://github.com/open-mmlab/mmdeploy/blob/main/docs/zh_cn/02-how-to-run/convert_model.md">如何转换模型</a>。</p>
 <p>对于参数<code>deploy_cfg</code>需选择目录<a href="https://github.com/open-mmlab/mmdeploy/tree/main/configs/mmocr">mmdeploy/configs/mmocr</a>下的<code>*_onnxruntime_dynamic.py</code>文件，从而导出为动态Shape版ONNX模型。</p>
-<h4 id="32-onnx-om">3.2 ONNX -&gt; OM<a class="headerlink" href="#32-onnx-om" title="Permanent link">&para;</a></h4>
-<p>请参考上文PaddleOCR小节的<a href="#23-onnx---om">ONNX -&gt; OM</a>。</p>
-<h4 id="33-onnx-mindir">3.3 ONNX -&gt; MindIR<a class="headerlink" href="#33-onnx-mindir" title="Permanent link">&para;</a></h4>
-<p>请参考上文PaddleOCR小节的<a href="#24-onnx---mindir">ONNX -&gt; MIndIR</a>。</p>
+<h4 id="32-onnx-mindir">3.2 ONNX -&gt; MindIR<a class="headerlink" href="#32-onnx-mindir" title="Permanent link">&para;</a></h4>
+<p>请参考上文PaddleOCR小节的<a href="#23-onnx---mindir">ONNX -&gt; MIndIR</a>。</p>
+<h4 id="33-onnx-om">3.3 ONNX -&gt; OM<a class="headerlink" href="#33-onnx-om" title="Permanent link">&para;</a></h4>
+<p>请参考上文PaddleOCR小节的<a href="#24-onnx---om">ONNX -&gt; OM</a>。</p>
 
 
 

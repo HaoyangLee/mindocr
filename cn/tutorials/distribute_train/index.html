@@ -436,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../inference/models_list/" class="md-nav__link">
+      <a href="../../inference/inference_quickstart/" class="md-nav__link">
         2. Inference - MindOCR Models List
       </a>
     </li>
@@ -450,7 +450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../inference/models_list_thirdparty/" class="md-nav__link">
+      <a href="../../inference/inference_thirdparty_quickstart/" class="md-nav__link">
         3. Inference - Third-party Models List
       </a>
     </li>
@@ -700,16 +700,69 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#openmpi" class="md-nav__link">
-    通过OpenMPI运行脚本进行训练
+  <a href="#1-ascend" class="md-nav__link">
+    1. Ascend
   </a>
+  
+    <nav class="md-nav" aria-label="1. Ascend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-openmpi" class="md-nav__link">
+    1.1 通过OpenMPI运行脚本进行训练
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-rank_table_file" class="md-nav__link">
+    1.2 配置RANK_TABLE_FILE进行训练
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 配置RANK_TABLE_FILE进行训练">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    1.2.1 使用八个（全部）设备进行训练
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    1.2.2 使用四个（部分）设备进行训练
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#rank_table_file" class="md-nav__link">
-    配置RANK_TABLE_FILE进行训练
+  <a href="#2-gpu" class="md-nav__link">
+    2. GPU
   </a>
+  
+    <nav class="md-nav" aria-label="2. GPU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-openmpi" class="md-nav__link">
+    2.1 通过OpenMPI运行脚本进行训练
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1054,16 +1107,69 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#openmpi" class="md-nav__link">
-    通过OpenMPI运行脚本进行训练
+  <a href="#1-ascend" class="md-nav__link">
+    1. Ascend
   </a>
+  
+    <nav class="md-nav" aria-label="1. Ascend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-openmpi" class="md-nav__link">
+    1.1 通过OpenMPI运行脚本进行训练
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-rank_table_file" class="md-nav__link">
+    1.2 配置RANK_TABLE_FILE进行训练
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 配置RANK_TABLE_FILE进行训练">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    1.2.1 使用八个（全部）设备进行训练
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    1.2.2 使用四个（部分）设备进行训练
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#rank_table_file" class="md-nav__link">
-    配置RANK_TABLE_FILE进行训练
+  <a href="#2-gpu" class="md-nav__link">
+    2. GPU
   </a>
+  
+    <nav class="md-nav" aria-label="2. GPU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-openmpi" class="md-nav__link">
+    2.1 通过OpenMPI运行脚本进行训练
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1100,13 +1206,44 @@
 
 <h1 id="_1">分布式并行训练<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>本文档提供分布式并行训练的教程，在Ascend处理器上有两种方式可以进行单机多卡训练，通过OpenMPI运行脚本或通过配置RANK_TABLE_FILE进行单机多卡训练。在GPU处理器上可通过OpenMPI运行脚本进行单机多卡训练。</p>
-<h2 id="openmpi">通过OpenMPI运行脚本进行训练<a class="headerlink" href="#openmpi" title="Permanent link">&para;</a></h2>
-<p>当前MindSpore在Ascend上已经支持了通过OpenMPI的mpirun命令运行脚本，用户可参考<a href="https://github.com/mindspore-lab/mindocr/tree/main/configs/det/dbnet/README_CN.md#34-训练">dbnet readme</a>进行训练，以下为命令用例。
-运行命令前请确保yaml文件中的<code>distribute</code>参数为True。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># n is the number of GPUs/NPUs</span>
+<blockquote>
+<p>请确保在运行以下命令进行分布式训练之前，将 <code>yaml</code> 文件中的 <code>distribute</code> 参数设置为 <code>True</code>。</p>
+</blockquote>
+<ul>
+<li><a href="#分布式并行训练">分布式并行训练</a></li>
+<li><a href="#1-ascend">1. Ascend</a><ul>
+<li><a href="#11-通过openmpi运行脚本进行训练">1.1 通过OpenMPI运行脚本进行训练</a></li>
+<li><a href="#12-配置rank_table_file进行训练">1.2 配置RANK_TABLE_FILE进行训练</a></li>
+<li><a href="#121-使用八个全部设备进行训练">1.2.1 使用八个（全部）设备进行训练</a></li>
+<li><a href="#122-使用四个部分设备进行训练">1.2.2 使用四个（部分）设备进行训练</a></li>
+</ul>
+</li>
+<li><a href="#2-gpu">2. GPU</a><ul>
+<li><a href="#21-通过openmpi运行脚本进行训练">2.1 通过OpenMPI运行脚本进行训练</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="1-ascend">1. Ascend<a class="headerlink" href="#1-ascend" title="Permanent link">&para;</a></h2>
+<p><strong>注</strong>:</p>
+<p>在Ascend平台， 有一些常见的使用限制，如下所示：</p>
+<ul>
+<li>
+<p>单机场景下支持1、2、4、8卡设备集群，多机场景下支持8*N卡设备集群。</p>
+</li>
+<li>
+<p>每台机器的0-3卡和4-7卡各为1个组网，2卡和4卡训练时卡必须相连且不支持跨组网创建集群。也就是说，四卡训练时，只能选择<code>{0, 1, 2, 3}</code> 或者 <code>{4, 5, 6, 7}</code>. 进行双卡训练时, 跨组网的设备, 例如 <code>{0, 4}</code>不支持创建集群。 不过, 同一组网内的设备，例如 <code>{0, 1}</code>和 <code>{1, 2}</code>支持创建集群。</p>
+</li>
+</ul>
+<h3 id="11-openmpi">1.1 通过OpenMPI运行脚本进行训练<a class="headerlink" href="#11-openmpi" title="Permanent link">&para;</a></h3>
+<p>在 Ascend 硬件平台上，用户可以使用 <code>OpenMPI</code> 的 <code>mpirun</code> 命令来运行 <code>n</code> 个设备的分布式训练。例如，在 <a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/det/dbnet/README_CN.md#34-training">DBNet Readme</a> 中，使用以下命令在设备 <code>0</code> 和设备 <code>1</code> 上训练模型：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># n 代表分布式训练使用的NPU的数量</span>
 mpirun<span class="w"> </span>--allow-run-as-root<span class="w"> </span>-n<span class="w"> </span><span class="m">2</span><span class="w"> </span>python<span class="w"> </span>tools/train.py<span class="w"> </span>--config<span class="w"> </span>configs/det/dbnet/db_r50_icdar15.yaml
 </code></pre></div>
-<h2 id="rank_table_file">配置RANK_TABLE_FILE进行训练<a class="headerlink" href="#rank_table_file" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>请注意，<code>mpirun</code> 将从设备 <code>0</code> 开始按顺序在设备上运行训练。例如，<code>mpirun -n 4 python-command</code> 将在四个设备上运行训练：<code>{0, 1, 2, 3}</code>。</p>
+</blockquote>
+<h3 id="12-rank_table_file">1.2 配置RANK_TABLE_FILE进行训练<a class="headerlink" href="#12-rank_table_file" title="Permanent link">&para;</a></h3>
+<h4 id="121">1.2.1 使用八个（全部）设备进行训练<a class="headerlink" href="#121" title="Permanent link">&para;</a></h4>
 <p>使用此种方法在进行分布式训练前需要创建json格式的HCCL配置文件，即生成RANK_TABLE_FILE文件，以下为生成8卡相应配置文件命令，更具体信息及相应脚本参见<a href="https://gitee.com/mindspore/models/tree/master/utils/hccl_tools">hccl_tools</a>中的说明，
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>hccl_tools.py<span class="w"> </span>--device_num<span class="w"> </span><span class="s2">&quot;[0,8)&quot;</span>
 </code></pre></div>
@@ -1168,16 +1305,16 @@ mpirun<span class="w"> </span>--allow-run-as-root<span class="w"> </span>-n<span
     &quot;status&quot;: &quot;completed&quot;
 }
 </code></pre></div></p>
-<p>之后运行以下命令即可，运行命令前请确保yaml文件中的<code>distribute</code>参数为True。
+<p>之后运行以下命令即可：</p>
 <div class="highlight"><pre><span></span><code>bash<span class="w"> </span>ascend8p.sh
-</code></pre></div></p>
+</code></pre></div>
 <p>以CRNN训练为例，其<code>ascend8p.sh</code>脚本为：
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">DEVICE_NUM</span><span class="o">=</span><span class="m">8</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">RANK_SIZE</span><span class="o">=</span><span class="m">8</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">RANK_TABLE_FILE</span><span class="o">=</span><span class="s2">&quot;./hccl_8p_01234567_127.0.0.1.json&quot;</span>
 
-<span class="k">for</span><span class="w"> </span><span class="o">((</span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span>i<span class="w"> </span>&lt;<span class="w"> </span><span class="si">${</span><span class="nv">DEVICE_NUM</span><span class="si">}</span><span class="p">;</span><span class="w"> </span>i++<span class="o">))</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="k">for</span><span class="w"> </span><span class="o">((</span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span>i<span class="w"> </span>&lt;<span class="w"> </span><span class="si">${</span><span class="nv">RANK_SIZE</span><span class="si">}</span><span class="p">;</span><span class="w"> </span>i++<span class="o">))</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">DEVICE_ID</span><span class="o">=</span><span class="nv">$i</span>
 <span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">RANK_ID</span><span class="o">=</span><span class="nv">$i</span>
 <span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Launching rank: </span><span class="si">${</span><span class="nv">RANK_ID</span><span class="si">}</span><span class="s2">, device: </span><span class="si">${</span><span class="nv">DEVICE_ID</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -1192,6 +1329,82 @@ mpirun<span class="w"> </span>--allow-run-as-root<span class="w"> </span>-n<span
 </code></pre></div></p>
 <p>当需要训练其他模型时，只要将脚本中的yaml config文件路径替换即可，即<code>python -u tools/train.py --config path/to/model_config.yaml</code></p>
 <p>此时训练已经开始，可在<code>train.log</code>中查看训练日志。</p>
+<h4 id="122">1.2.2 使用四个（部分）设备进行训练<a class="headerlink" href="#122" title="Permanent link">&para;</a></h4>
+<p>要在四个设备上运行训练，例如，<code>{4, 5, 6, 7}</code>，<code>RANK_TABLE_FILE</code>和运行脚本与在八个设备上运行使用的文件有所不同。</p>
+<p>通过运行以下命令创建 <code>rank_table.json</code>：</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>hccl_tools.py<span class="w"> </span>--device_num<span class="w"> </span><span class="s2">&quot;[4,8)&quot;</span>
+</code></pre></div>
+<p>输出为：
+<div class="highlight"><pre><span></span><code>hccl_4p_4567_127.0.0.1.json
+</code></pre></div></p>
+<p>其中， <code>hccl_4p_4567_127.0.0.1.json</code> 的示例为:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;server_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;server_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;server_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;device&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;device_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.100.100&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;rank_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;device_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.101.100&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;rank_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;device_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.102.100&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;rank_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;device_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.103.100&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;rank_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;host_nic_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;reserve&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>然后运行下面的命令可以开始训练:</p>
+<div class="highlight"><pre><span></span><code>bash<span class="w"> </span>ascend4p.sh
+</code></pre></div>
+<p>以CRNN训练为例，其<code>ascend4p.sh</code>脚本为：</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">DEVICE_NUM</span><span class="o">=</span><span class="m">8</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">RANK_SIZE</span><span class="o">=</span><span class="m">4</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">RANK_TABLE_FILE</span><span class="o">=</span><span class="s2">&quot;./hccl_4p_4567_127.0.0.1.json&quot;</span>
+
+<span class="k">for</span><span class="w"> </span><span class="o">((</span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span>i<span class="w"> </span>&lt;<span class="w"> </span><span class="si">${</span><span class="nv">RANK_SIZE</span><span class="si">}</span><span class="p">;</span><span class="w"> </span>i++<span class="o">))</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">DEVICE_ID</span><span class="o">=</span><span class="k">$((</span><span class="nv">i</span><span class="o">+</span><span class="m">4</span><span class="k">))</span>
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">RANK_ID</span><span class="o">=</span><span class="nv">$i</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Launching rank: </span><span class="si">${</span><span class="nv">RANK_ID</span><span class="si">}</span><span class="s2">, device: </span><span class="si">${</span><span class="nv">DEVICE_ID</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$i</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">      </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;i am 0&#39;</span>
+<span class="w">      </span>python<span class="w"> </span>-u<span class="w"> </span>tools/train.py<span class="w"> </span>--config<span class="w"> </span>configs/rec/crnn/crnn_resnet34_zh.yaml<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>./train.log<span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">      </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;not 0&#39;</span>
+<span class="w">      </span>python<span class="w"> </span>-u<span class="w"> </span>tools/train.py<span class="w"> </span>--config<span class="w"> </span>configs/rec/crnn/crnn_resnet34_zh.yaml<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="k">done</span>
+</code></pre></div>
+<p>注意， <code>DEVICE_ID</code> 和 <code>RANK_ID</code> 的组合关系应该跟 <code>hccl_4p_4567_127.0.0.1.json</code> 文件中相吻合.</p>
+<h2 id="2-gpu">2. GPU<a class="headerlink" href="#2-gpu" title="Permanent link">&para;</a></h2>
+<h3 id="21-openmpi">2.1 通过OpenMPI运行脚本进行训练<a class="headerlink" href="#21-openmpi" title="Permanent link">&para;</a></h3>
+<p>在 GPU 硬件平台上，MindSpore也支持使用 <code>OpenMPI</code> 的 <code>mpirun</code> 命令来运行分布式训练。以下命令将在 <code>device 0</code>和 <code>device 1</code> 上运行训练。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># n 代表训练使用到的GPU数量</span>
+mpirun<span class="w"> </span>--allow-run-as-root<span class="w"> </span>-n<span class="w"> </span><span class="m">2</span><span class="w"> </span>python<span class="w"> </span>tools/train.py<span class="w"> </span>--config<span class="w"> </span>configs/det/dbnet/db_r50_icdar15.yaml
+</code></pre></div>
+<p>如果用户想在 <code>device 2</code> 和 <code>device 3</code> 上运行训练，用户可以在运行上面的命令之前运行 <code>export CUDA_VISIBLE_DEVICES=2,3</code>，或者直接运行以下命令：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># n 代表训练使用到的GPU数量</span>
+<span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">2</span>,3<span class="w"> </span>mpirun<span class="w"> </span>--allow-run-as-root<span class="w"> </span>-n<span class="w"> </span><span class="m">2</span><span class="w"> </span>python<span class="w"> </span>tools/train.py<span class="w"> </span>--config<span class="w"> </span>configs/det/dbnet/db_r50_icdar15.yaml
+</code></pre></div>
 
 
 

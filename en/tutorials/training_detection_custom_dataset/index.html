@@ -436,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../inference/models_list/" class="md-nav__link">
+      <a href="../../inference/inference_quickstart/" class="md-nav__link">
         2. Inference - MindOCR Models List
       </a>
     </li>
@@ -450,7 +450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../inference/models_list_thirdparty/" class="md-nav__link">
+      <a href="../../inference/inference_thirdparty_quickstart/" class="md-nav__link">
         3. Inference - Third-party Models List
       </a>
     </li>
@@ -1523,7 +1523,7 @@ More tutorials on transform functions can be found in the <a href="../transform_
 <span class="w">  </span><span class="nt">main_indicator</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">f-score</span>
 
 <span class="nt">loss</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">L1BalancedCELoss</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DBLoss</span>
 <span class="w">  </span><span class="nt">eps</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0e-6</span>
 <span class="w">  </span><span class="nt">l1_scale</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
 <span class="w">  </span><span class="nt">bce_scale</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
@@ -1542,7 +1542,7 @@ More tutorials on transform functions can be found in the <a href="../transform_
 <span class="w">  </span><span class="nt">momentum</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.9</span>
 <span class="w">  </span><span class="nt">weight_decay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0e-4</span>
 </code></pre></div>
-It uses <code>SGD</code> optimizer (in <code>mindocr/optim/optim.factory.py</code>) and <code>polynomial_decay</code> (in <code>mindocr/scheduler/scheduler_factory.py</code>) as the learning scheduler. The loss function is <code>L1BalancedCELoss</code> (in <code>mindocr/losses/det_loss.py</code>) and the evaluation metric is <code>DetMetric</code> ( in <code>mindocr/metrics/det_metrics.py</code>).</p>
+It uses <code>SGD</code> optimizer (in <code>mindocr/optim/optim.factory.py</code>) and <code>polynomial_decay</code> (in <code>mindocr/scheduler/scheduler_factory.py</code>) as the learning scheduler. The loss function is <code>DBLoss</code> (in <code>mindocr/losses/det_loss.py</code>) and the evaluation metric is <code>DetMetric</code> ( in <code>mindocr/metrics/det_metrics.py</code>).</p>
 <h2 id="3-model-training-evaluation-and-inference">3. Model Training, Evaluation, and Inference<a class="headerlink" href="#3-model-training-evaluation-and-inference" title="Permanent link">&para;</a></h2>
 <p>When all configurations have been specified, users can start training their models. MindOCR supports evaluation and inference after the model is trained.</p>
 <h3 id="31-training">3.1 Training<a class="headerlink" href="#31-training" title="Permanent link">&para;</a></h3>
@@ -1580,7 +1580,7 @@ mpirun<span class="w"> </span>--allow-run-as-root<span class="w"> </span>-n<span
 <span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
-To get the <code>device_ip</code> of the target device, run <code>cat /etc/hccn.conf</code> and look for the value of <code>address_x</code>, which is the ip address. More details can be found in <a href="../../cn/tutorials/distribute_train_CN.md">distributed training tutorial</a>.</p>
+To get the <code>device_ip</code> of the target device, run <code>cat /etc/hccn.conf</code> and look for the value of <code>address_x</code>, which is the ip address. More details can be found in <a href="../distribute_train/">distributed training tutorial</a>.</p>
 <h3 id="32-evaluation">3.2 Evaluation<a class="headerlink" href="#32-evaluation" title="Permanent link">&para;</a></h3>
 <p>To evaluate the accuracy of the trained model, users can use <code>tools/eval.py</code>.</p>
 <p>Take standalone evaluation as an example. In the yaml config file, <code>system.distribute</code> should be <code>False</code>; the <code>eval.ckpt_load_path</code> should be the target ckpt path; <code>eval.dataset_root</code>, <code>eval.data_dir</code>, and <code>eval.label_file</code> should be correctly specified. Then the evaluation can be started by running:</p>

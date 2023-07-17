@@ -430,7 +430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../models_list/" class="md-nav__link">
+      <a href="../inference_quickstart/" class="md-nav__link">
         2. Inference - MindOCR Models List
       </a>
     </li>
@@ -444,7 +444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../models_list_thirdparty/" class="md-nav__link">
+      <a href="../inference_thirdparty_quickstart/" class="md-nav__link">
         3. Inference - Third-party Models List
       </a>
     </li>
@@ -1071,36 +1071,36 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#23-onnx-om" class="md-nav__link">
-    2.3 ONNX -&gt; OM
-  </a>
-  
-    <nav class="md-nav" aria-label="2.3 ONNX -> OM">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#231-model-shape-setting" class="md-nav__link">
-    2.3.1 Model Shape Setting
+  <a href="#23-onnx-mindir" class="md-nav__link">
+    2.3 ONNX -&gt; MindIR
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#232-model-precision-mode-setting" class="md-nav__link">
-    2.3.2 Model Precision Mode Setting
+  <a href="#24-onnx-om" class="md-nav__link">
+    2.4 ONNX -&gt; OM
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 ONNX -> OM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241-model-shape-setting" class="md-nav__link">
+    2.4.1 Model Shape Setting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242-model-precision-mode-setting" class="md-nav__link">
+    2.4.2 Model Precision Mode Setting
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24-onnx-mindir" class="md-nav__link">
-    2.4 ONNX -&gt; MindIR
-  </a>
   
 </li>
         
@@ -1125,15 +1125,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#32-onnx-om" class="md-nav__link">
-    3.2 ONNX -&gt; OM
+  <a href="#32-onnx-mindir" class="md-nav__link">
+    3.2 ONNX -&gt; MindIR
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#33-onnx-mindir" class="md-nav__link">
-    3.3 ONNX -&gt; MindIR
+  <a href="#33-onnx-om" class="md-nav__link">
+    3.3 ONNX -&gt; OM
   </a>
   
 </li>
@@ -1182,13 +1182,25 @@
   <h1>Convert tutorial.md</h1>
 
 <h2 id="inference-model-conversion-tutorial">Inference - Model Conversion Tutorial<a class="headerlink" href="#inference-model-conversion-tutorial" title="Permanent link">&para;</a></h2>
+<p>MindOCR supports model inference for models trained using MindOCR and converted from third-party toolboxes(PaddelOCR and mmOCR).</p>
 <h3 id="1-mindocr-models">1. MindOCR models<a class="headerlink" href="#1-mindocr-models" title="Permanent link">&para;</a></h3>
 <p>The inference of MindOCR models supports <a href="https://www.mindspore.cn/lite">MindSpore Lite</a> backend.</p>
 <pre class="mermaid"><code>graph LR;
-    ckpt --&gt; |export| MindIR --&gt; |"converter_lite(offline conversion)"| o[MindIR];</code></pre>
+    A[MindOCR models] -- export --&gt; B[MindIR] -- converter_lite --&gt; C[MindSpore Lite MindIR];</code></pre>
 <h4 id="11-model-export">1.1 Model Export<a class="headerlink" href="#11-model-export" title="Permanent link">&para;</a></h4>
-<p>Before inference, it is necessary to <a href="https://github.com/mindspore-lab/mindocr/blob/main/configs/README.md">export</a> the trained ckpt to a MindIR file, which stores the model structure and weight parameters.</p>
-<p>Some models provide download links for MIndIR export files, as shown in <a href="../models_list/">Model List</a>. You can jump to the corresponding model introduction page for download.</p>
+<p>Before inference, it is necessary to export the trained ckpt to a <a href="https://www.mindspore.cn/docs/en/master/index.html">MindIR</a> file. Please run <code>tools/export.py</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Export mindir of model `dbnet_resnet50` by downloading online ckpt</span>
+python<span class="w"> </span>tools/export.py<span class="w"> </span>--model_name<span class="w"> </span>dbnet_resnet50<span class="w"> </span>--data_shape<span class="w"> </span><span class="m">736</span><span class="w"> </span><span class="m">1280</span>
+
+<span class="c1"># Export mindir of model `dbnet_resnet50` by loading local ckpt</span>
+python<span class="w"> </span>tools/export.py<span class="w"> </span>--model_name<span class="w"> </span>dbnet_resnet50<span class="w"> </span>--data_shape<span class="w"> </span><span class="m">736</span><span class="w"> </span><span class="m">1280</span><span class="w"> </span>--local_ckpt_path<span class="w"> </span>/path/to/local_ckpt
+
+<span class="c1"># Export mindir of model whose architecture is defined by crnn_resnet34.yaml with local checkpoint</span>
+python<span class="w"> </span>tools/export.py<span class="w"> </span>--model_name<span class="w"> </span>configs/rec/crnn/crnn_resnet34.yaml<span class="w"> </span>--local_ckpt_path<span class="w"> </span>~/.mindspore/models/crnn_resnet34-83f37f07.ckpt<span class="w"> </span>--data_shape<span class="w"> </span><span class="m">32</span><span class="w"> </span><span class="m">100</span>
+
+For<span class="w"> </span>more<span class="w"> </span>usage,<span class="w"> </span>run<span class="w"> </span><span class="sb">`</span>python<span class="w"> </span>tools/export.py<span class="w"> </span>-h<span class="sb">`</span>.
+</code></pre></div>
+<p>Some models provide download links for MIndIR export files, as shown in <a href="../inference_quickstart/">Model List</a>. You can jump to the corresponding model introduction page for download.</p>
 <h4 id="12-model-conversion">1.2 Model Conversion<a class="headerlink" href="#12-model-conversion" title="Permanent link">&para;</a></h4>
 <p>You need to use the <code>converter_lite</code> tool to convert the above exported MindIR file offline so that it can be used for MindSpore Lite inference.</p>
 <p>The tutorial for the <code>converter_lite</code> command can be referred to <a href="https://www.mindspore.cn/lite/docs/en/r2.0/use/cloud_infer/converter_tool.html">Offline Conversion of Inference Models</a>.</p>
@@ -1251,12 +1263,36 @@ precision_mode=enforce_fp32
 </code></pre></div>
 <p>If not set, defaults to <code>enforce_fp16</code>.</p>
 <h3 id="2-paddleocr-models">2. PaddleOCR models<a class="headerlink" href="#2-paddleocr-models" title="Permanent link">&para;</a></h3>
-<p>The PaddleOCR models support two inference backends: <a href="https://www.hiascend.com/document/detail/zh/canncommercial/63RC1/inferapplicationdev/aclcppdevg/aclcppdevg_000004.html">ACL</a> and <a href="https://www.mindspore.cn/lite">MindSpore Lite</a>,
-corresponding to the OM model and MindIR model, respectively.</p>
+<p>The PaddleOCR models support two inference backends: <a href="https://www.hiascend.com/document/detail/en/CANNCommunityEdition/600alphaX/developmenttools/devtool/atlasamctacl_16_0004.html">MindSpore Lite</a>,
+corresponding to the MindSpore Lite MindIR model and OM model, respectively.</p>
 <pre class="mermaid"><code>graph LR;
-    in1[trained model] -- export --&gt; in2[inference model] -- paddle2onnx --&gt; ONNX;
-    ONNX -- atc --&gt; o1(OM);
-    ONNX -- converter_lite --&gt; o2(MindIR);</code></pre>
+    in1[PaddleOCR trained model] -- export --&gt; in2[PaddleOCR inference model] -- paddle2onnx --&gt; ONNX;
+    ONNX -- converter_lite --&gt; o2(MindSpore Lite MindIR);
+    ONNX -- atc --&gt; o1(OM);</code></pre>
+<p>Two formats of Paddle models are used here, the training model and the inference model. The differences are as follows:</p>
+<table>
+<thead>
+<tr>
+<th align="left">type</th>
+<th align="left">format</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">trained model</td>
+<td align="left">.pdparams、.pdopt、.states</td>
+<td align="left">PaddlePaddle trained model, which can store information such as model structure, weights, optimizer status, etc</td>
+</tr>
+<tr>
+<td align="left">inference model</td>
+<td align="left">inference.pdmodel、inference.pdiparams</td>
+<td align="left">PaddlePaddle inference model, which can be derived from its trained model, saving the network structure and weights.</td>
+</tr>
+</tbody>
+</table>
+<p>After downloading the model file and decompressing it, please distinguish between the trained model and inference model
+according to the model format.</p>
 <h4 id="21-trained-inference-model">2.1 Trained -&gt; Inference model<a class="headerlink" href="#21-trained-inference-model" title="Permanent link">&para;</a></h4>
 <p>In the download link of PaddleOCR model, there are two formats: trained model and inference model. If a training model is provided, it needs to be converted to the format of inference model.</p>
 <p>On the original PaddleOCR introduction page of each trained model, there are usually conversion script samples that only need to input the config file, model file, and save path of the trained model.
@@ -1283,10 +1319,25 @@ python<span class="w"> </span>tools/export_model.py<span class="w"> </span><span
 </code></pre></div>
 <p>The <code>input_shape_dict</code> in the parameter can generally be viewed by opening the inference model using the <a href="https://github.com/lutzroeder/netron">Netron</a>,
 or found in the code in <a href="https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.6/tools/export_model.py">tools/export_model. py</a> above.</p>
-<h4 id="23-onnx-om">2.3 ONNX -&gt; OM<a class="headerlink" href="#23-onnx-om" title="Permanent link">&para;</a></h4>
+<h4 id="23-onnx-mindir">2.3 ONNX -&gt; MindIR<a class="headerlink" href="#23-onnx-mindir" title="Permanent link">&para;</a></h4>
+<p>The <code>converter_lite</code> script can be used to convert the ONNX into a MindSpore Lite MindIR. For detailed usage tutorials,
+please refer to <a href="https://www.mindspore.cn/lite/docs/en/r2.0/use/cloud_infer/converter_tool.html">Offline Conversion of Inference Models</a>。</p>
+<p>The conversion command is as follows:</p>
+<div class="highlight"><pre><span></span><code>converter_lite<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--saveType<span class="o">=</span>MINDIR<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--NoFusion<span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--fmk<span class="o">=</span>ONNX<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--device<span class="o">=</span>Ascend<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--modelFile<span class="o">=</span>det_db.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--outputFile<span class="o">=</span>det_db_output<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--configFile<span class="o">=</span>config.txt
+</code></pre></div>
+<p>The conversion process is same as for <a href="#1-mindocr-models">MindOCR models</a>,
+except that <code>--fmk</code> needs to specify that the input is the ONNX, which will not be repeated here.</p>
+<h4 id="24-onnx-om">2.4 ONNX -&gt; OM<a class="headerlink" href="#24-onnx-om" title="Permanent link">&para;</a></h4>
 <p>The ONNX model can be converted into an OM model by ATC tools.</p>
 <p>Ascend Tensor Compiler (ATC) is a model conversion tool built upon the heterogeneous computing architecture CANN. It is designed to convert models of open-source frameworks into .om offline models supported by Ascend AI Processor. A detailed tutorial on the tool can be found in <a href="https://www.hiascend.com/document/detail/en/CANNCommunityEdition/600alphaX/infacldevg/atctool/atctool_0001.html">ATC Instructions</a>.</p>
-<h5 id="231-model-shape-setting">2.3.1 Model Shape Setting<a class="headerlink" href="#231-model-shape-setting" title="Permanent link">&para;</a></h5>
+<h5 id="241-model-shape-setting">2.4.1 Model Shape Setting<a class="headerlink" href="#241-model-shape-setting" title="Permanent link">&para;</a></h5>
 <p>The exported ONNX in the example has an input shape of (-1, 3, -1, -1).</p>
 <ul>
 <li><strong>Static Shape</strong></li>
@@ -1334,7 +1385,7 @@ or found in the code in <a href="https://github.com/PaddlePaddle/PaddleOCR/blob/
 <p>In order to simplify the model conversion process, we have developed an automatic tool that can complete the dynamic value selection and model conversion. For detailed tutorials, please refer to <a href="../convert_dynamic/">Model Shape Scaling</a>.</p>
 <p><strong>Notes:</strong></p>
 <p>If the exported model is a static shape version, it cannot support dynamic image size and batch size conversion. It is necessary to ensure that the exported model is a dynamic shape version.</p>
-<h5 id="232-model-precision-mode-setting">2.3.2 Model Precision Mode Setting<a class="headerlink" href="#232-model-precision-mode-setting" title="Permanent link">&para;</a></h5>
+<h5 id="242-model-precision-mode-setting">2.4.2 Model Precision Mode Setting<a class="headerlink" href="#242-model-precision-mode-setting" title="Permanent link">&para;</a></h5>
 <p>For the precision of model inference, it is necessary to set it in <code>atc</code> when converting the model.
 Please refer to the <a href="https://www.hiascend.com/document/detail/en/CANNCommunityEdition/600alphaX/infacldevg/atctool/atctool_0041.html">Command-Line Options</a>. Optional values include <code>force_fp16</code>, <code>force_fp32</code>, <code>allow_fp32_to_fp16</code>, <code>must_keep_origin_dtype</code>, <code>allow_mix_precision</code>, etc.
 So, you can add the <code>precision_mode</code> parameter in the <code>atc</code> command line to set the precision:</p>
@@ -1348,39 +1399,24 @@ So, you can add the <code>precision_mode</code> parameter in the <code>atc</code
     --log=error
 </code></pre></div>
 <p>If not set, defaults to <code>force_fp16</code>.</p>
-<h4 id="24-onnx-mindir">2.4 ONNX -&gt; MindIR<a class="headerlink" href="#24-onnx-mindir" title="Permanent link">&para;</a></h4>
-<p>The <code>converter_lite</code> can be used to convert the ONNX into a MindIR. For detailed usage tutorials,
-please refer to <a href="https://www.mindspore.cn/lite/docs/en/r2.0/use/cloud_infer/converter_tool.html">Offline Conversion of Inference Models</a>。</p>
-<p>The conversion command is as follows:</p>
-<div class="highlight"><pre><span></span><code>converter_lite<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--saveType<span class="o">=</span>MINDIR<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--NoFusion<span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--fmk<span class="o">=</span>ONNX<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--device<span class="o">=</span>Ascend<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--modelFile<span class="o">=</span>det_db.onnx<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--outputFile<span class="o">=</span>det_db_output<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--configFile<span class="o">=</span>config.txt
-</code></pre></div>
-<p>The conversion process is completely the same as the <a href="#1-mindocr-models">MindOCR models</a>,
-except that <code>--fmk</code> needs to specify that the input is the ONNX, which will not be repeated here.</p>
 <h3 id="3-mmocr-models">3. MMOCR models<a class="headerlink" href="#3-mmocr-models" title="Permanent link">&para;</a></h3>
 <p>MMOCR uses Pytorch, and its model files typically have a pth format suffix. You need to first export it to ONNX format
 and then convert to an OM/MindIR format file supported by
 <a href="https://www.hiascend.com/document/detail/zh/canncommercial/63RC1/inferapplicationdev/aclcppdevg/aclcppdevg_000004.html">ACL</a>/<a href="https://www.mindspore.cn/lite">MindSpore Lite</a>.</p>
 <pre class="mermaid"><code>graph LR;
-    pth -- export --&gt;  ONNX;
-    ONNX -- atc --&gt; o1(OM);
-    ONNX -- converter_lite --&gt; o2(MindIR);</code></pre>
+    MMOCR_pth -- export --&gt;  ONNX;
+    ONNX -- converter_lite --&gt; o2(MindSpore Lite MindIR);
+    ONNX -- atc --&gt; o1(OM);</code></pre>
 <h4 id="31-mmocr-model-onnx">3.1 MMOCR model -&gt; ONNX<a class="headerlink" href="#31-mmocr-model-onnx" title="Permanent link">&para;</a></h4>
 <p>MMDeploy provides the command to export MMOCR models to ONNX. For detailed tutorials, please refer to
 <a href="https://github.com/open-mmlab/mmdeploy/blob/main/docs/en/02-how-to-run/convert_model.md">How to convert model</a>.</p>
 <p>For parameter <code>deploy_cfg</code>, you need to select the <code>*_onnxruntime_dynamic.py</code> file in directory
 <a href="https://github.com/open-mmlab/mmdeploy/tree/main/configs/mmocr">mmdeploy/configs/mmocr</a> to export as a dynamic shape
 ONNX model.</p>
-<h4 id="32-onnx-om">3.2 ONNX -&gt; OM<a class="headerlink" href="#32-onnx-om" title="Permanent link">&para;</a></h4>
-<p>Please refer to <a href="#23-onnx---om">ONNX -&gt; OM</a> in the PaddleOCR section above.</p>
-<h4 id="33-onnx-mindir">3.3 ONNX -&gt; MindIR<a class="headerlink" href="#33-onnx-mindir" title="Permanent link">&para;</a></h4>
-<p>Please refer to <a href="#24-onnx---mindir">ONNX -&gt; MIndIR</a> in the PaddleOCR section above.</p>
+<h4 id="32-onnx-mindir">3.2 ONNX -&gt; MindIR<a class="headerlink" href="#32-onnx-mindir" title="Permanent link">&para;</a></h4>
+<p>Please refer to <a href="#23-onnx---mindir">ONNX -&gt; MindSpore Lite MindIR</a> in the PaddleOCR section above.</p>
+<h4 id="33-onnx-om">3.3 ONNX -&gt; OM<a class="headerlink" href="#33-onnx-om" title="Permanent link">&para;</a></h4>
+<p>Please refer to <a href="#24-onnx---om">ONNX -&gt; OM</a> in the PaddleOCR section above.</p>
 
 
 

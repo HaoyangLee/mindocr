@@ -1220,9 +1220,15 @@
     H[images] --input --&gt; D[infer.py];</code></pre>
 <h3 id="2-mindocr">2. MindOCR推理方法<a class="headerlink" href="#2-mindocr" title="Permanent link">&para;</a></h3>
 <h4 id="21">2.1 文本检测<a class="headerlink" href="#21" title="Permanent link">&para;</a></h4>
-<p>下面以<a href="#31-文本检测">附录表格</a>中的<code>DBNet ResNet-50 en</code>为例介绍推理方法：
-- 下载附录表格中的<a href="https://download.mindspore.cn/toolkits/mindocr/dbnet/dbnet_resnet50-c3a4aa24-fbf95c82.mindir">mindir文件</a>；
-- 在Ascend310/310P上使用converter_lite工具将下载的文件转换为MindSpore Lite可使用的mindir：</p>
+<p>下面以<a href="#31-文本检测">附录表格</a>中的<code>DBNet ResNet-50 en</code>为例介绍推理方法：</p>
+<ul>
+<li>
+<p>下载附录表格中的<a href="https://download.mindspore.cn/toolkits/mindocr/dbnet/dbnet_resnet50-c3a4aa24-fbf95c82.mindir">mindir文件</a>；</p>
+</li>
+<li>
+<p>在Ascend310/310P上使用converter_lite工具将下载的文件转换为MindSpore Lite可使用的mindir：</p>
+</li>
+</ul>
 <p>创建<code>config.txt</code>并指定模型输入shape：
 <div class="highlight"><pre><span></span><code>[ascend_context]
 input_format=NCHW
@@ -1244,15 +1250,15 @@ input_shape=x:[1,3,736,1280]
 <p>了解更多<a href="https://www.mindspore.cn/lite/docs/zh-CN/master/use/cloud_infer/converter_tool.html">converter_lite</a></p>
 </blockquote>
 <ul>
-<li>使用<code>/deploy/py_infer/infer.py</code>脚本和<code>dbnet_resnet50.mindir</code>文件执行推理：
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>infer.py<span class="w"> </span><span class="se">\</span>
+<li>使用<code>/deploy/py_infer/infer.py</code>脚本和<code>dbnet_resnet50.mindir</code>文件执行推理：</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code>python<span class="w"> </span>infer.py<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--input_images_dir<span class="o">=</span>/path/to/ic15/ch4_test_images<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--det_model_path<span class="o">=</span>/path/to/mindir/dbnet_resnet50.mindir<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--det_model_name_or_config<span class="o">=</span>en_ms_det_dbnet_resnet50<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--res_save_dir<span class="o">=</span>/path/to/dbnet_resnet50_results
 </code></pre></div>
-执行完成后，在参数<code>--res_save_dir</code>所指目录下生成预测文件<code>det_results.txt</code>；</li>
-</ul>
+执行完成后，在参数<code>--res_save_dir</code>所指目录下生成预测文件<code>det_results.txt</code>；</p>
 <p>在进行推理时，可使用<code>--vis_det_save_dir</code>参数进行结果可视化：</p>
 <p align="center">
 <img src="https://user-images.githubusercontent.com/15178426/253494276-c941431c-0936-47f2-a0a9-75a2f048a1e0.jpg" width=60% />
@@ -1265,18 +1271,24 @@ input_shape=x:[1,3,736,1280]
 <p>了解更多<a href="../inference_tutorial/#42-详细推理参数解释">infer.py</a>推理参数</p>
 </blockquote>
 <ul>
-<li>使用以下命令评估结果：
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>deploy/eval_utils/eval_det.py<span class="w"> </span><span class="se">\</span>
+<li>使用以下命令评估结果：</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code>python<span class="w"> </span>deploy/eval_utils/eval_det.py<span class="w"> </span><span class="se">\</span>
 <span class="w">        </span>--gt_path<span class="o">=</span>/path/to/ic15/test_det_gt.txt<span class="w"> </span><span class="se">\</span>
 <span class="w">        </span>--pred_path<span class="o">=</span>/path/to/dbnet_resnet50_results/det_results.txt
 </code></pre></div>
 结果为: <code>{'recall': 0.8348579682233991, 'precision': 0.8657014478282576, 'f-score': 0.85}</code>
-<br></br></li>
-</ul>
+<br></br></p>
 <h4 id="22">2.2 文本识别<a class="headerlink" href="#22" title="Permanent link">&para;</a></h4>
-<p>下面以<a href="#32-文本识别">附录表格</a>中的<code>CRNN ResNet34_vd en</code>为例介绍推理方法：
-- 下载附录表格中的<a href="https://download.mindspore.cn/toolkits/mindocr/crnn/crnn_resnet34-83f37f07-eb10a0c9.mindir">mindir文件</a>；
-- 在Ascend310/310P上使用converter_lite工具将下载的文件转换为MindSpore Lite可使用的mindir：</p>
+<p>下面以<a href="#32-文本识别">附录表格</a>中的<code>CRNN ResNet34_vd en</code>为例介绍推理方法：</p>
+<ul>
+<li>
+<p>下载附录表格中的<a href="https://download.mindspore.cn/toolkits/mindocr/crnn/crnn_resnet34-83f37f07-eb10a0c9.mindir">mindir文件</a>；</p>
+</li>
+<li>
+<p>在Ascend310/310P上使用converter_lite工具将下载的文件转换为MindSpore Lite可使用的mindir：</p>
+</li>
+</ul>
 <p>创建<code>config.txt</code>并指定模型输入shape：
 <div class="highlight"><pre><span></span><code>[ascend_context]
 input_format=NCHW
@@ -1298,25 +1310,27 @@ input_shape=x:[1,3,32,100]
 <p>了解更多<a href="https://www.mindspore.cn/lite/docs/zh-CN/master/use/cloud_infer/converter_tool.html">converter_lite</a></p>
 </blockquote>
 <ul>
-<li>使用<code>/deploy/py_infer/infer.py</code>脚本和<code>crnn_resnet34vd.mindir</code>文件执行推理：
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>infer.py<span class="w"> </span><span class="se">\</span>
+<li>使用<code>/deploy/py_infer/infer.py</code>脚本和<code>crnn_resnet34vd.mindir</code>文件执行推理：</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code>python<span class="w"> </span>infer.py<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--input_images_dir<span class="o">=</span>/path/to/ic15/ch4_test_word_images<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--rec_model_path<span class="o">=</span>/path/to/mindir/crnn_resnet34vd.mindir<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--rec_model_name_or_config<span class="o">=</span>../../configs/rec/crnn/crnn_resnet34.yaml<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--res_save_dir<span class="o">=</span>/path/to/rec_infer_results
 </code></pre></div>
-执行完成后，在参数<code>--res_save_dir</code>所指目录下生成预测文件<code>rec_results.txt</code>。<blockquote>
+执行完成后，在参数<code>--res_save_dir</code>所指目录下生成预测文件<code>rec_results.txt</code>。</p>
+<blockquote>
 <p>了解更多<a href="../inference_tutorial/#42-详细推理参数解释">infer.py</a>推理参数</p>
 </blockquote>
-</li>
-<li>使用以下命令评估结果：
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>deploy/eval_utils/eval_rec.py<span class="w"> </span><span class="se">\</span>
+<ul>
+<li>使用以下命令评估结果：</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code>python<span class="w"> </span>deploy/eval_utils/eval_rec.py<span class="w"> </span><span class="se">\</span>
 <span class="w">        </span>--gt_path<span class="o">=</span>/path/to/ic15/rec_gt.txt<span class="w"> </span><span class="se">\</span>
 <span class="w">        </span>--pred_path<span class="o">=</span>/path/to/rec_infer_results/rec_results.txt
 </code></pre></div>
 结果为: <code>{'acc': 0.6966779232025146, 'norm_edit_distance': 0.8627135157585144}</code>
-<br></br></li>
-</ul>
+<br></br></p>
 <h3 id="3-mindocr">3. 附录-MindOCR模型支持列表<a class="headerlink" href="#3-mindocr" title="Permanent link">&para;</a></h3>
 <p>MindOCR推理支持训练端ckpt导出的模型，本文档展示了已适配的模型列表。</p>
 <h4 id="31">3.1 文本检测<a class="headerlink" href="#31" title="Permanent link">&para;</a></h4>

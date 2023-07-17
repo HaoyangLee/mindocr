@@ -1220,9 +1220,15 @@
     H[images] --input --&gt; D[infer.py];</code></pre>
 <h3 id="2-third-party-model-inference-methods">2. Third-Party Model Inference Methods<a class="headerlink" href="#2-third-party-model-inference-methods" title="Permanent link">&para;</a></h3>
 <h4 id="21-text-detection">2.1 Text Detection<a class="headerlink" href="#21-text-detection" title="Permanent link">&para;</a></h4>
-<p>Let's take <code>DBNet ResNet-50 en</code> in the <a href="#31-text-detection">appendix table</a> as an example to introduce the inference method:
-- Download the <a href="https://download.mindspore.cn/toolkits/mindocr/dbnet/dbnet_resnet50-c3a4aa24-fbf95c82.mindir">mindir file</a> in the appendix table;
-- Use the converter_lite tool on Ascend310/310P to convert the downloaded file to mindir that can be used by MindSpore Lite:</p>
+<p>Let's take <code>DBNet ResNet-50 en</code> in the <a href="#31-text-detection">appendix table</a> as an example to introduce the inference method:</p>
+<ul>
+<li>
+<p>Download the <a href="https://download.mindspore.cn/toolkits/mindocr/dbnet/dbnet_resnet50-c3a4aa24-fbf95c82.mindir">mindir file</a> in the appendix table;</p>
+</li>
+<li>
+<p>Use the converter_lite tool on Ascend310/310P to convert the downloaded file to mindir that can be used by MindSpore Lite:</p>
+</li>
+</ul>
 <p>Create <code>config.txt</code> and specify the model input shape:
 <div class="highlight"><pre><span></span><code>[ascend_context]
 input_format=NCHW
@@ -1244,15 +1250,15 @@ After the above command is executed, the <code>dbnet_resnet50.mindir</code> mode
 <p>Learn more about <a href="https://www.mindspore.cn/lite/docs/zh-CN/master/use/cloud_infer/converter_tool.html">converter_lite</a></p>
 </blockquote>
 <ul>
-<li>Perform inference using <code>/deploy/py_infer/infer.py</code> codes and <code>dbnet_resnet50.mindir</code> file:
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>infer.py<span class="w"> </span><span class="se">\</span>
+<li>Perform inference using <code>/deploy/py_infer/infer.py</code> codes and <code>dbnet_resnet50.mindir</code> file:</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code>python<span class="w"> </span>infer.py<span class="w"> </span><span class="se">\</span>
 <span class="w">     </span>--input_images_dir<span class="o">=</span>/path/to/ic15/ch4_test_images<span class="w"> </span><span class="se">\</span>
 <span class="w">     </span>--det_model_path<span class="o">=</span>/path/to/mindir/dbnet_resnet50.mindir<span class="w"> </span><span class="se">\</span>
 <span class="w">     </span>--det_model_name_or_config<span class="o">=</span>en_ms_det_dbnet_resnet50<span class="w"> </span><span class="se">\</span>
 <span class="w">     </span>--res_save_dir<span class="o">=</span>/path/to/dbnet_resnet50_results
 </code></pre></div>
-After the execution is completed, the prediction file <code>det_results.txt</code> will be generated in the directory pointed to by the parameter <code>--res_save_dir</code></li>
-</ul>
+After the execution is completed, the prediction file <code>det_results.txt</code> will be generated in the directory pointed to by the parameter <code>--res_save_dir</code></p>
 <p>When doing inference, you can use the <code>--vis_det_save_dir</code> parameter to visualize the results:</p>
 <p align="center">
 <img src="https://user-images.githubusercontent.com/15178426/253494276-c941431c-0936-47f2-a0a9-75a2f048a1e0.jpg" width=60% />
@@ -1265,18 +1271,24 @@ After the execution is completed, the prediction file <code>det_results.txt</cod
 <p>Learn more about <a href="../inference_tutorial/#42-detail-of-inference-parameter">infer.py</a> inference parameters</p>
 </blockquote>
 <ul>
-<li>Evaluate the results with the following command:
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>deploy/eval_utils/eval_det.py<span class="w"> </span><span class="se">\</span>
+<li>Evaluate the results with the following command:</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code>python<span class="w"> </span>deploy/eval_utils/eval_det.py<span class="w"> </span><span class="se">\</span>
 <span class="w">     </span>--gt_path<span class="o">=</span>/path/to/ic15/test_det_gt.txt<span class="w"> </span><span class="se">\</span>
 <span class="w">     </span>--pred_path<span class="o">=</span>/path/to/dbnet_resnet50_results/det_results.txt
 </code></pre></div>
 The result is: <code>{'recall': 0.8348579682233991, 'precision': 0.8657014478282576, 'f-score': 0.85}</code>
-<br></br></li>
-</ul>
+<br></br></p>
 <h4 id="22-text-recognition">2.2 Text Recognition<a class="headerlink" href="#22-text-recognition" title="Permanent link">&para;</a></h4>
-<p>Let's take <code>CRNN ResNet34_vd en</code> in the <a href="#32-text-recognition">appendix table</a> as an example to introduce the inference method:
-- Download the <a href="https://download.mindspore.cn/toolkits/mindocr/crnn/crnn_resnet34-83f37f07-eb10a0c9.mindir">mindir file</a> in the appendix table;
-- Use the converter_lite tool on Ascend310/310P to convert the downloaded file to mindir that can be used by MindSpore Lite:</p>
+<p>Let's take <code>CRNN ResNet34_vd en</code> in the <a href="#32-text-recognition">appendix table</a> as an example to introduce the inference method:</p>
+<ul>
+<li>
+<p>Download the <a href="https://download.mindspore.cn/toolkits/mindocr/crnn/crnn_resnet34-83f37f07-eb10a0c9.mindir">mindir file</a> in the appendix table;</p>
+</li>
+<li>
+<p>Use the converter_lite tool on Ascend310/310P to convert the downloaded file to mindir that can be used by MindSpore Lite:</p>
+</li>
+</ul>
 <p>Create <code>config.txt</code> and specify the model input shape:
 <div class="highlight"><pre><span></span><code>[ascend_context]
 input_format=NCHW
@@ -1298,25 +1310,27 @@ After the above command is executed, the <code>crnn_resnet34vd.mindir</code> mod
 <p>Learn more about <a href="https://www.mindspore.cn/lite/docs/zh-CN/master/use/cloud_infer/converter_tool.html">converter_lite</a></p>
 </blockquote>
 <ul>
-<li>Perform inference using <code>/deploy/py_infer/infer.py</code> codes and <code>crnn_resnet34vd.mindir</code> file:
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>infer.py<span class="w"> </span><span class="se">\</span>
+<li>Perform inference using <code>/deploy/py_infer/infer.py</code> codes and <code>crnn_resnet34vd.mindir</code> file:</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code>python<span class="w"> </span>infer.py<span class="w"> </span><span class="se">\</span>
 <span class="w">     </span>--input_images_dir<span class="o">=</span>/path/to/ic15/ch4_test_word_images<span class="w"> </span><span class="se">\</span>
 <span class="w">     </span>--rec_model_path<span class="o">=</span>/path/to/mindir/crnn_resnet34vd.mindir<span class="w"> </span><span class="se">\</span>
 <span class="w">     </span>--rec_model_name_or_config<span class="o">=</span>../../configs/rec/crnn/crnn_resnet34.yaml<span class="w"> </span><span class="se">\</span>
 <span class="w">     </span>--res_save_dir<span class="o">=</span>/path/to/rec_infer_results
 </code></pre></div>
-After the execution is completed, the prediction file <code>rec_results.txt</code> will be generated in the directory pointed to by the parameter <code>--res_save_dir</code>.<blockquote>
+After the execution is completed, the prediction file <code>rec_results.txt</code> will be generated in the directory pointed to by the parameter <code>--res_save_dir</code>.</p>
+<blockquote>
 <p>Learn more about <a href="../inference_tutorial/#42-detail-of-inference-parameter">infer.py</a> inference parameters</p>
 </blockquote>
-</li>
-<li>Evaluate the results with the following command:
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>deploy/eval_utils/eval_rec.py<span class="w"> </span><span class="se">\</span>
+<ul>
+<li>Evaluate the results with the following command:</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code>python<span class="w"> </span>deploy/eval_utils/eval_rec.py<span class="w"> </span><span class="se">\</span>
 <span class="w">     </span>--gt_path<span class="o">=</span>/path/to/ic15/rec_gt.txt<span class="w"> </span><span class="se">\</span>
 <span class="w">     </span>--pred_path<span class="o">=</span>/path/to/rec_infer_results/rec_results.txt
 </code></pre></div>
 The result is: <code>{'acc': 0.6966779232025146, 'norm_edit_distance': 0.8627135157585144}</code>
-<br></br></li>
-</ul>
+<br></br></p>
 <h3 id="3-appendix-mindocr-model-support-list">3. Appendix - MindOCR Model Support List<a class="headerlink" href="#3-appendix-mindocr-model-support-list" title="Permanent link">&para;</a></h3>
 <p>MindOCR inference supports exported models from trained ckpt file, and this document displays a list of adapted models.</p>
 <h4 id="31-text-detection">3.1 Text detection<a class="headerlink" href="#31-text-detection" title="Permanent link">&para;</a></h4>

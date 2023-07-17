@@ -1234,10 +1234,16 @@
     H[images] --input --&gt; D[infer.py];</code></pre>
 <h3 id="2">2. 第三方模型推理方法<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <h4 id="21">2.1 文本检测<a class="headerlink" href="#21" title="Permanent link">&para;</a></h4>
-<p>下面以<a href="#31-文本检测">附录表格</a>中的<code>en_pp_det_dbnet_resnet50vd</code>为例介绍推理方法：
-- 下载附录表格中的权重文件<a href="https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/det_r50_vd_db_v2.0_train.tar">weight</a>并解压；
-- 由于该模型为paddle训练模型，需要先转换为推理模型（已为推理模型则跳过此步）：
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/PaddlePaddle/PaddleOCR.git
+<p>下面以<a href="#31-文本检测">附录表格</a>中的<code>en_pp_det_dbnet_resnet50vd</code>为例介绍推理方法：</p>
+<ul>
+<li>
+<p>下载附录表格中的权重文件<a href="https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/det_r50_vd_db_v2.0_train.tar">weight</a>并解压；</p>
+</li>
+<li>
+<p>由于该模型为paddle训练模型，需要先转换为推理模型（已为推理模型则跳过此步）：</p>
+</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/PaddlePaddle/PaddleOCR.git
 <span class="nb">cd</span><span class="w"> </span>PaddleOCR
 python<span class="w"> </span>tools/export_model.py<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-c<span class="w"> </span>configs/det/det_r50_vd_db.yml<span class="w"> </span><span class="se">\</span>
@@ -1251,8 +1257,9 @@ python<span class="w"> </span>tools/export_model.py<span class="w"> </span><span
 ├── inference.pdiparams.info
 </code></pre></div></p>
 <ul>
-<li>下载并使用paddle2onnx工具(<code>pip install paddle2onnx</code>)，将推理模型转换成onnx文件：
-<div class="highlight"><pre><span></span><code>paddle2onnx<span class="w"> </span><span class="se">\</span>
+<li>下载并使用paddle2onnx工具(<code>pip install paddle2onnx</code>)，将推理模型转换成onnx文件：</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code>paddle2onnx<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--model_dir<span class="w"> </span>det_db<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--model_filename<span class="w"> </span>inference.pdmodel<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--params_filename<span class="w"> </span>inference.pdiparams<span class="w"> </span><span class="se">\</span>
@@ -1261,10 +1268,11 @@ python<span class="w"> </span>tools/export_model.py<span class="w"> </span><span
 <span class="w">    </span>--input_shape_dict<span class="o">=</span><span class="s2">&quot;{&#39;x&#39;:[-1,3,-1,-1]}&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--enable_onnx_checker<span class="w"> </span>True
 </code></pre></div>
-参数中<code>--input_shape_dict</code>的值，可以通过<a href="https://github.com/lutzroeder/netron">Netron</a>工具打开推理模型查看。</li>
+参数中<code>--input_shape_dict</code>的值，可以通过<a href="https://github.com/lutzroeder/netron">Netron</a>工具打开推理模型查看。</p>
+<p>上述命令执行完成后会生成<code>det_db.onnx</code>文件;</p>
+<ul>
+<li>在Ascend310/310P上使用converter_lite工具将onnx文件转换为mindir：</li>
 </ul>
-<p>上述命令执行完成后会生成<code>det_db.onnx</code>文件;
-- 在Ascend310/310P上使用converter_lite工具将onnx文件转换为mindir：</p>
 <p>创建<code>config.txt</code>并指定模型输入shape，一个示例如下：
 <div class="highlight"><pre><span></span><code>[ascend_context]
 input_format=NCHW
@@ -1286,15 +1294,15 @@ input_shape=x:[1,3,736,1280]
 <p>了解更多<a href="https://www.mindspore.cn/lite/docs/zh-CN/master/use/cloud_infer/converter_tool.html">converter_lite</a></p>
 </blockquote>
 <ul>
-<li>使用<code>/deploy/py_infer/infer.py</code>脚本和<code>det_db_output.mindir</code>文件执行推理：
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>infer.py<span class="w"> </span><span class="se">\</span>
+<li>使用<code>/deploy/py_infer/infer.py</code>脚本和<code>det_db_output.mindir</code>文件执行推理：</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code>python<span class="w"> </span>infer.py<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--input_images_dir<span class="o">=</span>/path/to/ic15/ch4_test_images<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--det_model_path<span class="o">=</span>/path/to/mindir/det_db_output.mindir<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--det_model_name_or_config<span class="o">=</span>en_pp_det_dbnet_resnet50vd<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--res_save_dir<span class="o">=</span>/path/to/dbnet_resnet50vd_results
 </code></pre></div>
-执行完成后，在参数<code>--res_save_dir</code>所指目录下生成预测文件<code>det_results.txt</code>；</li>
-</ul>
+执行完成后，在参数<code>--res_save_dir</code>所指目录下生成预测文件<code>det_results.txt</code>；</p>
 <p>在进行推理时，可使用<code>--vis_det_save_dir</code>参数进行结果可视化：</p>
 <p align="center">
 <img src="https://user-images.githubusercontent.com/15178426/253499854-ff5517f6-e8d0-493c-bc9a-8e384b2ac47a.jpg" width=60% />
@@ -1316,11 +1324,19 @@ input_shape=x:[1,3,736,1280]
 <br></br></li>
 </ul>
 <h4 id="22">2.2 文本识别<a class="headerlink" href="#22" title="Permanent link">&para;</a></h4>
-<p>下面以<a href="#32-文本识别">附录表格</a>中的<code>en_pp_rec_OCRv3</code>为例介绍推理方法：
-- 下载附录表格中的权重文件<a href="https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_rec_infer.tar">weight</a>并解压；
-- 由于该模型为paddle推理模型，直接进行第三步paddle转onnx（否则需要将训练模型转换为推理模型，参考上述文本检测）；
-- 下载并使用paddle2onnx工具(<code>pip install paddle2onnx</code>)，将推理模型转换成onnx文件：
-<div class="highlight"><pre><span></span><code>paddle2onnx<span class="w"> </span><span class="se">\</span>
+<p>下面以<a href="#32-文本识别">附录表格</a>中的<code>en_pp_rec_OCRv3</code>为例介绍推理方法：</p>
+<ul>
+<li>
+<p>下载附录表格中的权重文件<a href="https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_rec_infer.tar">weight</a>并解压；</p>
+</li>
+<li>
+<p>由于该模型为paddle推理模型，直接进行第三步paddle转onnx（否则需要将训练模型转换为推理模型，参考上述文本检测）；</p>
+</li>
+<li>
+<p>下载并使用paddle2onnx工具(<code>pip install paddle2onnx</code>)，将推理模型转换成onnx文件：</p>
+</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code>paddle2onnx<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--model_dir<span class="w"> </span>en_PP-OCRv3_rec_infer<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--model_filename<span class="w"> </span>inference.pdmodel<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--params_filename<span class="w"> </span>inference.pdiparams<span class="w"> </span><span class="se">\</span>
@@ -1330,8 +1346,10 @@ input_shape=x:[1,3,736,1280]
 <span class="w">    </span>--enable_onnx_checker<span class="w"> </span>True
 </code></pre></div>
 参数中<code>--input_shape_dict</code>的值，可以通过<a href="https://github.com/lutzroeder/netron">Netron</a>工具打开推理模型查看。</p>
-<p>上述命令执行完成后会生成<code>en_PP-OCRv3_rec_infer.onnx</code>文件;
-- 在Ascend310/310P上使用converter_lite工具将onnx文件转换为mindir：</p>
+<p>上述命令执行完成后会生成<code>en_PP-OCRv3_rec_infer.onnx</code>文件;</p>
+<ul>
+<li>在Ascend310/310P上使用converter_lite工具将onnx文件转换为mindir：</li>
+</ul>
 <p>创建<code>config.txt</code>并指定模型输入shape，一个示例如下：
 <div class="highlight"><pre><span></span><code>[ascend_context]
 input_format=NCHW
@@ -1354,26 +1372,28 @@ dynamic_dims=[48,520],[48,320],[48,384],[48,360],[48,394],[48,321],[48,336],[48,
 <p>了解更多<a href="https://www.mindspore.cn/lite/docs/zh-CN/master/use/cloud_infer/converter_tool.html">converter_lite</a></p>
 </blockquote>
 <ul>
-<li>下载模型对应的字典文件<a href="https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.6/ppocr/utils/en_dict.txt">en_dict.txt</a>，使用<code>/deploy/py_infer/infer.py</code>脚本和<code>en_PP-OCRv3_rec_infer.mindir</code>文件执行推理：
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>infer.py<span class="w"> </span><span class="se">\</span>
+<li>下载模型对应的字典文件<a href="https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.6/ppocr/utils/en_dict.txt">en_dict.txt</a>，使用<code>/deploy/py_infer/infer.py</code>脚本和<code>en_PP-OCRv3_rec_infer.mindir</code>文件执行推理：</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code>python<span class="w"> </span>infer.py<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--input_images_dir<span class="o">=</span>/path/to/mlt17_en<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--rec_model_path<span class="o">=</span>/path/to/mindir/en_PP-OCRv3_rec_infer.mindir<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--rec_model_name_or_config<span class="o">=</span>en_pp_rec_OCRv3<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--character_dict_path<span class="o">=</span>/path/to/en_dict.txt<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--res_save_dir<span class="o">=</span>/path/to/en_rec_infer_results
 </code></pre></div>
-执行完成后，在参数<code>--res_save_dir</code>所指目录下生成预测文件<code>rec_results.txt</code>。<blockquote>
+执行完成后，在参数<code>--res_save_dir</code>所指目录下生成预测文件<code>rec_results.txt</code>。</p>
+<blockquote>
 <p>了解更多<a href="../inference_tutorial/#42-详细推理参数解释">infer.py</a>推理参数</p>
 </blockquote>
-</li>
-<li>使用以下命令评估结果：
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>deploy/eval_utils/eval_rec.py<span class="w"> </span><span class="se">\</span>
+<ul>
+<li>使用以下命令评估结果：</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code>python<span class="w"> </span>deploy/eval_utils/eval_rec.py<span class="w"> </span><span class="se">\</span>
 <span class="w">        </span>--gt_path<span class="o">=</span>/path/to/mlt17_en/english_gt.txt<span class="w"> </span><span class="se">\</span>
 <span class="w">        </span>--pred_path<span class="o">=</span>/path/to/en_rec_infer_results/rec_results.txt
 </code></pre></div>
 结果为: <code>{'acc': 0.7979344129562378, 'norm_edit_distance': 0.8859519958496094}</code>
-<br></br></li>
-</ul>
+<br></br></p>
 <h3 id="3-">3. 附录-第三方模型支持列表<a class="headerlink" href="#3-" title="Permanent link">&para;</a></h3>
 <p>MindOCR可以支持第三方模型（如PaddleOCR、MMOCR等）的推理，本文档展示了已适配的模型列表。 性能测试基于Ascend310P，部分模型暂无测试数据集。</p>
 <h4 id="31">3.1 文本检测<a class="headerlink" href="#31" title="Permanent link">&para;</a></h4>

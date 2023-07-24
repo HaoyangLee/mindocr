@@ -1,3 +1,5 @@
+from ast import literal_eval
+
 from . import (  # rec_abinet_postprocess,
     cls_postprocess,
     det_db_postprocess,
@@ -49,7 +51,7 @@ def build_postprocess(config: dict):
     """
     proc = config.pop("name")
     if proc in supported_postprocess:
-        postprocessor = eval(proc)(**config)
+        postprocessor = literal_eval(proc)(**config)
     elif proc is None:
         return None
     else:

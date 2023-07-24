@@ -1,5 +1,8 @@
 __all__ = ['build_neck']
 supported_necks = ['FPN', 'DBFPN', 'RNNEncoder', 'Select', 'Img2Seq', 'PSEFPN', 'EASTFPN', 'FCEFPN', 'MasterEncoder']
+
+from ast import literal_eval
+
 from .fpn import DBFPN, EASTFPN, FCEFPN, FPN, PSEFPN
 from .img2seq import Img2Seq
 from .master_encoder import MasterEncoder
@@ -30,5 +33,5 @@ def build_neck(neck_name, **kwargs):
         >>> print(neck)
     """
     assert neck_name in supported_necks, f'Invalid neck: {neck_name}, Support necks are {supported_necks}'
-    neck = eval(neck_name)(**kwargs)
+    neck = literal_eval(neck_name)(**kwargs)
     return neck

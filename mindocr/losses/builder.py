@@ -13,6 +13,8 @@ supported_losses = [
     "VisionLANLoss",
 ]
 
+from ast import literal_eval
+
 from .abinet_loss import ABINetLoss
 from .cls_loss import CrossEntropySmooth
 from .det_loss import DBLoss, EASTLoss, FCELoss, PSEDiceLoss
@@ -40,7 +42,7 @@ def build_loss(name, **kwargs):
     """
     assert name in supported_losses, f"Invalid loss name {name}, support losses are {supported_losses}"
 
-    loss_fn = eval(name)(**kwargs)
+    loss_fn = literal_eval(name)(**kwargs)
 
     # print('=> Loss func input args: \n\t', inspect.signature(loss_fn.construct))
 

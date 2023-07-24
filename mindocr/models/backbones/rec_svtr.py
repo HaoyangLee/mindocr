@@ -1,3 +1,4 @@
+from ast import literal_eval
 from typing import Any, List, Optional, Tuple, Type, Union
 
 import numpy as np
@@ -208,7 +209,7 @@ class Block(nn.Cell):
     ) -> None:
         super().__init__()
         if isinstance(norm_layer, str):
-            self.norm1 = eval(norm_layer)([dim], epsilon=epsilon)
+            self.norm1 = literal_eval(norm_layer)([dim], epsilon=epsilon)
         else:
             self.norm1 = norm_layer([dim])
         if mixer == "Global" or mixer == "Local":
@@ -230,7 +231,7 @@ class Block(nn.Cell):
 
         self.drop_path = DropPath(drop_path) if drop_path > 0.0 else nn.Identity()
         if isinstance(norm_layer, str):
-            self.norm2 = eval(norm_layer)([dim], epsilon=epsilon)
+            self.norm2 = literal_eval(norm_layer)([dim], epsilon=epsilon)
         else:
             self.norm2 = norm_layer([dim])
         mlp_hidden_dim = int(dim * mlp_ratio)
@@ -372,7 +373,7 @@ class SubSample(nn.Cell):
                 pad_mode="pad",
                 has_bias=False,
             )
-        self.norm = eval(sub_norm)([out_channels])
+        self.norm = literal_eval(sub_norm)([out_channels])
         if act is not None:
             self.act = act()
         else:
@@ -492,7 +493,7 @@ class SVTRNet(nn.Cell):
             self.pos_drop = nn.Dropout(p=drop_rate)
         else:
             self.pos_drop = nn.Dropout(keep_prob=1 - drop_rate)
-        Block_unit = eval(block_unit)
+        Block_unit = literal_eval(block_unit)
         dpr = np.linspace(0, drop_path_rate, num=sum(depth))
         self.blocks1 = nn.SequentialCell(
             [
@@ -506,7 +507,7 @@ class SVTRNet(nn.Cell):
                     qkv_bias=qkv_bias,
                     qk_scale=qk_scale,
                     drop=drop_rate,
-                    act_layer=eval(act),
+                    act_layer=literal_eval(act),
                     attn_drop=attn_drop_rate,
                     drop_path=dpr[0 : depth[0]][i],
                     norm_layer=norm_layer,
@@ -540,7 +541,7 @@ class SVTRNet(nn.Cell):
                     qkv_bias=qkv_bias,
                     qk_scale=qk_scale,
                     drop=drop_rate,
-                    act_layer=eval(act),
+                    act_layer=literal_eval(act),
                     attn_drop=attn_drop_rate,
                     drop_path=dpr[depth[0] : depth[0] + depth[1]][i],
                     norm_layer=norm_layer,
@@ -573,7 +574,7 @@ class SVTRNet(nn.Cell):
                     qkv_bias=qkv_bias,
                     qk_scale=qk_scale,
                     drop=drop_rate,
-                    act_layer=eval(act),
+                    act_layer=literal_eval(act),
                     attn_drop=attn_drop_rate,
                     drop_path=dpr[depth[0] + depth[1] :][i],
                     norm_layer=norm_layer,
@@ -609,7 +610,7 @@ class SVTRNet(nn.Cell):
                 self.pool = nn.Identity()
 
         if not prenorm:
-            self.norm = eval(norm_layer)([embed_dim[-1]], epsilon=epsilon)
+            self.norm = literal_eval(norm_layer)([embed_dim[-1]], epsilon=epsilon)
         self.use_lenhead = use_lenhead
         if use_lenhead:
             self.len_conv = nn.Dense(embed_dim[2], self.out_channels)

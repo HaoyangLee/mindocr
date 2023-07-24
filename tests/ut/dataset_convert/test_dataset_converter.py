@@ -9,6 +9,7 @@ Example
 python tests/convert/test_dataset_converter.py --data_dir ../ocr_datasets
 """
 
+from ast import literal_eval
 import os
 import shutil
 import sys
@@ -31,7 +32,7 @@ class TestDatasetPaths(object):
         self.checkDirValidity(self.data_dir)
         self.checkDatasetExistence(self.data_dir)
         for d_name in self.dataset_existences:
-            eval("self.check" + d_name.upper() + "()")
+            literal_eval("self.check" + d_name.upper() + "()")
 
     def checkDirValidity(self, data_dir):
         assert type(data_dir) is str, f"Expect to get string path, but got {type(data_dir)}"

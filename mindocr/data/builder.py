@@ -1,3 +1,4 @@
+from ast import literal_eval
 import logging
 import multiprocessing
 import os
@@ -132,7 +133,7 @@ def build_dataset(
     # Invoke dataset class
     dataset_class_name = dataset_config.pop("type")
     assert dataset_class_name in supported_dataset_types, "Invalid dataset name"
-    dataset_class = eval(dataset_class_name)
+    dataset_class = literal_eval(dataset_class_name)
     dataset_args = dict(is_train=is_train, **dataset_config)
     dataset = dataset_class(**dataset_args)
 

@@ -14,6 +14,7 @@ Example:
         --label_dir /path/to/ic15/rec/ch4_training_word_images_gt
 """
 
+from ast import literal_eval
 import argparse
 import os
 import sys
@@ -86,7 +87,7 @@ def convert(dataset_name, task, image_dir, label_dir, output_path=None, path_mod
         assert path_mode in ["relative", "abs"], f"Invalid mode: {path_mode}"
 
         class_name = dataset_name.upper() + "_Converter"
-        cvt = eval(class_name)(path_mode, **kwargs)
+        cvt = literal_eval(class_name)(path_mode, **kwargs)
         cvt.convert(task, image_dir, label_dir, output_path)
         print(f"Conversion complete.\nResult saved in {output_path}")
 

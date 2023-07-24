@@ -1,6 +1,7 @@
 """
 Create and run transformations from a config or predefined transformation pipeline
 """
+from ast import literal_eval
 import logging
 from typing import Dict, List
 
@@ -47,7 +48,7 @@ def create_transforms(transform_pipeline: List, global_config: Dict = None):
                 param.update(global_config)
             # TODO: assert undefined transform class
 
-            transform = eval(trans_name)(**param)
+            transform = literal_eval(trans_name)(**param)
             transforms.append(transform)
         elif callable(transform_config):
             transforms.append(transform_config)

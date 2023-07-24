@@ -1,6 +1,7 @@
 """
 Model training
 """
+from ast import literal_eval
 import logging
 import os
 import shutil
@@ -56,18 +57,17 @@ def main(cfg):
             name="mindocr",
             output_dir=cfg.train.ckpt_save_dir,
             rank=rank_id,
-            log_level=eval(cfg.system.get("log_level", "logging.INFO")),
+            log_level=literal_eval(cfg.system.get("log_level", "logging.INFO")),
         )
     else:
         device_num = None
         rank_id = None
-
         # create logger, only rank0 log will be output to the screen
         set_logger(
             name="mindocr",
             output_dir=cfg.train.ckpt_save_dir,
             rank=0,
-            log_level=eval(cfg.system.get("log_level", "logging.INFO")),
+            log_level=literal_eval(cfg.system.get("log_level", "logging.INFO")),
         )
         if "DEVICE_ID" in os.environ:
             logger.info(
@@ -259,8 +259,6 @@ if __name__ == "__main__":
 
     # data sync for modelarts
     if args.enable_modelarts:
-        from ast import literal_eval
-
         import moxing as mox
 
         from tools.modelarts_adapter.modelarts import get_device_id, sync_data, update_config_value_by_key

@@ -13,6 +13,9 @@ supported_heads = [
     'VisionLANHead',
     'ABINetHead',
 ]
+
+from ast import literal_eval
+
 from .cls_mv3_head import ClsHead
 from .conv_head import ConvHead
 from .det_db_head import DBHead
@@ -51,5 +54,5 @@ def build_head(head_name, **kwargs):
         >>> print(head)
     """
     assert head_name in supported_heads, f'Invalid head {head_name}. Supported heads are {supported_heads}'
-    head = eval(head_name)(**kwargs)
+    head = literal_eval(head_name)(**kwargs)
     return head

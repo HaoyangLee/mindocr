@@ -1,3 +1,4 @@
+from ast import literal_eval
 import math
 
 import cv2
@@ -414,7 +415,7 @@ class EASTProcessTrain:
         """
         vertices_list = []
         labels_list = []
-        data_labels = eval(data_labels)
+        data_labels = literal_eval(data_labels)
         for data_label in data_labels:
             vertices = data_label["points"]
             vertices = [item for point in vertices for item in point]

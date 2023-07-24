@@ -1,3 +1,4 @@
+from ast import literal_eval
 import argparse
 import os
 
@@ -25,7 +26,7 @@ def vis_results(prediction_result, vis_pipeline_save_dir, img_folder):
         file_name, prediction = each_pred.split("\t")
         basename = os.path.basename(file_name)
         save_file = os.path.join(vis_pipeline_save_dir, os.path.splitext(basename)[0])
-        prediction = eval(prediction)
+        prediction = literal_eval(prediction)
         box_list = [np.array(x["points"]).reshape(-1, 2) for x in prediction]
         text_list = [x["transcription"] for x in prediction]
         box_text = vis_bbox_text(img_dict[file_name], box_list, text_list, font_path=font_path)

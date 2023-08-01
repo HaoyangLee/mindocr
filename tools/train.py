@@ -240,13 +240,26 @@ def main(cfg):
 
     # training
     model = ms.Model(train_net)
+    #---------- training ----------#
+    # model.train(
+    #     cfg.scheduler.num_epochs,
+    #     loader_train,
+    #     callbacks=[eval_cb],
+    #     dataset_sink_mode=cfg.train.dataset_sink_mode,
+    #     initial_epoch=start_epoch,
+    # )
+
+    #---------- profiling ----------#
+    from mindspore.profiler import Profiler
+    profiler = Profiler()
     model.train(
-        cfg.scheduler.num_epochs,
+        3,
         loader_train,
         callbacks=[eval_cb],
         dataset_sink_mode=cfg.train.dataset_sink_mode,
         initial_epoch=start_epoch,
     )
+    profiler.analyse()
 
 
 if __name__ == "__main__":

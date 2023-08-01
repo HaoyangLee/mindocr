@@ -70,7 +70,17 @@ def main(cfg):
     # model
     cfg.model.backbone.pretrained = False
     amp_level = cfg.system.get("amp_level_infer", "O0")
-    network = build_model(cfg.model, ckpt_load_path=cfg.eval.ckpt_load_path, amp_level=amp_level)
+
+    
+    #----------- mindir inference -------------#
+    from mindspore import nn
+    graph = ms.load("/home/mindspore/lhy/mindocr_dynamic_infer/mindocr/db_r50_icdar15_ms21_dynamic.mindir")
+    # graph = ms.load("/home/mindspore/lhy/mindocr_dynamic_infer/mindocr/crnn_resnet34_ms21_dynamic.mindir")
+    network = nn.GraphCell(graph)
+    #----------- ckpt inference -------------#
+    # network = build_model(cfg.model, ckpt_load_path=cfg.eval.ckpt_load_path, amp_level=amp_level)
+
+
     num_params = sum([param.size for param in network.get_parameters()])
     num_trainable_params = sum([param.size for param in network.trainable_params()])
     network.set_train(False)

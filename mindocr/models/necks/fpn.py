@@ -1,6 +1,6 @@
 from typing import List, Tuple
 
-from mindspore import Tensor, nn, ops
+from mindspore import Tensor, nn, ops, dtype
 from mindspore.common.initializer import TruncatedNormal, XavierUniform
 
 from ...utils.misc import is_ms_version_2
@@ -8,12 +8,15 @@ from .asf import AdaptiveScaleFusion
 
 
 def _resize_nn(x: Tensor, scale: int = 0, shape: Tuple[int] = None):
-    if scale == 1 or shape == x.shape[2:]:
-        return x
+    # if scale == 1 or shape == x.shape[2:]:
+    #     return x
 
-    if scale:
-        shape = (x.shape[2] * scale, x.shape[3] * scale)
-    return ops.ResizeNearestNeighbor(shape)(x)
+    # if scale:
+    #     shape = (x.shape[2] * scale, x.shape[3] * scale)
+    # return ops.ResizeNearestNeighbor(shape)(x)
+    # return ops.ResizeNearestNeighborV2(data_format='NCHW')(x, Tensor(shape, dtype.int32))
+    # return ops.ResizeNearestNeighborV2()(x, Tensor(shape, dtype.int32))
+    return ops.ResizeNearestNeighborV2()(x, shape)
 
 
 class FPN(nn.Cell):
@@ -64,10 +67,12 @@ class DBFPN(nn.Cell):
             features[i] = uc_op(features[i])
 
         for i in range(2, -1, -1):
-            features[i] += _resize_nn(features[i + 1], shape=features[i].shape[2:])
+            # features[i] += _resize_nn(features[i + 1], shape=features[i].shape[2:])
+            features[i] += _resize_nn(features[i + 1], shape=ops.dyn_shape(features[i])[2:])
 
         for i, out in enumerate(self.out):
-            features[i] = _resize_nn(out(features[i]), shape=features[0].shape[2:])
+            # features[i] = _resize_nn(out(features[i]), shape=features[0].shape[2:])
+            features[i] = _resize_nn(out(features[i]), shape=ops.dyn_shape(features[0])[2:])
 
         return self.fuse(features[::-1])  # matching the reverse order of the original work
 

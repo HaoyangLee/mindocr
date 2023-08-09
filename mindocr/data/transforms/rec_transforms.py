@@ -660,6 +660,7 @@ class Rotate90IfVertical:
 class ClsLabelEncode(object):
     def __init__(self, label_list, **kwargs):
         self.label_list = label_list
+        self.output_columns = ["label"]
 
     def __call__(self, data):
         label = data["label"]

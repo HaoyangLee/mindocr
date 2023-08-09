@@ -68,15 +68,13 @@ train:
   dataset_sink_mode: False
   dataset:
     type: RecDataset
-    dataset_root: dir/to/dataset
-    data_dir: all_images
-    label_file: train_cls_gt.txt
+    dataset_root: /home/mindspore/ocr_datasets
+    data_dir: cls_data
+    label_file: cls_data/anno_merged_data/anno_merged_data_train.txt
     sample_ratio: 1.0
     shuffle: True
     transform_pipeline:
-      - DecodeImage:
-          img_mode: BGR
-          to_float32: False
+      - Decode:
       - Rotate90IfVertical:
           threshold: 2.0
           direction: counterclockwise
@@ -85,12 +83,10 @@ train:
       - RecResizeImg:
           image_shape: [48, 192] # H, W
           padding: False # aspect ratio will be preserved if true.
-      - NormalizeImage:
-          bgr_to_rgb: True
-          is_hwc: True
-          mean : [127.0, 127.0, 127.0]
-          std : [127.0, 127.0, 127.0]
-      - ToCHWImage:
+      - Normalize:
+          mean: [127.0, 127.0, 127.0]
+          std: [127.0, 127.0, 127.0]
+      - HWC2CHW:
     #  the order of the dataloader list, matching the network input and the input labels for the loss function, and optional data for debug/visaulize
     output_columns: ['image', 'label']
     net_input_column_index: [0] # input indices for network forward func in output_columns
@@ -108,15 +104,13 @@ eval:
   dataset_sink_mode: False
   dataset:
     type: RecDataset
-    dataset_root: dir/to/dataset
-    data_dir: all_images
-    label_file: val_cls_gt.txt
+    dataset_root: /home/mindspore/ocr_datasets
+    data_dir: cls_data
+    label_file: cls_data/anno_merged_data/anno_merged_data_val.txt
     sample_ratio: 1.0
     shuffle: False
     transform_pipeline:
-      - DecodeImage:
-          img_mode: BGR
-          to_float32: False
+      - Decode:
       - Rotate90IfVertical:
           threshold: 2.0
           direction: counterclockwise
@@ -125,12 +119,10 @@ eval:
       - RecResizeImg:
           image_shape: [48, 192] # H, W
           padding: False # aspect ratio will be preserved if true.
-      - NormalizeImage:
-          bgr_to_rgb: True
-          is_hwc: True
-          mean : [127.0, 127.0, 127.0]
-          std : [127.0, 127.0, 127.0]
-      - ToCHWImage:
+      - Normalize:
+          mean: [127.0, 127.0, 127.0]
+          std: [127.0, 127.0, 127.0]
+      - HWC2CHW:
     #  the order of the dataloader list, matching the network input and the input labels for the loss function, and optional data for debug/visaulize
     output_columns: ['image', 'label']  # TODO return text string padding w/ fixed length, and a scaler to indicate the length
     net_input_column_index: [0] # input indices for network forward func in output_columns

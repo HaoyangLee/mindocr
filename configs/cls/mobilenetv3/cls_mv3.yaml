@@ -68,9 +68,9 @@ train:
   dataset_sink_mode: False
   dataset:
     type: RecDataset
-    dataset_root: /home/mindspore/ocr_datasets
-    data_dir: cls_data
-    label_file: cls_data/anno_merged_data/anno_merged_data_train.txt
+    dataset_root: /home/group1/datasets/OCR/cls
+    data_dir: .
+    label_file: anno_merged_data/anno_merged_data_train.txt
     sample_ratio: 1.0
     shuffle: True
     transform_pipeline:
@@ -104,9 +104,9 @@ eval:
   dataset_sink_mode: False
   dataset:
     type: RecDataset
-    dataset_root: /home/mindspore/ocr_datasets
-    data_dir: cls_data
-    label_file: cls_data/anno_merged_data/anno_merged_data_val.txt
+    dataset_root: /home/group1/datasets/OCR/cls
+    data_dir: .
+    label_file: anno_merged_data/anno_merged_data_val.txt
     sample_ratio: 1.0
     shuffle: False
     transform_pipeline:

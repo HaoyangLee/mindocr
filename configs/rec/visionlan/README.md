@@ -262,7 +262,7 @@ python tools/benchmarking/multi_dataset_eval.py --config $yaml_file --opt eval.d
 Please download the [MINDIR](https://download.mindspore.cn/toolkits/mindocr/visionlan/visionlan_resnet45_LA-e9720d9e-71b38d2d.mindir) file from the table above, or you can use `tools/export.py` to manually convert any checkpoint file into a MINDIR file:
 ```bash
 # For more parameter usage details, please execute `python tools/export.py -h`
-python tools/export.py --model_name visionlan_resnet45 --data_shape 64 256 --local_ckpt_path /path/to/visionlan-ckpt
+python tools/export.py --model_name_or_config visionlan_resnet45 --data_shape 64 256 --local_ckpt_path /path/to/visionlan-ckpt
 ```
 
 This command will save a `visionlan_resnet45.mindir` under the current working directory.
@@ -275,29 +275,15 @@ If you haven't downloaded MindSpore Lite, please download it via this [link](htt
 
 `converter_lite` tool is an executable program under `mindspore-lite-{version}-linux-x64/tools/converter/converter`. Using `converter_lite`, we can convert the MindIR file to MindSpore Lite MindIR file.
 
-First, we need to prepare a configuration file `config.txt`:
-```text
-[ascend_context]
-input_format=NCHW
-input_shape=args0:[1,3,64,256]
-```
-The first line `[ascend_context]` indicates that the subsequent content is the relevant setting of the Ascend backend. Usually, when creating a configuration file, this line must be added to indicate the relevant setting content of the Ascend backend;
-
-The second line `input_format=NCHW` indicates that the input format of the model is [batch_size, channel_num, Height, Width];
-
-The third line `input_shape=args0:[1,3,64,256]` means that the variable name of the model input is `args0`, and the shape of `args0` is `[1,3,64,256]`; If other models or backbones are used, the setting of shape needs to refer to the data shape column in the model support list;
-
-After preparing `config.txt`, we can run the following command:
+Run the following command:
 
 ```bash
 converter_lite \
      --saveType=MINDIR \
-     --NoFusion=false \
      --fmk=MINDIR \
-     --device=Ascend \
+     --optimize=ascend_oriented \
      --modelFile=path/to/mindir/file \
-     --outputFile=visionlan_resnet45_lite \
-     --configFile=config.txt
+     --outputFile=visionlan_resnet45_lite
 ```
 
 Running this command will save a `visionlan_resnet45_lite.mindir` under the current working directory. This is the MindSpore Lite MindIR file that we can run inference with on the Ascend310 or 310P platform. You can also define a different file name by changing the `--outputFile` argument.
@@ -324,8 +310,6 @@ We run inference with the `visionlan_resnet45_lite.mindir` file with the command
 ```bash
 python deploy/py_infer/infer.py  \
     --input_images_dir=/path/to/svt_dataset/test  \
-    --device_id=0  \
-    --parallel_num=1  \
     --rec_model_path=/path/to/visionlan_resnet45_lite.mindir  \
     --rec_model_name_or_config=configs/rec/visionlan/visionlan_resnet45_LA.yaml \
     --res_save_dir=rec_svt

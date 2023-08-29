@@ -243,7 +243,7 @@ python tools/benchmarking/multi_dataset_eval.py --config $yaml_file --opt eval.d
 请从上面的表格中中下载[MINDIR](https://download.mindspore.cn/toolkits/mindocr/visionlan/visionlan_resnet45_LA-e9720d9e-71b38d2d.mindir)文件，或者您可以使用`tools/export.py`将任何检查点文件手动转换为 MINDIR 文件：
 ```bash
 # 有关更多参数使用详细信息，请执行 `python tools/export.py -h`
-python tools/export.py --model_name visionlan_resnet45 --data_shape 64 256 --local_ckpt_path /path/to/visionlan-ckpt
+python tools/export.py --model_name_or_config visionlan_resnet45 --data_shape 64 256 --local_ckpt_path /path/to/visionlan-ckpt
 ```
 
 此命令将在当前工作目录下保存一个`visionlan_resnet45.mindir`文件。
@@ -254,28 +254,15 @@ python tools/export.py --model_name visionlan_resnet45 --data_shape 64 256 --loc
 
 `converter_lite`工具是`mindspore-lite-{version}-linux-x64/tools/converter/converter`下的可执行程序。使用`converter_lite`，我们可以将 `MindIR`文件转换为`MindSpore Lite MindIR`文件。
 
-首先，我们需要准备一个配置文件`config.txt`：
-```text
-[ascend_context]
-input_format=NCHW
-input_shape=args0:[1,3,64,256]
-```
-第一行`[ascend_context]`表示后续内容是`Ascend`后端的相关设置。通常，在创建配置文件时，必须添加此行以指示 Ascend 后端的相关设置内容；
+以运行以下命令：
 
-第二行`input_format=NCHW`表示模型的输入格式为`[batch_size, channel_num, Height, Width]`；
-
-第三行`input_shape=args0:[1,3,64,256]`表示模型输入的变量名为`args0`，`args0`的形状为`[1,3,64,256]`；如果使用其他模型或骨干网络，则形状的设置需要参考模型支持列表中的数据形状列；
-
-准备好`config.txt`后，我们可以运行以下命令：
 ```bash
 converter_lite \
      --saveType=MINDIR \
-     --NoFusion=false \
      --fmk=MINDIR \
-     --device=Ascend \
+     --optimize=ascend_oriented \
      --modelFile=path/to/mindir/file \
-     --outputFile=visionlan_resnet45_lite \
-     --configFile=config.txt
+     --outputFile=visionlan_resnet45_lite
 ```
 运行此命令将在当前工作目录下保存一个`visionlan_resnet45_lite.mindir`文件。这是我们可以在`Ascend310`或`310P`平台上进行推理的`MindSpore Lite MindIR`文件。您还可以通过更改`--outputFile`参数来定义不同的文件名。
 
@@ -297,8 +284,6 @@ svt_dataset
 ```bash
 python deploy/py_infer/infer.py  \
     --input_images_dir=/path/to/svt_dataset/test  \
-    --device_id=0  \
-    --parallel_num=1  \
     --rec_model_path=/path/to/visionlan_resnet45_lite.mindir  \
     --rec_model_name_or_config=configs/rec/visionlan/visionlan_resnet45_LA.yaml \
     --res_save_dir=rec_svt

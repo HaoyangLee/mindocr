@@ -373,9 +373,9 @@ mpirun --allow-run-as-root -n 8 python tools/train.py --config configs/rec/rare/
 请先[下载](#2-评估结果)已导出的MindIR文件，或者参考[模型导出](../../README.md)教程，使用以下命令将训练完成的ckpt导出为MindIR文件:
 
 ```shell
-python tools/export.py --model_name rare_resnet34 --data_shape 32 100 --local_ckpt_path /path/to/local_ckpt.ckpt
+python tools/export.py --model_name_or_config rare_resnet34 --data_shape 32 100 --local_ckpt_path /path/to/local_ckpt.ckpt
 # or
-python tools/export.py --model_name configs/rec/rare/rare_resnet34.yaml --data_shape 32 100 --local_ckpt_path /path/to/local_ckpt.ckpt
+python tools/export.py --model_name_or_config configs/rec/rare/rare_resnet34.yaml --data_shape 32 100 --local_ckpt_path /path/to/local_ckpt.ckpt
 ```
 
 其中，`data_shape`是导出MindIR时的模型输入Shape的height和width，下载链接中MindIR对应的shape值见[注释](#2-评估结果)。
@@ -386,8 +386,7 @@ python tools/export.py --model_name configs/rec/rare/rare_resnet34.yaml --data_s
 
 **3. 模型转换**
 
-请参考[模型转换](../../../docs/cn/inference/convert_tutorial.md#1-mindocr模型)教程，使用`converter_lite`工具对MindIR模型进行离线转换，
-其中`configFile`文件中的`input_shape`需要填写模型导出时shape，如上述的(1, 3, 32, 100)，格式为NCHW。
+请参考[模型转换](../../../docs/cn/inference/convert_tutorial.md#1-mindocr模型)教程，使用`converter_lite`工具对MindIR模型进行离线转换。
 
 **4. 执行推理**
 
@@ -396,11 +395,8 @@ python tools/export.py --model_name configs/rec/rare/rare_resnet34.yaml --data_s
 ```shell
 python infer.py \
     --input_images_dir=/your_path_to/test_images \
-    --device=Ascend \
-    --device_id=0 \
     --rec_model_path=your_path_to/output.mindir \
     --rec_model_name_or_config=../../configs/rec/rare/rare_resnet34.yaml \
-    --backend=lite \
     --res_save_dir=results_dir
 ```
 

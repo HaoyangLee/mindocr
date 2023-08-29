@@ -45,7 +45,7 @@ PSENet的整体架构图如图1所示，包含以下阶段:
 #### 注释：
 - 环境配置：训练的环境配置表示为 {处理器}x{处理器数量}-{MS模式}，其中 Mindspore 模式可以是 G-graph 模式或 F-pynative 模式。
 - PSENet的训练时长受数据处理部分超参和不同运行环境的影响非常大。
-- 在ICDAR15数据集上，以resnet152为backbone的MindIR导出时的输入Shape为`(1,3,1472,2624)` ，以resnet50为backbone的MindIR导出时的输入Shape为`(1,3,736,1280)`。
+- 在ICDAR15数据集上，以ResNet-152为backbone的MindIR导出时的输入Shape为`(1,3,1472,2624)` ，以ResNet-50或MobileNetV3为backbone的MindIR导出时的输入Shape为`(1,3,736,1312)`。
 - 在SCUT-CTW1500数据集上，MindIR导出时的输入Shape为`(1,3,1024,1024)` 。
 
 ## 3. 快速上手
@@ -191,9 +191,9 @@ python tools/eval.py --config configs/det/psenet/pse_r152_icdar15.yaml
 请先[下载](#2-实验结果)已导出的MindIR文件，或者参考[模型导出](../../README.md)教程，使用以下命令将训练完成的ckpt导出为MindIR文件:
 
 ```shell
-python tools/export.py --model_name psenet_resnet152 --data_shape 1472 2624 --local_ckpt_path /path/to/local_ckpt.ckpt
+python tools/export.py --model_name_or_config psenet_resnet152 --data_shape 1472 2624 --local_ckpt_path /path/to/local_ckpt.ckpt
 # or
-python tools/export.py --model_name configs/det/psenet/pse_r152_icdar15.yaml --data_shape 1472 2624 --local_ckpt_path /path/to/local_ckpt.ckpt
+python tools/export.py --model_name_or_config configs/det/psenet/pse_r152_icdar15.yaml --data_shape 1472 2624 --local_ckpt_path /path/to/local_ckpt.ckpt
 ```
 
 其中，`data_shape`是导出MindIR时的模型输入Shape的height和width，下载链接中MindIR对应的shape值见[注释](#注释)。
@@ -204,8 +204,7 @@ python tools/export.py --model_name configs/det/psenet/pse_r152_icdar15.yaml --d
 
 - 模型转换
 
-请参考[模型转换](../../../docs/cn/inference/convert_tutorial.md#1-mindocr模型)教程，使用`converter_lite`工具对MindIR模型进行离线转换，
-其中`configFile`文件中的`input_shape`需要填写模型导出时shape，如上述的(1,3,1472,2624)，格式为NCHW。
+请参考[模型转换](../../../docs/cn/inference/convert_tutorial.md#1-mindocr模型)教程，使用`converter_lite`工具对MindIR模型进行离线转换。
 
 - 执行推理
 
@@ -216,11 +215,8 @@ python tools/export.py --model_name configs/det/psenet/pse_r152_icdar15.yaml --d
 ```shell
 python infer.py \
     --input_images_dir=/your_path_to/test_images \
-    --device=Ascend \
-    --device_id=0 \
     --det_model_path=your_path_to/output.mindir \
     --det_model_name_or_config=../../configs/det/psenet/pse_r152_icdar15.yaml \
-    --backend=lite \
     --res_save_dir=results_dir
 ```
 
